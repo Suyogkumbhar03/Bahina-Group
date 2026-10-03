@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="bahinaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5B700" />
+      <stop offset="50%" stop-color="#16A34A" />
+      <stop offset="100%" stop-color="#8B5CF6" />
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="24" fill="#0A110F" />
+  <path d="M30 24 H56 C66 24 72 29 72 37 C72 43 68 47 61 49 C70 51 75 56 75 65 C75 75 66 80 54 80 H30 Z M44 36 V46 H54 C58 46 61 44 61 41 C61 38 58 36 54 36 Z M44 57 V69 H54 C59 69 63 67 63 63 C63 59 59 57 54 57 Z" fill="url(#bahinaGrad)" />
+</svg>

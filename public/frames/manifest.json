@@ -1,0 +1,22 @@
+{
+  "desktop": {
+    "count": 150,
+    "width": 1280,
+    "height": 720,
+    "pattern": "desktop/f_%04d.webp",
+    "step": 2,
+    "totalBytes": 12335170,
+    "totalMB": "11.76"
+  },
+  "mobile": {
+    "count": 75,
+    "width": 854,
+    "height": 480,
+    "pattern": "mobile/f_%04d.webp",
+    "step": 4,
+    "totalBytes": 3492536,
+    "totalMB": "3.33"
+  },
+  "poster": "poster.webp",
+  "posterEnd": "poster-end.webp"
+}
