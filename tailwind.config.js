@@ -38,9 +38,9 @@ export default {
         },
       },
       fontFamily: {
-        display: ["Fraunces", "Georgia", "serif"],
-        sans: ["Manrope", "-apple-system", "sans-serif"],
-        body: ["Manrope", "-apple-system", "sans-serif"],
+        display: ["Fraunces", "Noto Serif Devanagari", "Georgia", "serif"],
+        sans: ["Manrope", "Noto Sans Devanagari", "-apple-system", "sans-serif"],
+        body: ["Manrope", "Noto Sans Devanagari", "-apple-system", "sans-serif"],
       },
       keyframes: {
         "marquee": {

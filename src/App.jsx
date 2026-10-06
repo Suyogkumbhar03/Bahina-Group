@@ -18,6 +18,7 @@ import { ValuesSection } from "@/components/sections/ValuesSection"
 import { ApproachSection } from "@/components/sections/ApproachSection"
 import { FinalCtaSection } from "@/components/sections/FinalCtaSection"
 import { FooterSection } from "@/components/sections/FooterSection"
+import { LanguageProvider } from "@/lib/i18n"
 
 export function App() {
   const [activeTheme, setActiveTheme] = useState("neutral")
@@ -100,66 +101,68 @@ export function App() {
   }, [])
 
   return (
-    <div className="relative min-h-screen bg-[#070908] text-[#F3EFEA] font-sans selection:bg-[#3E9B63]/30 selection:text-white overflow-x-hidden">
-      {/* 1. Magic UI Smooth Cursor (Desktop mouse only) */}
-      <SmoothCursor />
+    <LanguageProvider>
+      <div className="relative min-h-screen bg-[#070908] text-[#F3EFEA] font-sans selection:bg-[#3E9B63]/30 selection:text-white overflow-x-hidden">
+        {/* 1. Magic UI Smooth Cursor (Desktop mouse only) */}
+        <SmoothCursor />
 
-      {/* 2. React Bits Click Spark (Tiny gold spark burst on click) */}
-      <ClickSpark sparkColor="#D9A441" sparkCount={8} duration={400} />
+        {/* 2. React Bits Click Spark (Tiny gold spark burst on click) */}
+        <ClickSpark sparkColor="#D9A441" sparkCount={8} duration={400} />
 
-      {/* 3. Magic UI Particles (Tiny dust motes tinted by section, max 35 on desktop, 0 on mobile) */}
-      <Particles color={particleColor} quantity={35} />
+        {/* 3. Magic UI Particles (Tiny dust motes tinted by section, max 35 on desktop, 0 on mobile) */}
+        <Particles color={particleColor} quantity={35} />
 
-      {/* 4. Desktop Fixed Right-Edge Section Indicator (01-05 dots) */}
-      <SectionIndicator />
+        {/* 4. Desktop Fixed Right-Edge Section Indicator (01-05 dots) */}
+        <SectionIndicator />
 
-      {/* 5. The Preloader Sequence (waits for Pass 1 frames; counter shows real loading progress) */}
-      <Preloader
-        progress={pass1Progress}
-        isReady={pass1Ready}
-        onComplete={handlePreloaderComplete}
-      />
+        {/* 5. The Preloader Sequence (waits for Pass 1 frames; counter shows real loading progress) */}
+        <Preloader
+          progress={pass1Progress}
+          isReady={pass1Ready}
+          onComplete={handlePreloaderComplete}
+        />
 
-      {/* 6. The Frame Sequence Background (Fixed full-screen canvas with progressive multi-pass loader) */}
-      <FrameSequenceBackground
-        activeTheme={activeTheme}
-        onPass1Progress={setPass1Progress}
-        onPass1Complete={handlePass1Complete}
-      />
+        {/* 6. The Frame Sequence Background (Fixed full-screen canvas with progressive multi-pass loader) */}
+        <FrameSequenceBackground
+          activeTheme={activeTheme}
+          onPass1Progress={setPass1Progress}
+          onPass1Complete={handlePass1Complete}
+        />
 
-      {/* 7. Main Page Content Flow with isolated stacking contexts */}
-      <div className="relative z-10 flex flex-col">
-        {/* Slim floating navbar (The ONLY glass element on the site) */}
-        <Navbar />
+        {/* 7. Main Page Content Flow with isolated stacking contexts */}
+        <div className="relative z-10 flex flex-col">
+          {/* Slim floating navbar (The ONLY glass element on the site) */}
+          <Navbar />
 
-        {/* Hero Section */}
-        <HeroSection />
+          {/* Hero Section */}
+          <HeroSection />
 
-        {/* About Section */}
-        <AboutSection />
+          {/* About Section */}
+          <AboutSection />
 
-        {/* Three Divisions (GSAP Pinned Scroll Showpiece with pinSpacing: true) */}
-        <DivisionsSection onThemeChange={setActiveTheme} />
+          {/* Three Divisions (GSAP Pinned Scroll Showpiece with pinSpacing: true) */}
+          <DivisionsSection onThemeChange={setActiveTheme} />
 
-        {/* Vision and Mission (With Animated Beam Diagram) */}
-        <VisionMissionSection />
+          {/* Vision and Mission (With Animated Beam Diagram) */}
+          <VisionMissionSection />
 
-        {/* Core Focus Areas (Two-row Marquee + MagicCard Bento Grid) */}
-        <FocusAreasSection />
+          {/* Core Focus Areas (Two-row Marquee + MagicCard Bento Grid) */}
+          <FocusAreasSection />
 
-        {/* Values (React Bits Glare Hover Horizontal Expanding Panels / Mobile Accordion) */}
-        <ValuesSection />
+          {/* Values (React Bits Glare Hover Horizontal Expanding Panels / Mobile Accordion) */}
+          <ValuesSection />
 
-        {/* Our Approach (Vertical Sticky Timeline with SVG Line-Draw) */}
-        <ApproachSection />
+          {/* Our Approach (Vertical Sticky Timeline with SVG Line-Draw) */}
+          <ApproachSection />
 
-        {/* Final CTA (Lighter card with BorderBeam & Aurora Text) */}
-        <FinalCtaSection />
+          {/* Final CTA (Lighter card with BorderBeam & Aurora Text) */}
+          <FinalCtaSection />
 
-        {/* Footer (Flowing Menu + Scroll Velocity + HyperText + Magnet Back to Top) */}
-        <FooterSection />
+          {/* Footer (Flowing Menu + Scroll Velocity + HyperText + Magnet Back to Top) */}
+          <FooterSection />
+        </div>
       </div>
-    </div>
+    </LanguageProvider>
   )
 }
 

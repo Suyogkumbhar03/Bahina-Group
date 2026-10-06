@@ -1,0 +1,276 @@
+/**
+ * BAHINA GROUP — English Translations (Simple, 12-year-old reading level)
+ * Every sentence is short (max 22 words, target average under 15).
+ * Plain everyday language without jargon or heavy metaphors.
+ */
+
+export const en = {
+  // Brand
+  "brand.name": "BAHINA Group",
+  "brand.shortName": "BAHINA",
+  "brand.group": "Group",
+  "brand.tagline": "From Soil to Spaces. Enriching Every Life.",
+  "brand.subline": "One Name. Three Commitments. Endless Impact.",
+  "brand.email": "info@bahinaa.com",
+  "brand.website": "www.bahinaa.com",
+
+  // Metadata
+  "meta.title": "BAHINA Group — From Soil to Spaces. Enriching Every Life.",
+  "meta.description": "BAHINA Group works in hospitality, farming research, and community care. We build honest businesses for people and nature.",
+
+  // Preloader
+  "preloader.tagline": "From Soil to Spaces",
+  "preloader.ariaLabel": "Loading BAHINA Group website",
+
+  // Navigation
+  "nav.about": "About Us",
+  "nav.divisions": "Companies",
+  "nav.visionMission": "Vision",
+  "nav.focusAreas": "Work",
+  "nav.values": "Values",
+  "nav.approach": "Approach",
+  "nav.contact": "Contact us",
+  "nav.menuOpen": "Open navigation menu",
+  "nav.menuClose": "Close menu",
+  "nav.mainNavAria": "Main Navigation",
+  "nav.mobileNavAria": "Mobile Navigation",
+  "nav.homeAria": "BAHINA Group Home",
+
+  // Language Switcher
+  "lang.switchAria": "Choose website language",
+  "lang.en": "English",
+  "lang.mr": "मराठी",
+  "lang.announced": "Language changed to English",
+
+  // Section Indicator (Tooltips & Aria)
+  "indicator.aria": "Page section indicator",
+  "indicator.overview": "Overview",
+  "indicator.essence": "About Us",
+  "indicator.divisions": "Companies",
+  "indicator.pillars": "Goals",
+  "indicator.connect": "Contact",
+  "indicator.scrollTo": "Scroll to",
+
+  // Hero Section
+  "hero.eyebrow": "Our Group",
+  "hero.headlinePart1": "From Soil",
+  "hero.headlinePart2": "to Spaces.",
+  "hero.tagline": "Enriching Every Life.",
+  "hero.rotatePrefix": "Care in",
+  "hero.rotateWord1": "Hospitality.",
+  "hero.rotateWord2": "Community.",
+  "hero.rotateWord3": "Research.",
+  "hero.rotateWord4": "Enriching Every Life.",
+  "hero.description": "BAHINA Group is a growing group of businesses. We work in hospitality, research, farming, technology, and helping society. We build with honesty and care for the long term.",
+  "hero.primaryCta": "See our companies",
+  "hero.secondaryCta": "Contact us",
+  "hero.scrollPrompt": "Scroll down",
+  "hero.scrollPromptAria": "Scroll down to About Us section",
+  "hero.divisionsBarLabel": "Our Three Companies",
+
+  // About Section
+  "about.eyebrow": "01 / Who We Are",
+  "about.heading": "We build businesses with strong values, fresh ideas, and honest care.",
+  "about.quote": "We build businesses with strong values, fresh ideas, and honest care.",
+  "about.body": "BAHINA Group is a growing family of businesses. We work hard to make life better for everyone. Our teams run warm hotels and holiday stays. We support local communities through education and social aid. We also run labs for farming research and smart software. Everything we build is made to last and help people.",
+  "about.stat1Number": "3",
+  "about.stat1Label": "Operating Companies",
+  "about.stat2Number": "7",
+  "about.stat2Label": "Main Work Areas",
+  "about.stat3Number": "6",
+  "about.stat3Label": "Core Values",
+  "about.stat4Number": "1",
+  "about.stat4Label": "Shared Vision",
+
+  // Divisions Section
+  "divisions.eyebrow": "02 / Our Three Companies",
+  "divisions.heading": "Three Companies. One Shared Purpose.",
+  "divisions.scrollHint": "Scroll down to see next company",
+  "divisions.counter": "of 3",
+  "divisions.explorePrefix": "See",
+
+  // Division 1: Hospitality
+  "division.hospitality.number": "01",
+  "division.hospitality.name": "BAHINA Hospitality Pvt Ltd",
+  "division.hospitality.shortName": "Hospitality",
+  "division.hospitality.tagline": "Warmth. Comfort. Memorable Experiences.",
+  "division.hospitality.category": "Hotels, holiday farmhouses, travel, lifestyle",
+  "division.hospitality.lead": "We welcome guests with warm smiles and cozy stays. Our hotels and farmhouses give families peaceful holidays and great memories.",
+  "division.hospitality.bullet1": "Friendly hotels and farmhouses with comfortable rooms and helpful staff.",
+  "division.hospitality.bullet2": "Peaceful travel experiences designed for family comfort and joy.",
+  "division.hospitality.bullet3": "High quality service that puts our guests first every single day.",
+  "division.hospitality.cta": "See Hospitality",
+
+  // Division 2: Foundation
+  "division.foundation.number": "02",
+  "division.foundation.name": "BAHINA Foundation",
+  "division.foundation.shortName": "Foundation",
+  "division.foundation.tagline": "Empowering Lives. Enriching Communities.",
+  "division.foundation.category": "Social work, education, helping people, community welfare",
+  "division.foundation.lead": "We run social programs to help local families grow and thrive. We focus on school education, practical skills, and health support.",
+  "division.foundation.bullet1": "Community help centers that give support to village families.",
+  "division.foundation.bullet2": "School learning programs that help children build a brighter future.",
+  "division.foundation.bullet3": "Local training projects that help people earn a dependable living.",
+  "division.foundation.cta": "See Foundation",
+
+  // Division 3: Labs
+  "division.labs.number": "03",
+  "division.labs.name": "BAHINA Labs Pvt Ltd",
+  "division.labs.shortName": "Labs",
+  "division.labs.tagline": "Innovate. Research. Build the Future.",
+  "division.labs.category": "AI (artificial intelligence), smart tools, farm research, technology",
+  "division.labs.lead": "We test and build modern tools for farms and workplaces. Our team uses AI (artificial intelligence) and R&D (research and development) to solve everyday challenges.",
+  "division.labs.bullet1": "Smart computer software and AI tools built for practical everyday work.",
+  "division.labs.bullet2": "Farming research that tests healthier seeds and cleaner soil methods.",
+  "division.labs.bullet3": "New technical tools that save energy and help businesses work faster.",
+  "division.labs.cta": "See Labs",
+
+  // Vision & Mission Section
+  "visionMission.eyebrow": "03 / Purpose & Goals",
+  "visionMission.visionBadge": "Our Vision",
+  "visionMission.visionQuotePart1": "We want to build a trusted group of companies that",
+  "visionMission.visionQuoteHighlight": "enrich lives",
+  "visionMission.visionQuotePart2": "through new ideas, warm hospitality, nature care, and community support.",
+  "visionMission.purposeLabel": "Guiding Purpose",
+  "visionMission.missionBadge": "Five Key Commitments",
+  "visionMission.item1Title": "Businesses That Last",
+  "visionMission.item1Desc": "We create strong companies that protect nature and bring lasting value.",
+  "visionMission.item2Title": "New Ideas and Personal Care",
+  "visionMission.item2Desc": "Every team member thinks like an owner and tries better ideas.",
+  "visionMission.item3Title": "People First",
+  "visionMission.item3Desc": "We keep customers and local communities safe, happy, and respected.",
+  "visionMission.item4Title": "Lasting Friendships",
+  "visionMission.item4Desc": "We work with open hearts, honest words, and true teamwork.",
+  "visionMission.item5Title": "Giving Back to Society",
+  "visionMission.item5Desc": "Our projects help neighbors, villages, and towns grow stronger.",
+
+  // Beam Diagram
+  "beam.badge": "One Name. Three Commitments.",
+  "beam.centerNode": "Center",
+  "beam.hospitality": "Hospitality",
+  "beam.foundation": "Foundation",
+  "beam.labs": "Labs",
+
+  // Focus Areas Section
+  "focus.eyebrow": "04 / What We Do",
+  "focus.heading": "Our Main Work Areas",
+  "focus.description": "Seven important areas where our companies work every day. We connect modern farming, warm hotels, and smart computer tools.",
+  "focus.strategicBadge": "Work Area",
+  "focus.card1Title": "Hospitality & Travel",
+  "focus.card1Desc": "Creating warm hotel stays, relaxing farmhouses, and happy family trips.",
+  "focus.card2Title": "AI & Smart Tools",
+  "focus.card2Desc": "Making helpful computer systems, clear software, and automated tools.",
+  "focus.card3Title": "Farming Research",
+  "focus.card3Desc": "Studying soil health, clean farming methods, and high quality crops.",
+  "focus.card4Title": "R&D (Research & Development)",
+  "focus.card4Desc": "Testing new engineering ideas to build dependable solutions.",
+  "focus.card5Title": "Smart Systems",
+  "focus.card5Desc": "Setting up smart machines that reduce errors and save work hours.",
+  "focus.card6Title": "CSR (Giving Back to Society)",
+  "focus.card6Desc": "Running village learning drives and family welfare activities.",
+  "focus.card7Title": "Facilities & Future Spaces",
+  "focus.card7Desc": "Building safe offices, modern research centers, and peaceful holiday stays.",
+
+  // Values Section
+  "values.eyebrow": "05 / What We Believe In",
+  "values.heading": "What We Believe In",
+  "values.description": "Simple rules that guide how we treat people, build products, and make choices every day.",
+  "values.badge": "Core Value",
+  "values.item1Name": "Honesty",
+  "values.item1Desc": "We speak the truth, act with fairness, and keep our word in every deal.",
+  "values.item2Name": "Fresh Ideas",
+  "values.item2Desc": "We stay curious and find better ways to solve everyday problems.",
+  "values.item3Name": "Caring for Nature",
+  "values.item3Desc": "We protect our soil, water, and trees so future generations stay healthy.",
+  "values.item4Name": "Teamwork",
+  "values.item4Desc": "We support one another and work together across all our teams.",
+  "values.item5Name": "High Standards",
+  "values.item5Desc": "We do careful work and pay close attention to every detail.",
+  "values.item6Name": "Helping People",
+  "values.item6Desc": "We build real benefits for families and local towns around us.",
+
+  // Approach Section
+  "approach.eyebrow": "06 / How We Work",
+  "approach.heading": "Our Way of Working",
+  "approach.description": "How our teams turn simple ideas into real results you can see and trust.",
+  "approach.stepLabel": "Step",
+  "approach.step1Title": "Quick to Adapt",
+  "approach.step1Desc": "We listen carefully to new needs and adjust our plans quickly.",
+  "approach.step2Title": "Taking Responsibility Like an Owner",
+  "approach.step2Desc": "Our workers take proud ownership of their tasks from start to finish.",
+  "approach.step3Title": "Hands-on Care",
+  "approach.step3Desc": "Our leaders spend time on the ground with guests, farmers, and neighbors.",
+  "approach.step4Title": "Teams Working Together",
+  "approach.step4Desc": "Our hotel teams, science teams, and social workers share their knowledge.",
+  "approach.step5Title": "Building for Tomorrow",
+  "approach.step5Desc": "We focus on honest quality and long term trust, not quick profits.",
+
+  // Contact & Final CTA Section
+  "cta.eyebrow": "07 / Reach Out",
+  "cta.headlinePart1": "One Name.",
+  "cta.headlinePart2": "Three Commitments.",
+  "cta.headlineHighlight": "Endless Impact.",
+  "cta.subline": "Talk with BAHINA Group to explore opportunities in hospitality, community work, and technology.",
+  "cta.action": "Contact us",
+  "cta.copyEmailAria": "Copy contact email address to clipboard",
+  "cta.emailCopied": "Email Copied (info@bahinaa.com)",
+  "cta.emailAction": "Send Email",
+
+  // Contact Form
+  "form.title": "Send Us a Message",
+  "form.description": "Fill out this quick form. Our team will reply within two business days.",
+  "form.nameLabel": "Your Name",
+  "form.namePlaceholder": "Enter your full name",
+  "form.emailLabel": "Email Address",
+  "form.emailPlaceholder": "Enter your email address",
+  "form.phoneLabel": "Phone Number",
+  "form.phonePlaceholder": "Enter your phone number",
+  "form.messageLabel": "Your Message",
+  "form.messagePlaceholder": "Tell us how we can help you",
+  "form.submit": "Send message",
+  "form.submitting": "Sending...",
+  "form.success": "Thank you! Your message was sent successfully.",
+  "form.error": "Sorry, something went wrong. Please email us directly at info@bahinaa.com.",
+  "form.required": "This field is required.",
+  "form.invalidEmail": "Please enter a valid email address.",
+
+  // Mailto Fallback
+  "mailto.subject": "Message for BAHINA Group",
+  "mailto.body": "Hello BAHINA Team,\n\nI would like to connect regarding:\n\nName:\nPhone:\nMessage:",
+
+  // Gallery (captions & alt texts)
+  "gallery.title": "Gallery",
+  "gallery.allFilter": "All Photos",
+  "gallery.hospitalityFilter": "Hospitality",
+  "gallery.farmFilter": "Farms & Nature",
+  "gallery.labsFilter": "Research & Tech",
+  "gallery.item1Alt": "Comfortable guest cottage and peaceful garden walk",
+  "gallery.item1Caption": "Warm hotel stay and quiet natural surroundings",
+  "gallery.item2Alt": "Green farm fields cultivated with soil care",
+  "gallery.item2Caption": "Agricultural fields with organic crop methods",
+  "gallery.item3Alt": "Modern research laboratory with testing equipment",
+  "gallery.item3Caption": "Technology workspace developing smart tools",
+  "gallery.item4Alt": "Village learning center for local children",
+  "gallery.item4Caption": "Community education classroom run by the foundation",
+
+  // Velocity Strips
+  "velocity.strip1": "From Soil to Spaces • Enriching Every Life • BAHINA Group •",
+  "velocity.strip2": "One Name • Three Commitments • Endless Impact •",
+
+  // Footer Section
+  "footer.portfolioNav": "Our Companies",
+  "footer.description": "A group of businesses enriching lives through hospitality, community care, and technology research.",
+  "footer.indexTitle": "Index",
+  "footer.hqTitle": "Office & Contact",
+  "footer.enterpriseLabel": "BAHINA Group Enterprise",
+  "footer.websiteLabel": "Website",
+  "footer.inquiriesLabel": "Inquiries",
+  "footer.backToTop": "Top",
+  "footer.backToTopAria": "Scroll back to the top of the page",
+  "footer.copyright": "© 2026 BAHINA Group. All rights reserved.",
+  "footer.subline": "One Name. Three Commitments. Endless Impact.",
+  "footer.emailAria": "Send email to info@bahinaa.com",
+  "footer.websiteAria": "Visit www.bahinaa.com in a new tab",
+}
+
+export default en

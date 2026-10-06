@@ -1,5 +1,6 @@
 import React from "react"
 import { motion } from "framer-motion"
+import { useLanguage } from "@/lib/i18n"
 
 export function SplitText({
   text = "",
@@ -8,6 +9,7 @@ export function SplitText({
   stagger = 0.06,
   italicWords = [],
 }) {
+  const { isMarathi } = useLanguage()
   const words = text.split(" ")
 
   const containerVariants = {
@@ -46,16 +48,21 @@ export function SplitText({
       className={`inline-block ${className}`}
     >
       {words.map((word, i) => {
-        const isItalic = italicWords.some((w) =>
+        const isEmphasized = italicWords.some((w) =>
           word.toLowerCase().includes(w.toLowerCase())
         )
+        // In Marathi: NO italic; use accent color / heavier weight instead
+        const emphasisClass = isEmphasized
+          ? isMarathi
+            ? "font-medium text-[#D9A441]"
+            : "italic font-light text-neutral-100"
+          : ""
+
         return (
           <motion.span
             key={i}
             variants={wordVariants}
-            className={`inline-block mr-[0.25em] ${
-              isItalic ? "italic font-light text-neutral-100" : ""
-            }`}
+            className={`inline-block mr-[0.25em] ${emphasisClass}`}
           >
             {word}
           </motion.span>

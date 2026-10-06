@@ -1,0 +1,277 @@
+/**
+ * BAHINA GROUP — Marathi Translations (मराठी भाषांतर)
+ * Natural, everyday Marathi understood by both rural and urban readers.
+ * Preserves Latin letters for BAHINA, AI, NGO, R&D.
+ * Exactly mirrors keys in src/locales/en.js.
+ */
+
+export const mr = {
+  // Brand
+  "brand.name": "BAHINA Group",
+  "brand.shortName": "BAHINA",
+  "brand.group": "ग्रुप",
+  "brand.tagline": "मातीपासून वास्तूपर्यंत. प्रत्येक आयुष्य समृद्ध करण्यासाठी.",
+  "brand.subline": "एक नाव. तीन वचने. अमर्याद प्रभाव.",
+  "brand.email": "info@bahinaa.com",
+  "brand.website": "www.bahinaa.com",
+
+  // Metadata
+  "meta.title": "BAHINA Group — मातीपासून वास्तूपर्यंत. प्रत्येक आयुष्य समृद्ध करण्यासाठी.",
+  "meta.description": "BAHINA ग्रुप आतिथ्य, शेती संशोधन आणि समाजकल्याण क्षेत्रात काम करतो. आम्ही लोकांसाठी आणि निसर्गासाठी प्रामाणिक व्यवसाय उभारतो.",
+
+  // Preloader
+  "preloader.tagline": "मातीपासून वास्तूपर्यंत",
+  "preloader.ariaLabel": "BAHINA ग्रुप संकेतस्थळ लोड होत आहे",
+
+  // Navigation
+  "nav.about": "आमच्याबद्दल",
+  "nav.divisions": "कंपन्या",
+  "nav.visionMission": "दृष्टी",
+  "nav.focusAreas": "कार्यक्षेत्रे",
+  "nav.values": "मूल्ये",
+  "nav.approach": "पद्धत",
+  "nav.contact": "आमच्याशी संपर्क साधा",
+  "nav.menuOpen": "मेनू उघडा",
+  "nav.menuClose": "मेनू बंद करा",
+  "nav.mainNavAria": "मुख्य नेव्हिगेशन",
+  "nav.mobileNavAria": "मोबाइल नेव्हिगेशन",
+  "nav.homeAria": "BAHINA ग्रुप मुख्य पान",
+
+  // Language Switcher
+  "lang.switchAria": "संकेतस्थळाची भाषा निवडा",
+  "lang.en": "English",
+  "lang.mr": "मराठी",
+  "lang.announced": "भाषा मराठीत बदलली आहे",
+
+  // Section Indicator (Tooltips & Aria)
+  "indicator.aria": "विभाग निर्देशक",
+  "indicator.overview": "माहिती",
+  "indicator.essence": "आमच्याबद्दल",
+  "indicator.divisions": "कंपन्या",
+  "indicator.pillars": "ध्येय",
+  "indicator.connect": "संपर्क",
+  "indicator.scrollTo": "येथे जा",
+
+  // Hero Section
+  "hero.eyebrow": "आमचा ग्रुप",
+  "hero.headlinePart1": "मातीपासून",
+  "hero.headlinePart2": "वास्तूपर्यंत.",
+  "hero.tagline": "प्रत्येक आयुष्य समृद्ध करण्यासाठी.",
+  "hero.rotatePrefix": "काळजी आणि सेवा",
+  "hero.rotateWord1": "आतिथ्य.",
+  "hero.rotateWord2": "समाज.",
+  "hero.rotateWord3": "संशोधन.",
+  "hero.rotateWord4": "प्रत्येक आयुष्य समृद्ध करण्यासाठी.",
+  "hero.description": "BAHINA ग्रुप हा व्यवसाय समूह आहे. आम्ही आतिथ्य, संशोधन, शेती, तंत्रज्ञान आणि समाजसेवेत काम करतो. आम्ही प्रामाणिकपणे आणि दीर्घकालीन विचार करून व्यवसाय करतो.",
+  "hero.primaryCta": "आमच्या कंपन्या पहा",
+  "hero.secondaryCta": "आमच्याशी संपर्क साधा",
+  "hero.scrollPrompt": "खाली स्क्रोल करा",
+  "hero.scrollPromptAria": "आमच्याबद्दल माहिती पाहण्यासाठी खाली स्क्रोल करा",
+  "hero.divisionsBarLabel": "आमच्या तीन कंपन्या",
+
+  // About Section
+  "about.eyebrow": "01 / आमची ओळख",
+  "about.heading": "आम्ही प्रामाणिक विचार, नवी ऊर्जा आणि समाजसेवेच्या भावनेतून व्यवसाय उभे करतो.",
+  "about.quote": "आम्ही प्रामाणिक विचार, नवी ऊर्जा आणि समाजसेवेच्या भावनेतून व्यवसाय उभे करतो.",
+  "about.body": "BAHINA ग्रुप हा एक वेगाने वाढणारा उद्योग समूह आहे. प्रत्येकाचे आयुष्य अधिक चांगले बनवणे हे आमचे ध्येय आहे. आमची हॉटेल्स आणि फार्महाऊस पर्यटकांना आपुलकीचा अनुभव देतात. आम्ही शाळा आणि समाजकार्याद्वारे ग्रामीण कुटुंबांना मदत करतो. आमची प्रयोगशाळा शेतीसाठी आणि संगणकीय तंत्रज्ञानासाठी नवे मार्ग शोधते. आम्ही लोकांसाठी आणि पर्यावरणासाठी टिकाऊ काम करतो.",
+  "about.stat1Number": "3",
+  "about.stat1Label": "कार्यरत कंपन्या",
+  "about.stat2Number": "7",
+  "about.stat2Label": "मुख्य कार्यक्षेत्रे",
+  "about.stat3Number": "6",
+  "about.stat3Label": "मूलभूत मूल्ये",
+  "about.stat4Number": "1",
+  "about.stat4Label": "एकत्रित दृष्टी",
+
+  // Divisions Section
+  "divisions.eyebrow": "02 / आमच्या तीन कंपन्या",
+  "divisions.heading": "तीन कंपन्या. एकच ध्येय.",
+  "divisions.scrollHint": "पुढील कंपनी पाहण्यासाठी खाली स्क्रोल करा",
+  "divisions.counter": "पैकी 3",
+  "divisions.explorePrefix": "माहिती पहा",
+
+  // Division 1: Hospitality
+  "division.hospitality.number": "01",
+  "division.hospitality.name": "BAHINA Hospitality Pvt Ltd",
+  "division.hospitality.shortName": "आतिथ्य",
+  "division.hospitality.tagline": "आपुलकी. आराम. अविस्मरणीय अनुभव.",
+  "division.hospitality.category": "हॉटेल्स, फार्महाऊस, पर्यटन, जीवनशैली",
+  "division.hospitality.lead": "आम्ही पाहुण्यांचे आपुलकीने आणि आदराने स्वागत करतो. आमची हॉटेल्स आणि फार्महाऊस कुटुंबांना शांत, सुखाचा आणि अविस्मरणीय मुक्काम देतात.",
+  "division.hospitality.bullet1": "सुंदर हॉटेल्स आणि फार्महाऊस जेथे आरामदायी खोल्या आणि तत्पर सेवा मिळते.",
+  "division.hospitality.bullet2": "कुटुंबासाठी आणि पर्यटकांसाठी आनंददायी निसर्गरम्य सहलींचा अनुभव.",
+  "division.hospitality.bullet3": "ग्राहकांच्या समाधानाला नेहमी पहिले स्थान देणारी दर्जेदार सेवा.",
+  "division.hospitality.cta": "आतिथ्य पहा",
+
+  // Division 2: Foundation
+  "division.foundation.number": "02",
+  "division.foundation.name": "BAHINA Foundation",
+  "division.foundation.shortName": "फाउंडेशन",
+  "division.foundation.tagline": "जीवनांना सक्षम करूया. समाजाला समृद्ध करूया.",
+  "division.foundation.category": "समाजकार्य, शिक्षण, लोकसहभाग, समाजकल्याण",
+  "division.foundation.lead": "आम्ही गावातील आणि स्थानिक कुटुंबांच्या प्रगतीसाठी सामाजिक उपक्रम चालवतो. बालशिक्षण, कौशल्य विकास आणि आरोग्य यावर आमचा भर आहे.",
+  "division.foundation.bullet1": "ग्रामीण भागातील कुटुंबांना आधार देणारी समाजकल्याण केंद्रे.",
+  "division.foundation.bullet2": "मुलांचे भविष्य उज्वल करणारी शालेय आणि शैक्षणिक शिबिरे.",
+  "division.foundation.bullet3": "तरुणांना स्वतःच्या पायावर उभे राहण्यास मदत करणारे व्यवसाय प्रशिक्षण.",
+  "division.foundation.cta": "फाउंडेशन पहा",
+
+  // Division 3: Labs
+  "division.labs.number": "03",
+  "division.labs.name": "BAHINA Labs Pvt Ltd",
+  "division.labs.shortName": "लॅब्स",
+  "division.labs.tagline": "नवनिर्मिती. संशोधन. भविष्याची उभारणी.",
+  "division.labs.category": "AI (कृत्रिम बुद्धिमत्ता), स्मार्ट साधने, शेती संशोधन, तंत्रज्ञान",
+  "division.labs.lead": "आम्ही शेतीसाठी आणि व्यवसायांसाठी आधुनिक साधने तयार करतो. रोजच्या अडचणी सोडवण्यासाठी आमची टीम AI आणि R&D संशोधन वापरते.",
+  "division.labs.bullet1": "कामाचा ताण कमी करणारी आणि उत्पादकता वाढवणारी स्मार्ट AI सॉफ्टवेअर साधने.",
+  "division.labs.bullet2": "मातीची सुपीकता वाढवणारे आणि शेती उत्पादन सुधारणारे जैविक संशोधन.",
+  "division.labs.bullet3": "कमी विजेवर चालणारी आणि जलद काम करणारी आधुनिक तांत्रिक प्रणाली.",
+  "division.labs.cta": "लॅब्स पहा",
+
+  // Vision & Mission Section
+  "visionMission.eyebrow": "03 / उद्दिष्ट आणि ध्येय",
+  "visionMission.visionBadge": "आमची दृष्टी",
+  "visionMission.visionQuotePart1": "आम्हाला असा विश्वासू उद्योग समूह उभा करायचा आहे जो",
+  "visionMission.visionQuoteHighlight": "प्रत्येक आयुष्य समृद्ध करेल",
+  "visionMission.visionQuotePart2": "ज्यात नवी तंत्रज्ञाने, आपुलकीचे आतिथ्य, निसर्गाची जपणूक आणि समाजसेवा यांचा मेळ असेल.",
+  "visionMission.purposeLabel": "मार्गदर्शक ध्येय",
+  "visionMission.missionBadge": "पाच मूलभूत वचने",
+  "visionMission.item1Title": "टिकाऊ व्यवसाय",
+  "visionMission.item1Desc": "आम्ही निसर्गाचे रक्षण करणारे आणि दीर्घकाळ टिकणारे मजबूत उद्योग उभारतो.",
+  "visionMission.item2Title": "नव्या कल्पना आणि मालकी हक्क",
+  "visionMission.item2Desc": "आमचा प्रत्येक सहकारी स्वतःच्या कामाची मालकासारखी जबाबदारी घेतो.",
+  "visionMission.item3Title": "लोकांचा आदर",
+  "visionMission.item3Desc": "आम्ही ग्राहक आणि समाज यांच्या सुरक्षेला व समाधानाला सर्वोच्च महत्त्व देतो.",
+  "visionMission.item4Title": "दीर्घकालीन विश्वास",
+  "visionMission.item4Desc": "आम्ही प्रामाणिकपणे, पारदर्शकतेने आणि एकत्र येऊन काम करतो.",
+  "visionMission.item5Title": "समाजासाठी योगदान",
+  "visionMission.item5Desc": "आमचे प्रकल्प आजूबाजूच्या गावांना आणि समाजाला पुढे नेण्यासाठी मदत करतात.",
+
+  // Beam Diagram
+  "beam.badge": "एक नाव. तीन वचने.",
+  "beam.centerNode": "केंद्र",
+  "beam.hospitality": "आतिथ्य",
+  "beam.foundation": "फाउंडेशन",
+  "beam.labs": "लॅब्स",
+
+  // Focus Areas Section
+  "focus.eyebrow": "04 / आमचे कार्य",
+  "focus.heading": "आमची मुख्य कार्यक्षेत्रे",
+  "focus.description": "सात महत्त्वाची क्षेत्रे जिथे आमच्या कंपन्या सातत्याने काम करतात. आम्ही शेती, आतिथ्य आणि संगणक तंत्रज्ञान यांना एकत्र आणतो.",
+  "focus.strategicBadge": "कार्यक्षेत्र",
+  "focus.card1Title": "आतिथ्य आणि पर्यटन",
+  "focus.card1Desc": "शांत हॉटेल्स, सुंदर फार्महाऊस आणि पर्यटकांना सुखावणारे आनंदी मुक्काम.",
+  "focus.card2Title": "AI आणि स्मार्ट तंत्रज्ञान",
+  "focus.card2Desc": "कामात मदत करणारी संगणक प्रणाली, सॉफ्टवेअर आणि स्वयंचलित साधने.",
+  "focus.card3Title": "शेती संशोधन",
+  "focus.card3Desc": "मातीचे आरोग्य, सेंद्रिय शेती पद्धती आणि दर्जेदार पिकांचा अभ्यास.",
+  "focus.card4Title": "R&D (संशोधन आणि विकास)",
+  "focus.card4Desc": "नवीन तांत्रिक कल्पनांची चाचणी घेऊन खात्रीशीर उपाय शोधणे.",
+  "focus.card5Title": "स्मार्ट स्वयंचलित साधने",
+  "focus.card5Desc": "काम अधिक वेगाने आणि अचूकतेने करणारी आधुनिक यंत्रणा उभारणे.",
+  "focus.card6Title": "CSR (समाजकल्याण)",
+  "focus.card6Desc": "गावातील मुलांचे शिक्षण आणि स्थानिक कुटुंबांच्या कल्याणासाठी उपक्रम.",
+  "focus.card7Title": "इमारती आणि उद्याची दालने",
+  "focus.card7Desc": "सुरक्षित कार्यालये, संशोधन केंद्रे आणि निसर्गरम्य पर्यटन स्थळे उभारणे.",
+
+  // Values Section
+  "values.eyebrow": "05 / आमची तत्त्वे",
+  "values.heading": "आमची मूल्ये",
+  "values.description": "ही साधी तत्त्वे आम्हाला रोजच्या कामात, लोकांशी वागण्यात आणि निर्णय घेण्यात योग्य दिशा दाखवतात.",
+  "values.badge": "मूलभूत मूल्य",
+  "values.item1Name": "प्रामाणिकपणा",
+  "values.item1Desc": "आम्ही खरे बोलतो, न्यायाने वागतो आणि दिलेला शब्द नेहमी पाळतो.",
+  "values.item2Name": "नव्या कल्पना",
+  "values.item2Desc": "आम्ही नेहमी शिकत राहतो आणि समस्यांवर सोपे नवे मार्ग शोधतो.",
+  "values.item3Name": "निसर्गाची काळजी",
+  "values.item3Desc": "आम्ही माती, पाणी आणि झाडांचे रक्षण करतो जेणेकरून पुढील पिढ्या सुखी राहतील.",
+  "values.item4Name": "एकत्र काम करणे",
+  "values.item4Desc": "आम्ही एकमेकांना मदत करतो आणि सर्व सहकारी एका कुटुंबासारखे काम करतो.",
+  "values.item5Name": "उत्कृष्ट दर्जा",
+  "values.item5Desc": "आम्ही प्रत्येक कामात बारकाईने लक्ष देतो आणि सर्वोत्तम दर्जा राखतो.",
+  "values.item6Name": "समाजाची सेवा",
+  "values.item6Desc": "आम्ही केलेल्या कामातून स्थानिक लोकांना खरा फायदा मिळवून देतो.",
+
+  // Approach Section
+  "approach.eyebrow": "06 / कार्यपद्धत",
+  "approach.heading": "आमची काम करण्याची पद्धत",
+  "approach.description": "आम्ही चांगल्या कल्पनांचे रूपांतर डोळ्यांना दिसणाऱ्या आणि भरवशाच्या कामात कसे करतो ते पहा.",
+  "approach.stepLabel": "पायरी",
+  "approach.step1Title": "परिस्थितीनुसार बदलणे",
+  "approach.step1Desc": "आम्ही लोकांच्या गरजा पटकन समजून घेतो आणि त्यानुसार योजना बदलतो.",
+  "approach.step2Title": "मालकासारखी जबाबदारी",
+  "approach.step2Desc": "आमचे सहकारी स्वतःच्या कामाची पूर्ण जबाबदारी अभिमानाने स्वीकारतात.",
+  "approach.step3Title": "प्रत्यक्ष उपस्थिती",
+  "approach.step3Desc": "आमचे प्रमुख स्वतः लोकांमध्ये, शेतकऱ्यांमध्ये आणि पर्यटकांमध्ये जाऊन चर्चा करतात.",
+  "approach.step4Title": "एकत्र येऊन काम",
+  "approach.step4Desc": "हॉटेल, विज्ञान आणि समाजकार्य या तिन्ही टीम्स आपले ज्ञान एकमेकांशी वाटतात.",
+  "approach.step5Title": "भविष्याची उभारणी",
+  "approach.step5Desc": "आम्ही अल्पकालीन नफ्यापेक्षा दीर्घकालीन विश्वास आणि दर्जा यावर भर देतो.",
+
+  // Contact & Final CTA Section
+  "cta.eyebrow": "07 / संपर्क साधा",
+  "cta.headlinePart1": "एक नाव.",
+  "cta.headlinePart2": "तीन वचने.",
+  "cta.headlineHighlight": "अमर्याद प्रभाव.",
+  "cta.subline": "आतिथ्य, समाजकार्य आणि तंत्रज्ञान क्षेत्रात एकत्र काम करण्यासाठी BAHINA ग्रुपशी संपर्क साधा.",
+  "cta.action": "आमच्याशी संपर्क साधा",
+  "cta.copyEmailAria": "ईमेल पत्ता क्लिपबोर्डवर कॉपी करा",
+  "cta.emailCopied": "ईमेल कॉपी झाला (info@bahinaa.com)",
+  "cta.emailAction": "ईमेल पाठवा",
+
+  // Contact Form
+  "form.title": "आम्हाला संदेश पाठवा",
+  "form.description": "हा सोपा फॉर्म भरा. आमची टीम दोन दिवसांत तुम्हाला उत्तर देईल.",
+  "form.nameLabel": "तुमचे नाव",
+  "form.namePlaceholder": "तुमचे पूर्ण नाव लिहा",
+  "form.emailLabel": "ईमेल पत्ता",
+  "form.emailPlaceholder": "तुमचा ईमेल पत्ता लिहा",
+  "form.phoneLabel": "फोन नंबर",
+  "form.phonePlaceholder": "तुमचा फोन नंबर लिहा",
+  "form.messageLabel": "तुमचा संदेश",
+  "form.messagePlaceholder": "आम्ही तुम्हाला कशी मदत करू शकतो ते सांगा",
+  "form.submit": "संदेश पाठवा",
+  "form.submitting": "संदेश पाठवत आहे...",
+  "form.success": "धन्यवाद! तुमचा संदेश यशस्वीरीत्या पाठवला गेला आहे.",
+  "form.error": "क्षमस्व, संदेश पाठवताना अडचण आली. कृपया थेट info@bahinaa.com वर ईमेल करा.",
+  "form.required": "हे भरणे आवश्यक आहे.",
+  "form.invalidEmail": "कृपया योग्य ईमेल पत्ता लिहा.",
+
+  // Mailto Fallback
+  "mailto.subject": "BAHINA ग्रुपसाठी संदेश",
+  "mailto.body": "नमस्कार BAHINA टीम,\n\nमला खालील विषयावर बोलायचे आहे:\n\nनाव:\nफोन:\nसंदेश:",
+
+  // Gallery (captions & alt texts)
+  "gallery.title": "छायाचित्रे",
+  "gallery.allFilter": "सर्व छायाचित्रे",
+  "gallery.hospitalityFilter": "आतिथ्य",
+  "gallery.farmFilter": "शेती आणि निसर्ग",
+  "gallery.labsFilter": "संशोधन आणि तंत्रज्ञान",
+  "gallery.item1Alt": "शांत निसर्गातील सुंदर कॉटेज आणि बाग",
+  "gallery.item1Caption": "शांत निसर्गरम्य परिसरातील आरामदायक मुक्काम",
+  "gallery.item2Alt": "काळजीपूर्वक पिकवलेली हिरवीगार शेते",
+  "gallery.item2Caption": "सेंद्रिय पद्धतीने पिकवलेली शेती",
+  "gallery.item3Alt": "चाचणी उपकरणांसह सुसज्ज आधुनिक प्रयोगशाळा",
+  "gallery.item3Caption": "स्मार्ट साधने तयार करणारी तांत्रिक प्रयोगशाळा",
+  "gallery.item4Alt": "गावातील मुलांसाठीचे शिक्षण केंद्र",
+  "gallery.item4Caption": "फाउंडेशनतर्फे चालवले जाणारे बालशिक्षण केंद्र",
+
+  // Velocity Strips
+  "velocity.strip1": "मातीपासून वास्तूपर्यंत • प्रत्येक आयुष्य समृद्ध करण्यासाठी • BAHINA ग्रुप •",
+  "velocity.strip2": "एक नाव • तीन वचने • अमर्याद प्रभाव •",
+
+  // Footer Section
+  "footer.portfolioNav": "आमच्या कंपन्या",
+  "footer.description": "आतिथ्य, समाजकार्य आणि तंत्रज्ञान संशोधनातून लोकांचे जीवन समृद्ध करणारा उद्योग समूह.",
+  "footer.indexTitle": "सूची",
+  "footer.hqTitle": "कार्यालय आणि संपर्क",
+  "footer.enterpriseLabel": "BAHINA ग्रुप",
+  "footer.websiteLabel": "संकेतस्थळ",
+  "footer.inquiriesLabel": "चौकशी",
+  "footer.backToTop": "वर जा",
+  "footer.backToTopAria": "पानाच्या सुरुवातीला जा",
+  "footer.copyright": "© 2026 BAHINA Group. सर्व हक्क सुरक्षित.",
+  "footer.subline": "एक नाव. तीन वचने. अमर्याद प्रभाव.",
+  "footer.emailAria": "info@bahinaa.com वर ईमेल पाठवा",
+  "footer.websiteAria": "www.bahinaa.com ला भेट द्या",
+}
+
+export default mr

@@ -1,16 +1,21 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useMemo } from "react"
 import { motion } from "framer-motion"
-
-const sections = [
-  { id: "hero", label: "01", name: "Overview" },
-  { id: "about", label: "02", name: "Essence" },
-  { id: "divisions", label: "03", name: "Divisions" },
-  { id: "vision-mission", label: "04", name: "Pillars" },
-  { id: "contact", label: "05", name: "Connect" },
-]
+import { useLanguage } from "@/lib/i18n"
 
 export function SectionIndicator() {
+  const { t } = useLanguage()
   const [activeSection, setActiveSection] = useState("hero")
+
+  const sections = useMemo(
+    () => [
+      { id: "hero", label: "01", name: t("indicator.overview") },
+      { id: "about", label: "02", name: t("indicator.essence") },
+      { id: "divisions", label: "03", name: t("indicator.divisions") },
+      { id: "vision-mission", label: "04", name: t("indicator.pillars") },
+      { id: "contact", label: "05", name: t("indicator.connect") },
+    ],
+    [t]
+  )
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,7 +32,7 @@ export function SectionIndicator() {
     window.addEventListener("scroll", handleScroll, { passive: true })
     handleScroll()
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  }, [sections])
 
   const scrollTo = (id) => {
     const el = document.getElementById(id)
@@ -39,7 +44,7 @@ export function SectionIndicator() {
   return (
     <div
       className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col items-center space-y-4 pointer-events-auto"
-      aria-label="Section indicator"
+      aria-label={t("indicator.aria")}
     >
       {sections.map((sec) => {
         const isActive = activeSection === sec.id
@@ -48,7 +53,7 @@ export function SectionIndicator() {
             key={sec.id}
             onClick={() => scrollTo(sec.id)}
             className="group relative flex items-center justify-center p-1.5 focus:outline-none focus-visible:ring-1 focus-visible:ring-white/60 rounded-full"
-            aria-label={`Scroll to ${sec.name}`}
+            aria-label={`${t("indicator.scrollTo")} ${sec.name}`}
           >
             {/* Hover Tooltip */}
             <span className="pointer-events-none absolute right-7 opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-[11px] font-sans uppercase tracking-[0.14em] text-neutral-300 bg-[#0E1210]/90 border border-white/10 px-2 py-0.5 rounded backdrop-blur-sm whitespace-nowrap">

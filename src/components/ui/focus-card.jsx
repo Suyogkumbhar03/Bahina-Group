@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react"
 import { ArrowUpRight } from "lucide-react"
 import { BorderBeam } from "@/components/ui/border-beam"
 import { cn } from "@/lib/utils"
+import { useLanguage } from "@/lib/i18n"
 
 /**
  * FocusCard
@@ -20,6 +21,7 @@ export function FocusCard({
   icon: Icon,
   className = "",
 }) {
+  const { t } = useLanguage()
   const cardRef = useRef(null)
   const [rotateX, setRotateX] = useState(0)
   const [rotateY, setRotateY] = useState(0)
@@ -215,7 +217,9 @@ export function FocusCard({
           <div className="flex items-center space-x-2">
             <span className="text-neutral-500 font-mono">0{index + 1}</span>
             <span className="h-1 w-1 rounded-full bg-neutral-600" />
-            <span className="text-neutral-400 group-hover:text-neutral-200 transition-colors">Strategic Capability</span>
+            <span className="text-neutral-400 group-hover:text-neutral-200 transition-colors">
+              {t ? t("focus.strategicBadge") : "Strategic Capability"}
+            </span>
           </div>
 
           <div

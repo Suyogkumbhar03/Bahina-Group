@@ -2,8 +2,10 @@ import React, { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronDown } from "lucide-react"
 import { GlareHover } from "@/components/ui/glare-hover"
+import { useLanguage } from "@/lib/i18n"
 
 export function ExpandingPanels({ values }) {
+  const { t } = useLanguage()
   const [activeIdx, setActiveIdx] = useState(0)
 
   const handleKeyDown = (e, idx) => {
@@ -80,7 +82,7 @@ export function ExpandingPanels({ values }) {
                 {/* Bottom tag */}
                 <div className="pt-2">
                   <span className="font-sans text-[11px] uppercase tracking-[0.14em] font-semibold text-neutral-400">
-                    Core Value
+                    {t("values.badge")}
                   </span>
                 </div>
               </GlareHover>

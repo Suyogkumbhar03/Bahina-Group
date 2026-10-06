@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useMemo } from "react"
 import {
   Hotel,
   Cpu,
@@ -8,10 +8,10 @@ import {
   HeartHandshake,
   Building2,
 } from "lucide-react"
-import { BAHINA_CONTENT } from "@/data/content"
 import { Marquee } from "@/components/ui/marquee"
 import { FocusCard } from "@/components/ui/focus-card"
 import { ShinyText } from "@/components/ui/shiny-text"
+import { useLanguage } from "@/lib/i18n"
 
 const iconMap = {
   "hospitality-tourism": Hotel,
@@ -24,7 +24,62 @@ const iconMap = {
 }
 
 export function FocusAreasSection() {
-  const { focusAreas } = BAHINA_CONTENT
+  const { t } = useLanguage()
+
+  const focusAreas = useMemo(
+    () => [
+      {
+        id: "hospitality-tourism",
+        title: t("focus.card1Title"),
+        desc: t("focus.card1Desc"),
+        division: t("division.hospitality.shortName"),
+        accent: "#D9A441",
+      },
+      {
+        id: "ai-tech",
+        title: t("focus.card2Title"),
+        desc: t("focus.card2Desc"),
+        division: t("division.labs.shortName"),
+        accent: "#4C8DF6",
+      },
+      {
+        id: "agri-innovation",
+        title: t("focus.card3Title"),
+        desc: t("focus.card3Desc"),
+        division: t("division.labs.shortName"),
+        accent: "#3E9B63",
+      },
+      {
+        id: "rd",
+        title: t("focus.card4Title"),
+        desc: t("focus.card4Desc"),
+        division: t("division.labs.shortName"),
+        accent: "#4C8DF6",
+      },
+      {
+        id: "automation",
+        title: t("focus.card5Title"),
+        desc: t("focus.card5Desc"),
+        division: t("division.labs.shortName"),
+        accent: "#4C8DF6",
+      },
+      {
+        id: "social-csr",
+        title: t("focus.card6Title"),
+        desc: t("focus.card6Desc"),
+        division: t("division.foundation.shortName"),
+        accent: "#3E9B63",
+      },
+      {
+        id: "infrastructure",
+        title: t("focus.card7Title"),
+        desc: t("focus.card7Desc"),
+        division: t("brand.group"),
+        accent: "#C8C4BD",
+      },
+    ],
+    [t]
+  )
 
   const row1 = focusAreas.slice(0, 4)
   const row2 = focusAreas.slice(3)
@@ -33,12 +88,12 @@ export function FocusAreasSection() {
     <section id="focus-areas" className="relative z-10 w-full scroll-mt-28 py-28 md:py-36 overflow-hidden">
       {/* Header Container */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 mb-12">
-        <ShinyText text="03 / Strategic Scope" className="text-[12px] font-sans font-semibold tracking-[0.14em]" />
+        <ShinyText text={t("focus.eyebrow")} className="text-[12px] font-sans font-semibold tracking-[0.14em]" />
         <h2 className="mt-3 font-display font-light text-[#F3EFEA] text-[clamp(1.85rem,3.8vw,3.25rem)]">
-          Core Focus Areas
+          {t("focus.heading")}
         </h2>
         <p className="mt-3 font-sans text-[18px] text-neutral-300 max-w-xl font-normal leading-[1.65]">
-          Seven strategic capabilities bridging biological agriculture with modern hospitality and deep technological research.
+          {t("focus.description")}
         </p>
       </div>
 
@@ -96,7 +151,6 @@ export function FocusAreasSection() {
           {focusAreas.map((area, idx) => {
             const Icon = iconMap[area.id] || Cpu
 
-            // Varied asymmetric bento grid spans
             let colSpan = "md:col-span-4"
             if (idx === 0) colSpan = "md:col-span-7"
             else if (idx === 1) colSpan = "md:col-span-5"

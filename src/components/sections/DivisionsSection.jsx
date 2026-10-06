@@ -1,20 +1,78 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useState, useEffect, useRef, useMemo } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { BAHINA_CONTENT } from "@/data/content"
 import { Button } from "@/components/ui/button"
 import { BorderBeam } from "@/components/ui/border-beam"
 import { FlickeringGrid } from "@/components/ui/flickering-grid"
 import { ShinyText } from "@/components/ui/shiny-text"
 import { Magnet } from "@/components/ui/Magnet"
+import { useLanguage } from "@/lib/i18n"
 
 export function DivisionsSection({ onThemeChange }) {
-  const { divisions } = BAHINA_CONTENT
+  const { t, isMarathi } = useLanguage()
   const [activeIndex, setActiveIndex] = useState(0)
   const pinWrapperRef = useRef(null)
   const cardRef = useRef(null)
+
+  const divisions = useMemo(
+    () => [
+      {
+        id: "hospitality",
+        number: "01",
+        name: t("division.hospitality.name"),
+        shortName: t("division.hospitality.shortName"),
+        accent: "#D9A441", // amber
+        tagline: t("division.hospitality.tagline"),
+        category: t("division.hospitality.category"),
+        leadText: t("division.hospitality.lead"),
+        bullets: [
+          t("division.hospitality.bullet1"),
+          t("division.hospitality.bullet2"),
+          t("division.hospitality.bullet3"),
+        ],
+        ctaText: t("division.hospitality.cta"),
+        link: "#contact",
+      },
+      {
+        id: "foundation",
+        number: "02",
+        name: t("division.foundation.name"),
+        shortName: t("division.foundation.shortName"),
+        accent: "#3E9B63", // green
+        tagline: t("division.foundation.tagline"),
+        category: t("division.foundation.category"),
+        leadText: t("division.foundation.lead"),
+        bullets: [
+          t("division.foundation.bullet1"),
+          t("division.foundation.bullet2"),
+          t("division.foundation.bullet3"),
+        ],
+        ctaText: t("division.foundation.cta"),
+        link: "#contact",
+      },
+      {
+        id: "labs",
+        number: "03",
+        name: t("division.labs.name"),
+        shortName: t("division.labs.shortName"),
+        accent: "#4C8DF6", // cool blue
+        tagline: t("division.labs.tagline"),
+        category: t("division.labs.category"),
+        leadText: t("division.labs.lead"),
+        bullets: [
+          t("division.labs.bullet1"),
+          t("division.labs.bullet2"),
+          t("division.labs.bullet3"),
+        ],
+        ctaText: t("division.labs.cta"),
+        link: "#contact",
+      },
+    ],
+    [t]
+  )
+
   const current = divisions[activeIndex]
 
   // Hospitality amber light mouse position
@@ -39,7 +97,7 @@ export function DivisionsSection({ onThemeChange }) {
         start: "top top",
         end: "+=2200",
         pin: true,
-        pinSpacing: true, // Guarantees next section starts strictly after pin ends
+        pinSpacing: true,
         anticipatePin: 1,
         scrub: 0.5,
         onUpdate: (self) => {
@@ -71,9 +129,9 @@ export function DivisionsSection({ onThemeChange }) {
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-white/10 pb-5 mb-10">
           <div>
-            <ShinyText text="02 / Operating Entities" className="text-[12px] font-sans font-semibold tracking-[0.14em]" />
+            <ShinyText text={t("divisions.eyebrow")} className="text-[12px] font-sans font-semibold tracking-[0.14em]" />
             <h2 className="mt-2 font-display text-3xl sm:text-4xl lg:text-5xl font-light text-[#F3EFEA]">
-              Three Divisions. One Unified Purpose.
+              {t("divisions.heading")}
             </h2>
           </div>
 
@@ -85,7 +143,7 @@ export function DivisionsSection({ onThemeChange }) {
                 <button
                   key={div.id}
                   onClick={() => setActiveIndex(i)}
-                  className={`px-3.5 py-1.5 font-sans text-xs uppercase tracking-[0.12em] font-semibold transition-all rounded-full border ${
+                  className={`min-h-[44px] px-4 py-2 font-sans text-xs uppercase tracking-[0.12em] font-semibold transition-all rounded-full border ${
                     isActive
                       ? "border-white/50 bg-white/15 text-white"
                       : "border-transparent text-neutral-400 hover:text-neutral-200"
@@ -109,8 +167,8 @@ export function DivisionsSection({ onThemeChange }) {
               <button
                 key={div.id}
                 onClick={() => setActiveIndex(i)}
-                className="flex flex-col items-center space-y-2 group focus:outline-none focus-visible:ring-1 focus-visible:ring-white/60"
-                aria-label={`Go to ${div.name}`}
+                className="flex flex-col items-center space-y-2 group focus:outline-none focus-visible:ring-1 focus-visible:ring-white/60 p-2 min-h-[44px] min-w-[44px]"
+                aria-label={div.name}
               >
                 <span
                   className={`font-sans text-xs tracking-wider transition-colors ${
@@ -147,7 +205,6 @@ export function DivisionsSection({ onThemeChange }) {
             />
 
             {/* 2. Desktop Atmosphere per division */}
-            {/* Hospitality: Warm amber light following cursor */}
             {current.id === "hospitality" && (
               <div
                 className="pointer-events-none absolute -inset-px transition-opacity duration-300 -z-10"
@@ -157,7 +214,6 @@ export function DivisionsSection({ onThemeChange }) {
               />
             )}
 
-            {/* Foundation: Green particles drifting upward like seeds */}
             {current.id === "foundation" && (
               <div className="pointer-events-none absolute inset-0 overflow-hidden -z-10 opacity-30">
                 {[...Array(12)].map((_, i) => (
@@ -183,7 +239,6 @@ export function DivisionsSection({ onThemeChange }) {
               </div>
             )}
 
-            {/* Labs: Faint blue Flickering Grid behind text */}
             {current.id === "labs" && (
               <FlickeringGrid
                 squareSize={4}
@@ -199,7 +254,6 @@ export function DivisionsSection({ onThemeChange }) {
               {/* Left Column: Number, Title, Tagline */}
               <div className="col-span-5 flex flex-col justify-between border-r border-white/10 pr-8">
                 <div>
-                  {/* Outlined number that fills with division accent colour */}
                   <motion.span
                     key={current.number}
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -246,7 +300,7 @@ export function DivisionsSection({ onThemeChange }) {
                       {current.leadText}
                     </p>
 
-                    {/* 3 Strict Profile Bullets */}
+                    {/* 3 Profile Bullets */}
                     <div className="space-y-3.5 pt-4 border-t border-white/10">
                       {current.bullets.map((bullet, bIdx) => (
                         <div key={bIdx} className="flex items-start space-x-3.5">
@@ -270,9 +324,9 @@ export function DivisionsSection({ onThemeChange }) {
                           <Button
                             variant="editorial"
                             size="lg"
-                            className="group rounded-full text-xs font-sans font-semibold tracking-[0.14em] uppercase border-white/25 hover:border-white/60"
+                            className="group rounded-full text-xs font-sans font-semibold tracking-[0.12em] uppercase border-white/25 hover:border-white/60 min-h-[44px]"
                           >
-                            <span>Explore {current.shortName}</span>
+                            <span>{current.ctaText}</span>
                             <ArrowUpRight
                               className="h-3.5 w-3.5 ml-1.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                               style={{ color: current.accent }}
@@ -288,13 +342,13 @@ export function DivisionsSection({ onThemeChange }) {
 
             {/* Bottom Progress Note */}
             <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-sans text-neutral-400">
-              <span>Scroll down to advance division</span>
-              <span className="font-sans font-semibold">{activeIndex + 1} of 3</span>
+              <span>{t("divisions.scrollHint")}</span>
+              <span className="font-sans font-semibold">{activeIndex + 1} {t("divisions.counter")}</span>
             </div>
           </div>
         </div>
 
-        {/* Mobile Layout: Clean Vertical Stack (No Pinning, No heavy canvas) */}
+        {/* Mobile Layout: Clean Vertical Stack */}
         <div className="lg:hidden flex flex-col space-y-8 mt-6">
           {divisions.map((div) => (
             <div
@@ -348,9 +402,9 @@ export function DivisionsSection({ onThemeChange }) {
                   <Button
                     variant="editorial"
                     size="sm"
-                    className="w-full text-xs font-sans font-semibold uppercase tracking-[0.14em]"
+                    className="w-full text-xs font-sans font-semibold uppercase tracking-[0.14em] min-h-[44px]"
                   >
-                    <span>Explore {div.shortName}</span>
+                    <span>{div.ctaText}</span>
                     <ArrowUpRight className="h-3 w-3 ml-1" />
                   </Button>
                 </a>

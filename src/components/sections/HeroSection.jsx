@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useMemo } from "react"
 import { motion, useSpring } from "framer-motion"
-import { ArrowUpRight } from "lucide-react"
-import { BAHINA_CONTENT } from "@/data/content"
 import { ShimmerButton } from "@/components/ui/shimmer-button"
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button"
 import { WordRotate } from "@/components/ui/word-rotate"
 import { SplitText } from "@/components/ui/split-text"
 import { ShinyText } from "@/components/ui/shiny-text"
 import { Magnet } from "@/components/ui/Magnet"
+import { useLanguage } from "@/lib/i18n"
 
 export function HeroSection() {
-  const { hero } = BAHINA_CONTENT
+  const { t, isMarathi } = useLanguage()
 
   // Desktop Mouse Parallax (shifts headline & background opposite by max 12px)
   const springConfig = { damping: 25, stiffness: 200 }
@@ -50,6 +49,20 @@ export function HeroSection() {
   const heroYOffset = -(Math.min(50, scrollY * 0.12))
   const hintOpacity = Math.max(0, 1 - scrollY / 90)
 
+  const rotateWords = useMemo(
+    () => [
+      t("hero.rotateWord1"),
+      t("hero.rotateWord2"),
+      t("hero.rotateWord3"),
+      t("hero.rotateWord4"),
+    ],
+    [t]
+  )
+
+  const headlineText = isMarathi
+    ? "मातीपासून वास्तूपर्यंत."
+    : "From Soil to Spaces."
+
   return (
     <section
       id="hero"
@@ -70,14 +83,15 @@ export function HeroSection() {
         {/* Eyebrow with Shiny Text */}
         <div className="flex items-center space-x-3 mb-6">
           <span className="h-[1px] w-8 bg-white/40" />
-          <ShinyText text={hero.eyebrow} className="text-[12px] font-sans font-semibold tracking-[0.14em]" />
+          <ShinyText text={t("hero.eyebrow")} className="text-[12px] font-sans font-semibold tracking-[0.14em]" />
         </div>
 
         {/* Hero Headline with React Bits SplitText */}
-        <h1 className="font-display font-light text-[#F3EFEA] tracking-[-0.03em] leading-[1.02] text-[clamp(2.75rem,7vw,6.25rem)]">
+        <h1 className="font-display font-light text-[#F3EFEA] tracking-[-0.03em] leading-[1.1] text-[clamp(2.75rem,7vw,6.25rem)]">
           <SplitText
-            text="From Soil to Spaces."
-            italicWords={["to", "Spaces."]}
+            key={headlineText}
+            text={headlineText}
+            italicWords={isMarathi ? ["वास्तूपर्यंत."] : ["to", "Spaces."]}
             delay={0.2}
             stagger={0.06}
           />
@@ -85,22 +99,23 @@ export function HeroSection() {
 
         {/* Word Rotate Subline */}
         <div className="mt-6 flex flex-wrap items-center gap-2 font-display text-xl sm:text-2xl md:text-3xl text-neutral-200 font-light tracking-wide">
-          <span>Stewardship in</span>
+          <span>{t("hero.rotatePrefix")}</span>
           <WordRotate
-            words={["Hospitality.", "Community.", "Research.", "Enriching Every Life."]}
+            key={rotateWords.join("-")}
+            words={rotateWords}
             duration={2400}
             className="font-normal text-white border-b border-white/20 pb-0.5"
           />
         </div>
 
-        {/* Body Description - strict 18px, 400, line-height 1.65, 85%+ white */}
+        {/* Body Description */}
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="mt-6 font-sans text-[18px] font-normal leading-[1.65] text-[#EDE8E1] max-w-2xl"
         >
-          {hero.description}
+          {t("hero.description")}
         </motion.p>
 
         {/* Action Buttons: ShimmerButton + InteractiveHoverButton with Magnet */}
@@ -110,24 +125,24 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.95, ease: [0.22, 1, 0.36, 1] }}
           className="mt-10 sm:mt-12 flex flex-wrap items-center gap-4"
         >
-          {/* Primary CTA with Magnet and Shimmer Button */}
+          {/* Primary CTA: "See our companies" */}
           <Magnet magnetStrength={0.25} padding={40}>
-            <a href={hero.primaryCta.href} data-cursor-label="Explore">
+            <a href="#divisions" data-cursor-label="Explore">
               <ShimmerButton
                 shimmerColor="#D9A441"
                 shimmerDuration="3s"
                 background="rgba(243, 239, 234, 0.98)"
-                className="text-[#070908] hover:text-black font-sans font-bold text-xs tracking-[0.16em] border-white/60 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.35)]"
+                className="text-[#070908] hover:text-black font-sans font-bold text-xs tracking-[0.12em] border-white/60 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.35)] min-h-[44px]"
               >
-                <span>{hero.primaryCta.text}</span>
+                <span>{t("hero.primaryCta")}</span>
               </ShimmerButton>
             </a>
           </Magnet>
 
-          {/* Secondary CTA with Magnet and Interactive Hover Button */}
+          {/* Secondary CTA: "Contact us" */}
           <Magnet magnetStrength={0.2} padding={30}>
-            <a href={hero.secondaryCta.href} data-cursor-label="Contact">
-              <InteractiveHoverButton text={hero.secondaryCta.text} />
+            <a href="#contact" data-cursor-label="Contact">
+              <InteractiveHoverButton text={t("hero.secondaryCta")} />
             </a>
           </Magnet>
         </motion.div>
@@ -142,21 +157,21 @@ export function HeroSection() {
         className="flex items-center justify-between pt-8 border-t border-white/10 text-xs font-sans font-semibold tracking-[0.14em] uppercase text-neutral-400 transition-opacity duration-150"
       >
         <div className="flex items-center space-x-2">
-          <span>Three Divisions</span>
+          <span>{t("hero.divisionsBarLabel")}</span>
           <span>•</span>
-          <span className="text-[#D9A441]">Hospitality</span>
+          <span className="text-[#D9A441]">{t("division.hospitality.shortName")}</span>
           <span>/</span>
-          <span className="text-[#3E9B63]">Foundation</span>
+          <span className="text-[#3E9B63]">{t("division.foundation.shortName")}</span>
           <span>/</span>
-          <span className="text-[#4C8DF6]">Labs</span>
+          <span className="text-[#4C8DF6]">{t("division.labs.shortName")}</span>
         </div>
 
         <a
           href="#about"
           className="flex items-center space-x-3 text-neutral-300 hover:text-white transition-colors group focus:outline-none focus-visible:ring-1 focus-visible:ring-white/60 rounded"
-          aria-label="Scroll down to About section"
+          aria-label={t("hero.scrollPromptAria")}
         >
-          <span>{hero.scrollHint}</span>
+          <span>{t("hero.scrollPrompt")}</span>
           <div className="h-6 w-3.5 rounded-full border border-white/40 flex items-start justify-center p-0.5">
             <motion.div
               animate={{ y: [0, 8, 0] }}

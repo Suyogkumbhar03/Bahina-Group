@@ -1,28 +1,58 @@
-import React from "react"
-import { BAHINA_CONTENT } from "@/data/content"
+import React, { useMemo } from "react"
 import { ExpandingPanels } from "@/components/ui/expanding-panels"
 import { ShinyText } from "@/components/ui/shiny-text"
+import { useLanguage } from "@/lib/i18n"
 
 export function ValuesSection() {
-  const { values } = BAHINA_CONTENT
+  const { t } = useLanguage()
+
+  const values = useMemo(
+    () => [
+      {
+        name: t("values.item1Name"),
+        desc: t("values.item1Desc"),
+      },
+      {
+        name: t("values.item2Name"),
+        desc: t("values.item2Desc"),
+      },
+      {
+        name: t("values.item3Name"),
+        desc: t("values.item3Desc"),
+      },
+      {
+        name: t("values.item4Name"),
+        desc: t("values.item4Desc"),
+      },
+      {
+        name: t("values.item5Name"),
+        desc: t("values.item5Desc"),
+      },
+      {
+        name: t("values.item6Name"),
+        desc: t("values.item6Desc"),
+      },
+    ],
+    [t]
+  )
 
   return (
     <section id="values" className="relative z-10 w-full scroll-mt-28 py-28 md:py-36 px-6 md:px-12 max-w-7xl mx-auto">
       {/* Section Header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-white/10 pb-6 mb-16">
         <div>
-          <ShinyText text="04 / Moral Anchor" className="text-[12px] font-sans font-semibold tracking-[0.14em]" />
+          <ShinyText text={t("values.eyebrow")} className="text-[12px] font-sans font-semibold tracking-[0.14em]" />
           <h2 className="mt-3 font-display font-light text-[#F3EFEA] text-[clamp(1.85rem,3.8vw,3.25rem)]">
-            Values That Anchor Us
+            {t("values.heading")}
           </h2>
         </div>
         <p className="mt-4 sm:mt-0 font-sans text-sm sm:text-base text-neutral-300 max-w-sm font-normal leading-relaxed">
-          Principles that remain immutable across all market transformations, operational scales, and forward-looking horizons.
+          {t("values.description")}
         </p>
       </div>
 
       {/* React Bits Glare Hover Horizontal Expanding Panels (Mobile: Accordion) */}
-      <ExpandingPanels values={values} />
+      <ExpandingPanels key={values.map(v => v.name).join("-")} values={values} />
     </section>
   )
 }

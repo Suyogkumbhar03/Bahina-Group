@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useRef, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import { useLanguage } from "@/lib/i18n"
 
 export function Preloader({ onComplete, progress = null, isReady = false }) {
+  const { t } = useLanguage()
   const [phase, setPhase] = useState("counting") // 'counting' | 'splitting' | 'done'
   const [counter, setCounter] = useState(0)
   const letters = ["B", "A", "H", "I", "N", "A"]
@@ -143,9 +145,9 @@ export function Preloader({ onComplete, progress = null, isReady = false }) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.8 }}
               transition={{ duration: 0.4, delay: 0.6 }}
-              className="font-sans text-[12px] uppercase tracking-[0.25em] text-neutral-400 font-semibold"
+              className="font-sans text-[12px] uppercase tracking-[0.2em] text-neutral-400 font-semibold text-center px-4"
             >
-              From Soil to Spaces
+              {t("preloader.tagline")}
             </motion.p>
 
             {/* Fraunces Counter 0 to 100 */}

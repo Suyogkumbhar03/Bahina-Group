@@ -1,12 +1,43 @@
-import React from "react"
-import { BAHINA_CONTENT } from "@/data/content"
+import React, { useMemo } from "react"
 import { AnimatedBeamDiagram } from "@/components/ui/animated-beam"
 import { AnimatedGradientText } from "@/components/ui/animated-gradient-text"
 import { BlurFade } from "@/components/ui/blur-fade"
 import { ShinyText } from "@/components/ui/shiny-text"
+import { useLanguage } from "@/lib/i18n"
 
 export function VisionMissionSection() {
-  const { visionMission } = BAHINA_CONTENT
+  const { t, isMarathi } = useLanguage()
+
+  const missionItems = useMemo(
+    () => [
+      {
+        num: "01",
+        title: t("visionMission.item1Title"),
+        desc: t("visionMission.item1Desc"),
+      },
+      {
+        num: "02",
+        title: t("visionMission.item2Title"),
+        desc: t("visionMission.item2Desc"),
+      },
+      {
+        num: "03",
+        title: t("visionMission.item3Title"),
+        desc: t("visionMission.item3Desc"),
+      },
+      {
+        num: "04",
+        title: t("visionMission.item4Title"),
+        desc: t("visionMission.item4Desc"),
+      },
+      {
+        num: "05",
+        title: t("visionMission.item5Title"),
+        desc: t("visionMission.item5Desc"),
+      },
+    ],
+    [t]
+  )
 
   return (
     <section id="vision-mission" className="relative z-10 w-full scroll-mt-28 py-28 md:py-36 px-6 md:px-12 max-w-7xl mx-auto">
@@ -14,24 +45,24 @@ export function VisionMissionSection() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-24">
         {/* Left Column: Vision Statement */}
         <div className="lg:col-span-6">
-          <ShinyText text={visionMission.eyebrow} className="text-[12px] font-sans font-semibold tracking-[0.14em]" />
-          
+          <ShinyText text={t("visionMission.eyebrow")} className="text-[12px] font-sans font-semibold tracking-[0.14em]" />
+
           <h3 className="mt-3 font-sans text-xs uppercase tracking-[0.14em] font-semibold text-neutral-300">
-            {visionMission.vision.badge}
+            {t("visionMission.visionBadge")}
           </h3>
 
-          {/* Vision Statement with AnimatedGradientText on "enrich lives" (Phrase 1 of 2 strictly allowed) */}
+          {/* Vision Statement with AnimatedGradientText on highlight phrase */}
           <blockquote className="mt-6 font-display font-light text-[#F3EFEA] leading-[1.2] tracking-[-0.01em] text-[clamp(1.85rem,3.8vw,3rem)]">
-            "To build a trusted, diversified, and future-oriented group of companies that{" "}
-            <AnimatedGradientText className="font-normal italic">
-              enrich lives
+            "{t("visionMission.visionQuotePart1")}{" "}
+            <AnimatedGradientText className={`font-normal ${isMarathi ? "not-italic font-medium text-[#D9A441]" : "italic"}`}>
+              {t("visionMission.visionQuoteHighlight")}
             </AnimatedGradientText>{" "}
-            through innovation, hospitality, sustainability, and community impact."
+            {t("visionMission.visionQuotePart2")}"
           </blockquote>
 
           <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between text-xs font-sans text-neutral-400 uppercase tracking-[0.14em] font-semibold">
-            <span>Guiding Purpose</span>
-            <span>BAHINA Group</span>
+            <span>{t("visionMission.purposeLabel")}</span>
+            <span lang="en">BAHINA Group</span>
           </div>
         </div>
 
@@ -45,12 +76,12 @@ export function VisionMissionSection() {
       <div className="border-t border-white/10 pt-16">
         <div className="mb-10">
           <span className="font-sans text-xs uppercase tracking-[0.14em] font-semibold text-neutral-400">
-            {visionMission.mission.badge} — Five Foundational Commitments
+            {t("visionMission.missionBadge")}
           </span>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {visionMission.mission.items.map((item, idx) => (
+          {missionItems.map((item, idx) => (
             <BlurFade
               key={item.num}
               delay={idx * 0.08}

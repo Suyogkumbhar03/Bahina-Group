@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "check:copy": "node scripts/check-locales.mjs && node scripts/readability.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.9",

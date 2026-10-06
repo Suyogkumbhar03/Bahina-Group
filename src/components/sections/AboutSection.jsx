@@ -1,13 +1,37 @@
 import React from "react"
 import { motion } from "framer-motion"
-import { BAHINA_CONTENT } from "@/data/content"
 import { TextRevealByWord } from "@/components/ui/text-reveal"
 import { NumberTicker } from "@/components/ui/number-ticker"
 import { ShinyText } from "@/components/ui/shiny-text"
+import { useLanguage } from "@/lib/i18n"
 
 export function AboutSection() {
-  const { about } = BAHINA_CONTENT
-  const fullText = about.words.join(" ")
+  const { t } = useLanguage()
+
+  const stats = [
+    {
+      number: 3,
+      suffix: "",
+      label: t("about.stat1Label"),
+    },
+    {
+      number: 7,
+      suffix: "",
+      label: t("about.stat2Label"),
+    },
+    {
+      number: 6,
+      suffix: "",
+      label: t("about.stat3Label"),
+    },
+    {
+      number: 1,
+      suffix: "",
+      label: t("about.stat4Label"),
+    },
+  ]
+
+  const bodyText = t("about.body")
 
   return (
     <section id="about" className="relative z-10 w-full scroll-mt-28 py-28 md:py-36 px-6 md:px-12 max-w-7xl mx-auto">
@@ -16,7 +40,7 @@ export function AboutSection() {
         <div className="lg:col-span-4">
           {/* Section label with self-drawing underline on entry */}
           <div className="inline-block relative pb-2 mb-4">
-            <ShinyText text={about.eyebrow} className="text-[12px] font-sans font-semibold tracking-[0.14em]" />
+            <ShinyText text={t("about.eyebrow")} className="text-[12px] font-sans font-semibold tracking-[0.14em]" />
             <motion.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
@@ -27,25 +51,25 @@ export function AboutSection() {
           </div>
 
           <h2 className="font-display font-light text-[#F3EFEA] leading-snug text-[clamp(1.75rem,3.2vw,2.5rem)]">
-            {about.heading}
+            {t("about.heading")}
           </h2>
         </div>
 
         {/* Word-by-word reveal on scroll (Magic UI Text Reveal) */}
         <div className="lg:col-span-8">
-          <TextRevealByWord text={fullText} />
+          <TextRevealByWord key={bodyText} text={bodyText} />
 
           <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row sm:items-baseline justify-between gap-4">
             <blockquote className="font-display italic text-lg sm:text-xl text-neutral-200 font-light max-w-xl">
-              "{about.quote}"
+              "{t("about.quote")}"
             </blockquote>
           </div>
         </div>
       </div>
 
-      {/* Number Ticker Row (Truthful Profile Facts: 3 Divisions, 7 Focus Areas, 6 Core Values, 1 Vision) */}
+      {/* Number Ticker Row */}
       <div className="mt-16 pt-12 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-8">
-        {about.stats.map((stat, idx) => (
+        {stats.map((stat, idx) => (
           <div
             key={idx}
             className="flex flex-col border-l border-white/15 pl-6 py-2"

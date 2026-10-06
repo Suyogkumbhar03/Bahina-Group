@@ -1,12 +1,15 @@
 import React from "react"
 import { motion } from "framer-motion"
+import { useLanguage } from "@/lib/i18n"
 
 export function AnimatedBeamDiagram() {
+  const { t, isMarathi } = useLanguage()
+
   return (
     <div className="relative w-full max-w-lg mx-auto p-8 rounded-3xl border border-white/10 bg-[#0A0D0B]/85 flex flex-col items-center justify-center min-h-[360px]">
       <div className="text-center mb-8">
         <span className="font-sans text-xs uppercase font-semibold tracking-[0.14em] text-neutral-400">
-          One Name. Three Commitments.
+          {t("beam.badge")}
         </span>
       </div>
 
@@ -83,12 +86,15 @@ export function AnimatedBeamDiagram() {
         {/* Center Node: BAHINA */}
         <div className="absolute top-[8%] flex flex-col items-center">
           <div className="h-14 w-14 rounded-full border border-white/30 bg-[#121614] flex items-center justify-center shadow-xl">
-            <span className="font-display text-sm font-semibold tracking-widest text-[#F3EFEA]">
+            <span
+              lang="en"
+              className="font-display text-sm font-semibold tracking-widest text-[#F3EFEA]"
+            >
               BAHINA
             </span>
           </div>
           <span className="mt-1 font-sans text-[10px] uppercase font-semibold text-neutral-400">
-            Center Node
+            {t("beam.centerNode")}
           </span>
         </div>
 
@@ -100,7 +106,7 @@ export function AnimatedBeamDiagram() {
               <span className="h-2.5 w-2.5 rounded-full bg-[#D9A441]" />
             </div>
             <span className="mt-1.5 font-sans text-[11px] font-semibold text-[#D9A441]">
-              Hospitality
+              {t("beam.hospitality")}
             </span>
           </div>
 
@@ -110,7 +116,7 @@ export function AnimatedBeamDiagram() {
               <span className="h-2.5 w-2.5 rounded-full bg-[#3E9B63]" />
             </div>
             <span className="mt-1.5 font-sans text-[11px] font-semibold text-[#3E9B63]">
-              Foundation
+              {t("beam.foundation")}
             </span>
           </div>
 
@@ -120,7 +126,7 @@ export function AnimatedBeamDiagram() {
               <span className="h-2.5 w-2.5 rounded-full bg-[#4C8DF6]" />
             </div>
             <span className="mt-1.5 font-sans text-[11px] font-semibold text-[#4C8DF6]">
-              Labs
+              {t("beam.labs")}
             </span>
           </div>
         </div>
@@ -128,3 +134,5 @@ export function AnimatedBeamDiagram() {
     </div>
   )
 }
+
+export default AnimatedBeamDiagram

@@ -1,10 +1,10 @@
-import React, { useRef } from "react"
+import React, { useRef, useMemo } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { BAHINA_CONTENT } from "@/data/content"
 import { ShinyText } from "@/components/ui/shiny-text"
+import { useLanguage } from "@/lib/i18n"
 
 export function ApproachSection() {
-  const { approach } = BAHINA_CONTENT
+  const { t } = useLanguage()
   const containerRef = useRef(null)
 
   const { scrollYProgress } = useScroll({
@@ -15,6 +15,37 @@ export function ApproachSection() {
   // SVG line stroke length drawn from 0 to 1 as user scrolls
   const pathLength = useTransform(scrollYProgress, [0, 0.95], [0, 1])
 
+  const steps = useMemo(
+    () => [
+      {
+        num: "01",
+        title: t("approach.step1Title"),
+        desc: t("approach.step1Desc"),
+      },
+      {
+        num: "02",
+        title: t("approach.step2Title"),
+        desc: t("approach.step2Desc"),
+      },
+      {
+        num: "03",
+        title: t("approach.step3Title"),
+        desc: t("approach.step3Desc"),
+      },
+      {
+        num: "04",
+        title: t("approach.step4Title"),
+        desc: t("approach.step4Desc"),
+      },
+      {
+        num: "05",
+        title: t("approach.step5Title"),
+        desc: t("approach.step5Desc"),
+      },
+    ],
+    [t]
+  )
+
   return (
     <section
       id="approach"
@@ -24,12 +55,12 @@ export function ApproachSection() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-start">
         {/* Left Sticky Header Column */}
         <div className="lg:col-span-4 sticky top-28">
-          <ShinyText text="05 / Methodology" className="text-[12px] font-sans font-semibold tracking-[0.14em]" />
+          <ShinyText text={t("approach.eyebrow")} className="text-[12px] font-sans font-semibold tracking-[0.14em]" />
           <h2 className="mt-3 font-display font-light text-[#F3EFEA] text-[clamp(1.85rem,3.8vw,3.25rem)]">
-            Our Operational Approach
+            {t("approach.heading")}
           </h2>
           <p className="mt-4 font-sans text-sm sm:text-base text-neutral-300 font-normal leading-relaxed max-w-xs">
-            How we translate visionary philosophy into grounded, repeatable execution across diverse commercial and civic contexts.
+            {t("approach.description")}
           </p>
         </div>
 
@@ -59,7 +90,7 @@ export function ApproachSection() {
           </div>
 
           <div className="flex flex-col space-y-12">
-            {approach.map((step, idx) => (
+            {steps.map((step, idx) => (
               <motion.div
                 key={step.num}
                 initial={{ opacity: 0, x: 20 }}
@@ -86,7 +117,7 @@ export function ApproachSection() {
 
                 <div className="flex items-baseline justify-between mb-3">
                   <span className="font-sans text-xs font-semibold uppercase tracking-[0.14em] text-neutral-400">
-                    Step {step.num}
+                    {t("approach.stepLabel")} {step.num}
                   </span>
                   <span className="h-[1px] w-12 bg-white/10 group-hover:w-20 group-hover:bg-white/30 transition-all" />
                 </div>
