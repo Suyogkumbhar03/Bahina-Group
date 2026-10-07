@@ -55,13 +55,7 @@ export function WelcomeOverlay({
     hasClosedRef.current = true
     setIsFadingOut(true)
 
-    try {
-      localStorage.setItem("bahina_welcome_seen", "1")
-    } catch (e) {
-      // LocalStorage access issues ignored safely
-    }
-
-    // 700ms smooth dissolve into the actual website
+    // 800ms smooth cinematic dissolve into the main landing page
     setTimeout(() => {
       const video = videoRef.current
       if (video) {
@@ -77,7 +71,7 @@ export function WelcomeOverlay({
       if (previousFocusRef.current && typeof previousFocusRef.current.focus === "function") {
         previousFocusRef.current.focus()
       }
-    }, 700)
+    }, 800)
   }, [onClose])
 
   // Dialog lifecycle, focus management, Escape key, and body scroll lock
@@ -119,17 +113,47 @@ export function WelcomeOverlay({
     return () => clearTimeout(stallTimer)
   }, [isOpen, isPlaying, handleClose])
 
-  // Start video automatically muted (browser policy compliant)
+  // Seamlessly unmute audio on user interaction without restarting playback
+  const enableAudio = useCallback(() => {
+    const video = videoRef.current
+    if (video && video.muted) {
+      video.muted = false
+      video.volume = 1.0
+    }
+  }, [])
+
+  // Auto-listen for any initial screen interaction (touch, click, key) to seamlessly unmute
+  useEffect(() => {
+    if (!isOpen) return
+
+    const handleInteraction = () => {
+      enableAudio()
+    }
+
+    const events = ["pointerdown", "touchstart", "click", "keydown"]
+    events.forEach((evt) => {
+      window.addEventListener(evt, handleInteraction, { once: true, passive: true })
+    })
+
+    return () => {
+      events.forEach((evt) => {
+        window.removeEventListener(evt, handleInteraction)
+      })
+    }
+  }, [isOpen, enableAudio])
+
+  // Play video with audio enabled immediately on mount
   useEffect(() => {
     if (!isOpen) return
     const video = videoRef.current
     if (!video) return
 
-    video.muted = true
-    video.defaultMuted = true
     video.playsInline = true
+    video.volume = 1.0
 
     const attemptPlay = () => {
+      // 1. Try playing with audio enabled immediately
+      video.muted = false
       const playPromise = video.play()
       if (playPromise !== undefined) {
         playPromise
@@ -137,7 +161,8 @@ export function WelcomeOverlay({
             setIsPlaying(true)
           })
           .catch(() => {
-            // Re-enforce muted and retry for strict browsers
+            // 2. If browser autoplay policy blocks unmuted audio on cold load,
+            // start video playback muted so visitor isn't stalled, and wait for first gesture to unmute & sync
             video.muted = true
             video.play()
               .then(() => setIsPlaying(true))
@@ -149,14 +174,20 @@ export function WelcomeOverlay({
     attemptPlay()
   }, [isOpen, videoSource])
 
-  // Handle canplay to ensure autoplay begins as soon as first frames are ready
+  // Handle canplay to ensure playback begins with audio as soon as first frames are ready
   const handleCanPlay = () => {
     const video = videoRef.current
     if (video && video.paused) {
-      video.muted = true
+      video.muted = false
+      video.volume = 1.0
       video.play()
         .then(() => setIsPlaying(true))
-        .catch(() => {})
+        .catch(() => {
+          video.muted = true
+          video.play()
+            .then(() => setIsPlaying(true))
+            .catch(() => {})
+        })
     }
   }
 
@@ -177,6 +208,7 @@ export function WelcomeOverlay({
       aria-modal="true"
       aria-label={t("welcome.dialogAria")}
       tabIndex={-1}
+      onClick={enableAudio}
       style={{
         minHeight: "100svh",
         height: "100dvh",
@@ -209,7 +241,10 @@ export function WelcomeOverlay({
       >
         <button
           type="button"
-          onClick={handleClose}
+          onClick={(e) => {
+            e.stopPropagation()
+            handleClose()
+          }}
           className="inline-flex items-center space-x-2 px-5 py-2.5 rounded-full bg-black/40 hover:bg-black/80 border border-white/20 hover:border-[#D9A441] text-[#F3EFEA] hover:text-white font-sans font-semibold text-xs sm:text-sm uppercase tracking-wider backdrop-blur-md active:scale-95 shadow-2xl min-h-[48px] min-w-[48px] transition-all cursor-pointer"
           aria-label={t("welcome.skipAria")}
         >
@@ -229,7 +264,6 @@ export function WelcomeOverlay({
           src={videoSource}
           poster={posterSource}
           autoPlay
-          muted
           playsInline
           webkit-playsinline="true"
           preload="auto"

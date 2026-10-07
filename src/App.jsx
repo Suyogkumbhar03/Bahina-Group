@@ -24,9 +24,8 @@ function shouldShowWelcomeInitial() {
   if (typeof window === "undefined") return false
   try {
     const params = new URLSearchParams(window.location.search)
-    if (params.get("welcome") === "1") return true
-    const seen = localStorage.getItem("bahina_welcome_seen")
-    return !seen
+    if (params.get("skip") === "1" || params.get("no-welcome") === "1") return false
+    return true
   } catch (e) {
     return true
   }
