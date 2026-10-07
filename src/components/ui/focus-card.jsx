@@ -88,7 +88,7 @@ export function FocusCard({
             : "transform 0.5s ease-out, box-shadow 0.5s ease-out",
         }}
         className={cn(
-          "relative h-full w-full rounded-2xl border border-white/15 bg-black/45 backdrop-blur-[2px] p-6 sm:p-7 md:p-8 flex flex-col justify-between overflow-hidden shadow-xl group transition-all duration-300",
+          "relative h-full w-full rounded-2xl border border-white/15 bg-black/45 backdrop-blur-[2px] p-5 sm:p-7 md:p-8 flex flex-col justify-between overflow-hidden shadow-xl group transition-all duration-300",
           "hover:border-white/25 hover:shadow-[0_20px_50px_rgba(0,0,0,0.8)]",
           className
         )}

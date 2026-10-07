@@ -125,19 +125,19 @@ export function DivisionsSection({ onThemeChange }) {
       {/* Pinned Desktop Container */}
       <div
         ref={pinWrapperRef}
-        className="relative w-full min-h-screen flex flex-col justify-center py-16 px-6 md:px-12 max-w-7xl mx-auto"
+        className="relative w-full min-h-screen flex flex-col justify-center py-12 sm:py-16 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto"
       >
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-white/10 pb-5 mb-10">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-white/10 pb-5 mb-8 sm:mb-10">
           <div>
             <ShinyText text={t("divisions.eyebrow")} className="text-[12px] font-sans font-semibold tracking-[0.14em]" />
-            <h2 className="mt-2 font-display text-3xl sm:text-4xl lg:text-5xl font-light text-[#F3EFEA]">
+            <h2 className="mt-2 font-display text-2xl sm:text-4xl lg:text-5xl font-light text-[#F3EFEA]">
               {t("divisions.heading")}
             </h2>
           </div>
 
-          {/* Division Direct Selector Pills */}
-          <div className="mt-4 sm:mt-0 flex items-center space-x-2">
+          {/* Division Direct Selector Pills (Desktop only, mobile shows full stacked cards) */}
+          <div className="hidden lg:flex items-center space-x-2">
             {divisions.map((div, i) => {
               const isActive = activeIndex === i
               return (
@@ -358,7 +358,7 @@ export function DivisionsSection({ onThemeChange }) {
           {divisions.map((div) => (
             <div
               key={div.id}
-              className="p-7 rounded-2xl border border-white/15 bg-black/45 backdrop-blur-[2px] flex flex-col space-y-4 shadow-xl"
+              className="p-5 sm:p-7 rounded-2xl border border-white/15 bg-black/45 backdrop-blur-[2px] flex flex-col space-y-4 shadow-xl"
               style={{ borderLeft: `3px solid ${div.accent}` }}
             >
               <div className="flex items-baseline justify-between">

@@ -322,6 +322,10 @@ export const en = {
   "welcome.watchVideo": "Watch welcome video",
   "welcome.watchVideoAria": "Open welcome video",
   "welcome.loading": "Loading website...",
+  "welcome.htmlTitle": "Welcome to BAHINA.",
+  "welcome.htmlTagline": "From Soil to Spaces. Enriching Every Life.",
+  "welcome.marathiNotice": "नमस्कार! BAHINA मध्ये आपले स्वागत आहे.",
+  "welcome.tapToPlay": "Tap to play",
 }
 
 export default en

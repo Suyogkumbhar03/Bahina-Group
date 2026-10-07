@@ -50,22 +50,22 @@ export function ApproachSection() {
     <section
       id="approach"
       ref={containerRef}
-      className="relative z-10 w-full scroll-mt-28 py-28 md:py-36 px-6 md:px-12 max-w-7xl mx-auto"
+      className="relative z-10 w-full scroll-mt-28 py-20 sm:py-28 md:py-36 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-start">
-        {/* Left Sticky Header Column */}
-        <div className="lg:col-span-4 sticky top-28">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12 sm:mb-16 items-start">
+        {/* Left Header Column */}
+        <div className="lg:col-span-4 lg:sticky lg:top-28">
           <ShinyText text={t("approach.eyebrow")} className="text-[12px] font-sans font-semibold tracking-[0.14em]" />
-          <h2 className="mt-3 font-display font-light text-[#F3EFEA] text-[clamp(1.85rem,3.8vw,3.25rem)]">
+          <h2 className="mt-3 font-display font-light text-[#F3EFEA] text-[clamp(1.75rem,3.8vw,3.25rem)]">
             {t("approach.heading")}
           </h2>
-          <p className="mt-4 font-sans text-sm sm:text-base text-neutral-300 font-normal leading-relaxed max-w-xs">
+          <p className="mt-3 sm:mt-4 font-sans text-sm sm:text-base text-neutral-300 font-normal leading-relaxed max-w-xs">
             {t("approach.description")}
           </p>
         </div>
 
         {/* Right Column: Vertical Timeline with SVG Line-Draw */}
-        <div className="lg:col-span-8 relative pl-6 sm:pl-10">
+        <div className="lg:col-span-8 relative pl-7 sm:pl-10">
           {/* Animated Drawing SVG Spine */}
           <div className="absolute left-0 top-6 bottom-6 w-8 pointer-events-none">
             <svg className="w-full h-full overflow-visible" preserveAspectRatio="none">
@@ -89,7 +89,7 @@ export function ApproachSection() {
             </svg>
           </div>
 
-          <div className="flex flex-col space-y-12">
+          <div className="flex flex-col space-y-8 sm:space-y-12">
             {steps.map((step, idx) => (
               <motion.div
                 key={step.num}
@@ -97,7 +97,7 @@ export function ApproachSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.55, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="relative p-8 rounded-2xl border border-white/15 bg-black/45 backdrop-blur-[2px] group hover:border-white/30 transition-all shadow-lg"
+                className="relative p-5 sm:p-8 rounded-2xl border border-white/15 bg-black/45 backdrop-blur-[2px] group hover:border-white/30 transition-all shadow-lg"
               >
                 {/* Milestone Node on Timeline with illuminated pulse on view */}
                 <motion.div
@@ -112,7 +112,7 @@ export function ApproachSection() {
                   }}
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.8, delay: idx * 0.15 }}
-                  className="absolute -left-[31px] sm:-left-[47px] top-8 h-4 w-4 rounded-full border-2 border-[#070908] bg-[#EDE8E1]"
+                  className="absolute -left-[24px] sm:-left-[36px] top-7 sm:top-8 h-4 w-4 rounded-full border-2 border-[#070908] bg-[#EDE8E1]"
                 />
 
                 <div className="flex items-baseline justify-between mb-3">

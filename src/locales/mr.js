@@ -323,6 +323,10 @@ export const mr = {
   "welcome.watchVideo": "स्वागत व्हिडिओ पाहा",
   "welcome.watchVideoAria": "स्वागत व्हिडिओ उघडा",
   "welcome.loading": "संकेतस्थळ लोड होत आहे...",
+  "welcome.htmlTitle": "नमस्कार! BAHINA मध्ये आपले स्वागत आहे.",
+  "welcome.htmlTagline": "मातीपासून वास्तूपर्यंत. प्रत्येक जीवनाला समृद्ध करत.",
+  "welcome.marathiNotice": "नमस्कार! BAHINA मध्ये आपले स्वागत आहे.",
+  "welcome.tapToPlay": "व्हिडिओ सुरू करा",
 }
 
 export default mr

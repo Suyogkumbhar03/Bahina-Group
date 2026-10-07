@@ -47,7 +47,7 @@ export function HeroSection({ onOpenWelcomeVideo }) {
   return (
     <section
       id="hero"
-      className="relative z-10 w-full min-h-screen flex flex-col justify-between pt-32 md:pt-36 pb-12 px-6 md:px-12 max-w-7xl mx-auto scroll-mt-28"
+      className="relative z-10 w-full min-h-screen flex flex-col justify-between pt-28 sm:pt-32 md:pt-36 pb-10 sm:pb-12 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto scroll-mt-28"
     >
       {/* Soft gradient scrim behind text column only - ensures AA contrast across bright daytime frames */}
       <div className="absolute inset-y-0 left-0 w-full md:w-3/5 pointer-events-none -z-10 bg-gradient-to-r from-[#070908]/94 via-[#070908]/75 to-transparent" />
@@ -57,7 +57,7 @@ export function HeroSection({ onOpenWelcomeVideo }) {
           translateY: heroYOffset,
           opacity: heroOpacity,
         }}
-        className="flex flex-col items-start justify-center my-auto max-w-3xl z-10 pt-6 will-change-transform"
+        className="flex flex-col items-start justify-center my-auto max-w-3xl z-10 pt-4 sm:pt-6 will-change-transform"
       >
         {/* Warm Villager Greeting & Device Local Time Greeting */}
         <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-5">
@@ -83,13 +83,13 @@ export function HeroSection({ onOpenWelcomeVideo }) {
         </div>
 
         {/* Eyebrow with Shiny Text */}
-        <div className="flex items-center space-x-3 mb-6">
+        <div className="flex items-center space-x-3 mb-5 sm:mb-6">
           <span className="h-[1px] w-8 bg-white/40" />
           <ShinyText text={t("hero.eyebrow")} className="text-[12px] font-sans font-semibold tracking-[0.14em]" />
         </div>
 
         {/* Hero Headline with React Bits SplitText */}
-        <h1 className="font-display font-light text-[#F3EFEA] tracking-[-0.03em] leading-[1.1] text-[clamp(2.75rem,7vw,6.25rem)]">
+        <h1 className="font-display font-light text-[#F3EFEA] tracking-[-0.03em] leading-[1.12] text-[clamp(2.15rem,6.5vw,6rem)]">
           <SplitText
             key={headlineText}
             text={headlineText}
@@ -100,7 +100,7 @@ export function HeroSection({ onOpenWelcomeVideo }) {
         </h1>
 
         {/* Word Rotate Subline */}
-        <div className="mt-6 flex flex-wrap items-center gap-2 font-display text-xl sm:text-2xl md:text-3xl text-neutral-200 font-light tracking-wide">
+        <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-2 font-display text-lg sm:text-2xl md:text-3xl text-neutral-200 font-light tracking-wide">
           <span>{t("hero.rotatePrefix")}</span>
           <WordRotate
             key={rotateWords.join("-")}
@@ -115,7 +115,7 @@ export function HeroSection({ onOpenWelcomeVideo }) {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-6 font-sans text-[18px] font-normal leading-[1.65] text-[#EDE8E1] max-w-2xl"
+          className="mt-5 sm:mt-6 font-sans text-base sm:text-[18px] font-normal leading-[1.65] text-[#EDE8E1] max-w-2xl"
         >
           {t("hero.description")}
         </motion.p>
@@ -125,7 +125,7 @@ export function HeroSection({ onOpenWelcomeVideo }) {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.95, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-10 sm:mt-12 flex flex-wrap items-center gap-4"
+          className="mt-8 sm:mt-12 flex flex-wrap items-center gap-3.5 sm:gap-4"
         >
           {/* Primary CTA: "See our companies" */}
           <Magnet magnetStrength={0.25} padding={40}>
@@ -156,9 +156,9 @@ export function HeroSection({ onOpenWelcomeVideo }) {
         animate={{ opacity: 0.85 }}
         transition={{ duration: 0.8, delay: 1.25 }}
         style={{ opacity: hintOpacity }}
-        className="flex items-center justify-between pt-8 border-t border-white/10 text-xs font-sans font-semibold tracking-[0.14em] uppercase text-neutral-400 transition-opacity duration-150"
+        className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-6 sm:pt-8 border-t border-white/10 text-xs font-sans font-semibold tracking-[0.14em] uppercase text-neutral-400 transition-opacity duration-150"
       >
-        <div className="flex items-center space-x-2">
+        <div className="flex flex-wrap items-center gap-1.5 sm:space-x-2">
           <span>{t("hero.divisionsBarLabel")}</span>
           <span>•</span>
           <span className="text-[#D9A441]">{t("division.hospitality.shortName")}</span>

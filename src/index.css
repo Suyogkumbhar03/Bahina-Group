@@ -11,15 +11,27 @@
     --border-strong: rgba(255, 255, 255, 0.2);
   }
 
+  html {
+    touch-action: manipulation;
+    overflow-x: hidden;
+  }
+
   body {
     font-family: 'Manrope', 'Noto Sans Devanagari', -apple-system, sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 1.65;
     color: #EDE8E1;
     background-color: #070908;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
+  }
+
+  @media (min-width: 640px) {
+    body {
+      font-size: 18px;
+    }
   }
 
   #root {
@@ -29,6 +41,7 @@
     padding: 0;
     text-align: left;
     border: none;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -55,12 +68,19 @@ html[lang="mr"] {
 
 html[lang="mr"] body {
   font-family: 'Manrope', 'Noto Sans Devanagari', -apple-system, sans-serif;
-  font-size: 19px;
-  line-height: 1.8;
+  font-size: 17px;
+  line-height: 1.75;
   font-weight: 400;
   letter-spacing: 0 !important;
   word-break: normal;
   overflow-wrap: break-word;
+}
+
+@media (min-width: 640px) {
+  html[lang="mr"] body {
+    font-size: 19px;
+    line-height: 1.8;
+  }
 }
 
 /* Zero letter-spacing everywhere for Marathi Devanagari (tracking breaks ligatures) */

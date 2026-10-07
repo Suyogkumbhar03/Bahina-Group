@@ -35,10 +35,10 @@ export function AboutSection() {
   const bodyText = t("about.body")
 
   return (
-    <section id="about" className="relative z-10 w-full scroll-mt-28 py-28 md:py-36 px-6 md:px-12 max-w-7xl mx-auto">
+    <section id="about" className="relative z-10 w-full scroll-mt-28 py-20 sm:py-28 md:py-36 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto">
       {/* Eyebrow & Asymmetric Intro */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-start">
-        <div className="relative lg:col-span-4 bg-black/40 backdrop-blur-[2px] p-6 sm:p-8 rounded-3xl border border-[#D9A441]/20 shadow-lg">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 mb-12 sm:mb-16 items-start">
+        <div className="relative lg:col-span-4 bg-black/40 backdrop-blur-[2px] p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-[#D9A441]/20 shadow-lg">
           <div className="absolute top-3 right-3 rotate-90">
             <WarliCorner accent="#D9A441" />
           </div>
@@ -54,20 +54,20 @@ export function AboutSection() {
             />
           </div>
 
-          <h2 className="font-display font-light text-[#F3EFEA] leading-snug text-[clamp(1.75rem,3.2vw,2.5rem)] drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
+          <h2 className="font-display font-light text-[#F3EFEA] leading-snug text-[clamp(1.6rem,3.2vw,2.5rem)] drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
             {t("about.heading")}
           </h2>
         </div>
 
         {/* Word-by-word reveal on scroll (Magic UI Text Reveal) */}
-        <div className="relative lg:col-span-8 bg-black/40 backdrop-blur-[2px] p-6 sm:p-8 rounded-3xl border border-[#D9A441]/20 shadow-lg">
+        <div className="relative lg:col-span-8 bg-black/40 backdrop-blur-[2px] p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-[#D9A441]/20 shadow-lg">
           <div className="absolute top-3 right-3 rotate-90">
             <WarliCorner accent="#D9A441" />
           </div>
           <TextRevealByWord key={bodyText} text={bodyText} />
 
-          <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-baseline justify-between gap-4">
-            <blockquote className="font-display italic text-lg sm:text-xl text-neutral-200 font-light max-w-xl drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
+          <div className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-baseline justify-between gap-4">
+            <blockquote className="font-display italic text-base sm:text-xl text-neutral-200 font-light max-w-xl drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
               "{t("about.quote")}"
             </blockquote>
           </div>
@@ -75,20 +75,20 @@ export function AboutSection() {
       </div>
 
       {/* Number Ticker Row */}
-      <div className="mt-12 pt-8 border-t border-white/15 grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-white/15 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
         {stats.map((stat, idx) => (
           <div
             key={idx}
-            className="flex flex-col border-l border-white/20 pl-6 py-3 bg-black/30 backdrop-blur-[2px] rounded-r-2xl border-t border-b border-r border-white/10 shadow-md"
+            className="flex flex-col border-l border-white/20 pl-4 sm:pl-6 pr-3 sm:pr-4 py-3 bg-black/30 backdrop-blur-[2px] rounded-r-2xl border-t border-b border-r border-white/10 shadow-md"
           >
-            <div className="font-display text-4xl sm:text-5xl font-light text-[#F3EFEA] tracking-tight drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]">
+            <div className="font-display text-3xl sm:text-5xl font-light text-[#F3EFEA] tracking-tight drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]">
               <NumberTicker
                 value={stat.number}
                 suffix={stat.suffix}
                 delay={idx * 0.15}
               />
             </div>
-            <p className="mt-2 text-[14px] text-neutral-200 font-sans font-medium drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
+            <p className="mt-1.5 sm:mt-2 text-[13px] sm:text-[14px] text-neutral-200 font-sans font-medium drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
               {stat.label}
             </p>
           </div>

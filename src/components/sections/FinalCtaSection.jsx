@@ -68,9 +68,9 @@ export function FinalCtaSection() {
   const hasWhatsapp = Boolean(RURAL_CONFIG.whatsappNumber)
 
   return (
-    <section id="contact" className="relative z-10 w-full scroll-mt-28 py-28 md:py-36 px-6 md:px-12 max-w-7xl mx-auto">
+    <section id="contact" className="relative z-10 w-full scroll-mt-28 py-20 sm:py-28 md:py-36 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto">
       {/* Painted Wall Style Container (Earth palette, soft rounded corners, thin warm border) */}
-      <div className="relative rounded-3xl border border-[#D9A441]/25 bg-[#090D0B]/60 backdrop-blur-[2px] p-8 sm:p-12 md:p-16 overflow-hidden shadow-2xl">
+      <div className="relative rounded-2xl sm:rounded-3xl border border-[#D9A441]/25 bg-[#090D0B]/60 backdrop-blur-[2px] p-5 sm:p-10 md:p-16 overflow-hidden shadow-2xl">
         {/* Warli Corner Accents */}
         <div className="absolute top-4 left-4">
           <WarliCorner accent="#D9A441" />
@@ -79,14 +79,14 @@ export function FinalCtaSection() {
           <WarliCorner accent="#D9A441" />
         </div>
 
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-start">
           {/* Left Column: Direct Outreach, Phone, WhatsApp */}
           <div className="lg:col-span-6 flex flex-col justify-between">
             <div>
               <ShinyText text={t("cta.eyebrow")} className="text-[12px] font-sans font-semibold tracking-[0.14em]" />
 
               {/* Editorial Headline */}
-              <h2 className="mt-6 font-display font-light text-[#F3EFEA] leading-[1.15] tracking-[-0.02em] text-[clamp(2.25rem,5.5vw,4.25rem)] drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
+              <h2 className="mt-4 sm:mt-6 font-display font-light text-[#F3EFEA] leading-[1.15] tracking-[-0.02em] text-[clamp(1.95rem,5.5vw,4.25rem)] drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
                 {t("cta.headlinePart1")} <br />
                 {t("cta.headlinePart2")} <br />
                 <AnimatedGradientText className={`font-normal ${isMarathi ? "not-italic font-medium text-[#D9A441]" : "italic"}`}>
@@ -94,18 +94,18 @@ export function FinalCtaSection() {
                 </AnimatedGradientText>
               </h2>
 
-              <p className="mt-6 font-sans text-[18px] text-[#EDE8E1] font-normal leading-[1.65] max-w-xl drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
+              <p className="mt-4 sm:mt-6 font-sans text-base sm:text-[18px] text-[#EDE8E1] font-normal leading-[1.65] max-w-xl drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
                 {t("cta.subline")}
               </p>
             </div>
 
             {/* Prominent Direct Action Buttons */}
-            <div className="mt-8 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3.5">
+            <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3">
               {/* Biggest Action: Direct Call (When configured in config.js) */}
               {hasPhone && (
                 <a
                   href={`tel:${RURAL_CONFIG.phoneNumber}`}
-                  className="inline-flex items-center justify-center space-x-3 px-6 py-3.5 rounded-full bg-[#D9A441] text-black font-sans font-bold text-sm uppercase tracking-[0.08em] hover:bg-[#E5A823] transition-all shadow-lg min-h-[52px]"
+                  className="inline-flex items-center justify-center space-x-3 px-6 py-3.5 rounded-full bg-[#D9A441] text-black font-sans font-bold text-sm uppercase tracking-[0.08em] hover:bg-[#E5A823] transition-all shadow-lg min-h-[50px] sm:min-h-[52px]"
                 >
                   <Phone className="h-5 w-5 shrink-0" />
                   <span>{t("action.call")}</span>
@@ -118,7 +118,7 @@ export function FinalCtaSection() {
                   href={`https://wa.me/${RURAL_CONFIG.whatsappNumber}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center space-x-3 px-6 py-3.5 rounded-full bg-[#25D366] text-black font-sans font-bold text-sm uppercase tracking-[0.08em] hover:bg-[#20BA56] transition-all shadow-lg min-h-[52px]"
+                  className="inline-flex items-center justify-center space-x-3 px-6 py-3.5 rounded-full bg-[#25D366] text-black font-sans font-bold text-sm uppercase tracking-[0.08em] hover:bg-[#20BA56] transition-all shadow-lg min-h-[50px] sm:min-h-[52px]"
                 >
                   <MessageCircle className="h-5 w-5 shrink-0" />
                   <span>{t("action.whatsapp")}</span>
@@ -128,7 +128,7 @@ export function FinalCtaSection() {
               {/* Email Mailto Button */}
               <a
                 href={mailtoLink}
-                className="inline-flex items-center justify-center space-x-2 px-5 py-3.5 rounded-full border border-white/25 bg-white/5 hover:bg-white/10 text-neutral-100 hover:text-white font-sans font-semibold text-xs uppercase tracking-[0.1em] transition-all min-h-[52px]"
+                className="inline-flex items-center justify-center space-x-2 px-5 py-3.5 rounded-full border border-white/25 bg-white/5 hover:bg-white/10 text-neutral-100 hover:text-white font-sans font-semibold text-xs uppercase tracking-[0.1em] transition-all min-h-[50px] sm:min-h-[52px]"
               >
                 <Mail className="h-4 w-4 mr-1 text-[#D9A441]" />
                 <span>{t("cta.emailAction")}</span>
@@ -139,7 +139,7 @@ export function FinalCtaSection() {
               <button
                 type="button"
                 onClick={handleCopyEmail}
-                className="inline-flex items-center justify-center space-x-2 px-5 py-3.5 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 text-xs font-sans font-semibold uppercase tracking-[0.1em] text-neutral-200 hover:text-white transition-all min-h-[52px]"
+                className="inline-flex items-center justify-center space-x-2 px-5 py-3.5 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 text-xs font-sans font-semibold uppercase tracking-[0.1em] text-neutral-200 hover:text-white transition-all min-h-[50px] sm:min-h-[52px]"
                 aria-label={t("cta.copyEmailAria")}
               >
                 {copied ? (
@@ -158,7 +158,7 @@ export function FinalCtaSection() {
           </div>
 
           {/* Right Column: Simplified Village Contact Form (Name, Phone, Village) */}
-          <div className="lg:col-span-6 rounded-2xl border border-white/20 bg-black/45 p-6 sm:p-8 backdrop-blur-[2px] shadow-2xl">
+          <div className="lg:col-span-6 rounded-2xl border border-white/20 bg-black/45 p-5 sm:p-8 backdrop-blur-[2px] shadow-2xl">
             <h3 className="font-display text-2xl font-light text-white mb-2">
               {t("form.title")}
             </h3>

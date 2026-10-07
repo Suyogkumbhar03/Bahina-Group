@@ -41,11 +41,11 @@ export function VisionMissionSection() {
   )
 
   return (
-    <section id="vision-mission" className="relative z-10 w-full scroll-mt-28 py-28 md:py-36 px-6 md:px-12 max-w-7xl mx-auto">
+    <section id="vision-mission" className="relative z-10 w-full scroll-mt-28 py-20 sm:py-28 md:py-36 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto">
       {/* Top Split: Left Column Vision, Right Column Animated Beam Diagram */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-24">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-center mb-16 sm:mb-24">
         {/* Left Column: Vision Statement */}
-        <div className="relative lg:col-span-6 p-8 sm:p-10 rounded-3xl border border-[#D9A441]/20 bg-black/40 backdrop-blur-[2px] shadow-xl">
+        <div className="relative lg:col-span-6 p-6 sm:p-10 rounded-2xl sm:rounded-3xl border border-[#D9A441]/20 bg-black/40 backdrop-blur-[2px] shadow-xl">
           <div className="absolute top-3 right-3 rotate-90">
             <WarliCorner accent="#D9A441" />
           </div>
@@ -56,7 +56,7 @@ export function VisionMissionSection() {
           </h3>
 
           {/* Vision Statement with AnimatedGradientText on highlight phrase */}
-          <blockquote className="mt-6 font-display font-light text-[#F3EFEA] leading-[1.2] tracking-[-0.01em] text-[clamp(1.85rem,3.8vw,3rem)] drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
+          <blockquote className="mt-5 sm:mt-6 font-display font-light text-[#F3EFEA] leading-[1.2] tracking-[-0.01em] text-[clamp(1.6rem,3.6vw,3rem)] drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
             "{t("visionMission.visionQuotePart1")}{" "}
             <AnimatedGradientText className={`font-normal ${isMarathi ? "not-italic font-medium text-[#D9A441]" : "italic"}`}>
               {t("visionMission.visionQuoteHighlight")}
@@ -64,7 +64,7 @@ export function VisionMissionSection() {
             {t("visionMission.visionQuotePart2")}"
           </blockquote>
 
-          <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between text-xs font-sans text-neutral-300 uppercase tracking-[0.14em] font-semibold">
+          <div className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-white/10 flex items-center justify-between text-xs font-sans text-neutral-300 uppercase tracking-[0.14em] font-semibold">
             <span>{t("visionMission.purposeLabel")}</span>
             <span lang="en">BAHINA Group</span>
           </div>
@@ -77,20 +77,20 @@ export function VisionMissionSection() {
       </div>
 
       {/* Bottom: Mission Points as a Numbered List with Staggered BlurFade */}
-      <div className="border-t border-white/10 pt-16">
-        <div className="mb-10">
+      <div className="border-t border-white/10 pt-12 sm:pt-16">
+        <div className="mb-8 sm:mb-10">
           <span className="font-sans text-xs uppercase tracking-[0.14em] font-semibold text-neutral-300 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
             {t("visionMission.missionBadge")}
           </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {missionItems.map((item, idx) => (
             <BlurFade
               key={item.num}
               delay={idx * 0.08}
               yOffset={20}
-              className="p-7 rounded-2xl border border-white/15 bg-black/40 backdrop-blur-[2px] flex flex-col justify-between group hover:border-white/30 transition-all shadow-lg"
+              className="p-5 sm:p-7 rounded-2xl border border-white/15 bg-black/40 backdrop-blur-[2px] flex flex-col justify-between group hover:border-white/30 transition-all shadow-lg"
             >
               <div>
                 <span className="font-display text-2xl font-light text-neutral-400 group-hover:text-white transition-colors block mb-3 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
@@ -99,7 +99,7 @@ export function VisionMissionSection() {
                 <h4 className="font-display text-lg font-normal text-[#F3EFEA] leading-snug drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]">
                   {item.title}
                 </h4>
-                <p className="mt-3 font-sans text-sm text-neutral-200 leading-relaxed font-normal drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
+                <p className="mt-2.5 sm:mt-3 font-sans text-sm text-neutral-200 leading-relaxed font-normal drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
                   {item.desc}
                 </p>
               </div>

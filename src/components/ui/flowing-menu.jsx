@@ -23,7 +23,7 @@ export function FlowingMenu({ items = [] }) {
             onMouseEnter={() => setHoveredIdx(idx)}
             onMouseLeave={() => setHoveredIdx(null)}
             onClick={() => handleTouch(idx)}
-            className="group relative w-full h-20 sm:h-24 md:h-28 overflow-hidden cursor-pointer flex items-center justify-between px-6 sm:px-10 transition-colors duration-300"
+            className="group relative w-full h-16 sm:h-24 md:h-28 overflow-hidden cursor-pointer flex items-center justify-between px-4 sm:px-10 transition-colors duration-300"
             style={{
               backgroundColor: isTapped
                 ? `${item.color || "#ffffff"}15`
@@ -31,11 +31,11 @@ export function FlowingMenu({ items = [] }) {
             }}
           >
             {/* Standard Row Layout (Desktop & Mobile) */}
-            <div className="relative z-10 flex items-center space-x-4 sm:space-x-8">
-              <span className="font-sans text-xs uppercase tracking-[0.18em] text-neutral-500 font-semibold">
+            <div className="relative z-10 flex items-center space-x-3 sm:space-x-8 min-w-0 pr-2">
+              <span className="font-sans text-xs uppercase tracking-[0.18em] text-neutral-500 font-semibold shrink-0">
                 {item.number || `0${idx + 1}`}
               </span>
-              <span className="font-display text-xl sm:text-2xl md:text-3xl font-light text-neutral-200 group-hover:text-white transition-colors duration-300">
+              <span className="font-display text-base sm:text-2xl md:text-3xl font-light text-neutral-200 group-hover:text-white transition-colors duration-300 truncate">
                 {item.text || item.title}
               </span>
             </div>

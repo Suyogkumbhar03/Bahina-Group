@@ -85,29 +85,29 @@ export function FocusAreasSection() {
   const row2 = focusAreas.slice(3)
 
   return (
-    <section id="focus-areas" className="relative z-10 w-full scroll-mt-28 py-28 md:py-36 overflow-hidden">
+    <section id="focus-areas" className="relative z-10 w-full scroll-mt-28 py-20 sm:py-28 md:py-36 overflow-hidden">
       {/* Header Container */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 mb-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 mb-8 sm:mb-12">
         <ShinyText text={t("focus.eyebrow")} className="text-[12px] font-sans font-semibold tracking-[0.14em]" />
-        <h2 className="mt-3 font-display font-light text-[#F3EFEA] text-[clamp(1.85rem,3.8vw,3.25rem)]">
+        <h2 className="mt-3 font-display font-light text-[#F3EFEA] text-[clamp(1.75rem,3.8vw,3.25rem)]">
           {t("focus.heading")}
         </h2>
-        <p className="mt-3 font-sans text-[18px] text-neutral-300 max-w-xl font-normal leading-[1.65]">
+        <p className="mt-3 font-sans text-base sm:text-[18px] text-neutral-300 max-w-xl font-normal leading-[1.65]">
           {t("focus.description")}
         </p>
       </div>
 
       {/* 1. Two-Row Marquee Moving in Opposite Directions with Soft Fade Edges */}
-      <div className="relative w-full py-4 mb-16 overflow-hidden border-y border-white/10 bg-white/[0.01] space-y-3">
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-10 w-28 bg-gradient-to-r from-[#070908] to-transparent" />
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-28 bg-gradient-to-l from-[#070908] to-transparent" />
+      <div className="relative w-full py-3 sm:py-4 mb-12 sm:mb-16 overflow-hidden border-y border-white/10 bg-white/[0.01] space-y-2.5 sm:space-y-3">
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-10 w-12 sm:w-28 bg-gradient-to-r from-[#070908] to-transparent" />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-12 sm:w-28 bg-gradient-to-l from-[#070908] to-transparent" />
 
         {/* Row 1: Forward */}
         <Marquee pauseOnHover repeat={4} className="py-1">
           {row1.map((area) => (
             <div
               key={`row1-${area.id}`}
-              className="flex items-center space-x-3 rounded-full border border-white/10 bg-[#0E1210]/70 px-5 py-2.5 mx-2 text-xs font-sans text-neutral-200"
+              className="flex items-center space-x-3 rounded-full border border-white/10 bg-[#0E1210]/70 px-4 sm:px-5 py-2 sm:py-2.5 mx-1.5 sm:mx-2 text-xs font-sans text-neutral-200"
             >
               <span
                 className="h-2 w-2 rounded-full"
@@ -128,7 +128,7 @@ export function FocusAreasSection() {
           {row2.map((area) => (
             <div
               key={`row2-${area.id}`}
-              className="flex items-center space-x-3 rounded-full border border-white/10 bg-[#0E1210]/70 px-5 py-2.5 mx-2 text-xs font-sans text-neutral-200"
+              className="flex items-center space-x-3 rounded-full border border-white/10 bg-[#0E1210]/70 px-4 sm:px-5 py-2 sm:py-2.5 mx-1.5 sm:mx-2 text-xs font-sans text-neutral-200"
             >
               <span
                 className="h-2 w-2 rounded-full"
@@ -146,8 +146,8 @@ export function FocusAreasSection() {
       </div>
 
       {/* 2. Bento Grid with Different Card Sizes & MagicCard Spotlight */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-5">
           {focusAreas.map((area, idx) => {
             const Icon = iconMap[area.id] || Cpu
 

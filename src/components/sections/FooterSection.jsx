@@ -67,8 +67,8 @@ export function FooterSection({ onOpenWelcomeVideo }) {
   return (
     <footer className="relative border-t border-white/10 bg-[#060807] pt-16 pb-14 overflow-hidden text-neutral-400">
       {/* 1. React Bits Flowing Menu for the Three Divisions */}
-      <div className="w-full mb-14">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-4">
+      <div className="w-full mb-12 sm:mb-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 mb-4">
           <span className="font-sans text-xs uppercase font-semibold tracking-[0.14em] text-neutral-400">
             {t("footer.portfolioNav")}
           </span>
@@ -77,12 +77,12 @@ export function FooterSection({ onOpenWelcomeVideo }) {
       </div>
 
       {/* 2. React Bits Scroll Velocity Tagline Strip */}
-      <div className="w-full border-b border-white/10 py-6 mb-16 bg-white/[0.01]">
+      <div className="w-full border-b border-white/10 py-4 sm:py-6 mb-12 sm:mb-16 bg-white/[0.01]">
         <ScrollVelocity key={velocityTexts.join("-")} texts={velocityTexts} />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-12 pb-12 sm:pb-16 border-b border-white/10">
           {/* Brand Column */}
           <div className="lg:col-span-5 flex flex-col space-y-4">
             <div className="flex items-center space-x-3 text-[#F3EFEA]">
@@ -189,7 +189,7 @@ export function FooterSection({ onOpenWelcomeVideo }) {
                 text="BAHINA"
                 duration={1000}
                 animateOnHover
-                className="text-5xl sm:text-6xl lg:text-7xl font-light text-white/20 hover:text-white/40 transition-colors"
+                className="text-4xl sm:text-6xl lg:text-7xl font-light text-white/20 hover:text-white/40 transition-colors"
               />
             </div>
           </div>

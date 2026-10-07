@@ -6,8 +6,8 @@ export function AnimatedBeamDiagram() {
   const { t, isMarathi } = useLanguage()
 
   return (
-    <div className="relative w-full max-w-lg mx-auto p-8 rounded-3xl border border-white/10 bg-[#0A0D0B]/85 flex flex-col items-center justify-center min-h-[360px]">
-      <div className="text-center mb-8">
+    <div className="relative w-full max-w-lg mx-auto p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-white/10 bg-[#0A0D0B]/85 flex flex-col items-center justify-center min-h-[340px] sm:min-h-[360px]">
+      <div className="text-center mb-6 sm:mb-8">
         <span className="font-sans text-xs uppercase font-semibold tracking-[0.14em] text-neutral-400">
           {t("beam.badge")}
         </span>
@@ -99,7 +99,7 @@ export function AnimatedBeamDiagram() {
         </div>
 
         {/* Bottom Three Division Nodes */}
-        <div className="absolute bottom-[2%] left-0 right-0 flex justify-between px-4 sm:px-8">
+        <div className="absolute bottom-[2%] left-0 right-0 flex justify-between px-2 sm:px-8">
           {/* Node 1: Hospitality (Amber) */}
           <div className="flex flex-col items-center">
             <div className="h-11 w-11 rounded-full border border-[#D9A441]/40 bg-[#16140F] flex items-center justify-center shadow-md">

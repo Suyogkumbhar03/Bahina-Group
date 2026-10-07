@@ -99,11 +99,11 @@ export function ExpandingPanels({ values }) {
           return (
             <div
               key={val.name}
-              className="rounded-2xl border border-white/15 bg-black/45 backdrop-blur-[2px] p-5 overflow-hidden transition-all shadow-lg"
+              className="rounded-2xl border border-white/15 bg-black/45 backdrop-blur-[2px] p-4 sm:p-5 overflow-hidden transition-all shadow-lg"
             >
               <button
                 onClick={() => setActiveIdx(isOpen ? -1 : idx)}
-                className="w-full flex items-center justify-between text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-white/60"
+                className="w-full flex items-center justify-between text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-white/60 min-h-[44px]"
                 aria-expanded={isOpen}
               >
                 <div className="flex items-center space-x-3">

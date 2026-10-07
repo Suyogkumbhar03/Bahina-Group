@@ -256,7 +256,10 @@ This document contains all visible text across the BAHINA Group website for revi
 | `welcome.captionsOff` | Captions off | उपशीर्षके बंद *(needs native review)* | | 
 | `welcome.captionsOn` | Captions | उपशीर्षके *(needs native review)* | | 
 | `welcome.dialogAria` | Welcome to BAHINA Group | BAHINA ग्रुप स्वागत व्हिडिओ *(needs native review)* | | 
+| `welcome.htmlTagline` | From Soil to Spaces. Enriching Every Life. | मातीपासून वास्तूपर्यंत. प्रत्येक जीवनाला समृद्ध करत. *(needs native review)* | | 
+| `welcome.htmlTitle` | Welcome to BAHINA. | नमस्कार! BAHINA मध्ये आपले स्वागत आहे. *(needs native review)* | | 
 | `welcome.loading` | Loading website... | संकेतस्थळ लोड होत आहे... *(needs native review)* | | 
+| `welcome.marathiNotice` | नमस्कार! BAHINA मध्ये आपले स्वागत आहे. | नमस्कार! BAHINA मध्ये आपले स्वागत आहे. *(needs native review)* | | 
 | `welcome.pause` | Pause | थांबवा *(needs native review)* | | 
 | `welcome.pauseAria` | Pause video | व्हिडिओ थांबवा *(needs native review)* | | 
 | `welcome.play` | Play | सुरू करा *(needs native review)* | | 
@@ -268,5 +271,6 @@ This document contains all visible text across the BAHINA Group website for revi
 | `welcome.soundOffAria` | Turn sound off | आवाज बंद करा *(needs native review)* | | 
 | `welcome.soundOn` | Turn sound on | आवाज सुरू करा *(needs native review)* | | 
 | `welcome.soundOnAria` | Turn sound on to hear voice | आवाज ऐकण्यासाठी आवाज सुरू करा *(needs native review)* | | 
+| `welcome.tapToPlay` | Tap to play | व्हिडिओ सुरू करा *(needs native review)* | | 
 | `welcome.watchVideo` | Watch welcome video | स्वागत व्हिडिओ पाहा *(needs native review)* | | 
 | `welcome.watchVideoAria` | Open welcome video | स्वागत व्हिडिओ उघडा *(needs native review)* | | 

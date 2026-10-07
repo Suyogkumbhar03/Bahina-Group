@@ -7,6 +7,7 @@ This file tracks media assets and optional captions for the BAHINA Group website
 The website includes a full-screen Welcome Video Overlay with native recorded voice:
 - **Video**: `public/video/welcome.mp4` (Found: 21,124,609 bytes / 20.15 MB, Duration: 8.07 seconds)
 - **Poster**: `public/video/welcome-poster.jpg` (Found: 77,978 bytes / 76.1 KB, under 80KB)
+- **Optional Vertical Video**: An optional 9:16 portrait version without burned-in text can be added at `public/video/welcome-portrait.mp4` and `public/video/welcome-portrait-poster.jpg`. If placed, it is automatically served on portrait mobile screens; if missing, the widescreen video gracefully falls back to the contain + ambient blur letterbox layout with zero errors. Captions and sound controls remain identical for both versions.
 
 The following caption files are supported. When provided, the captions toggle button automatically appears on the overlay:
 

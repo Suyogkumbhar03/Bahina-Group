@@ -117,9 +117,11 @@ export function Navbar() {
           </div>
 
           {/* Right Action Elements: Language Switcher + Contact + Hamburger */}
-          <div className="flex items-center space-x-2 sm:space-x-2.5 shrink-0">
-            {/* Text Size Scaling Control (A, A+, A++) */}
-            <TextSizeControl compact />
+          <div className="flex items-center space-x-1.5 sm:space-x-2.5 shrink-0">
+            {/* Text Size Scaling Control (A, A+, A++) - visible on sm+ in top navbar, always in mobile drawer */}
+            <div className="hidden sm:inline-flex">
+              <TextSizeControl compact />
+            </div>
 
             {/* Language Switcher in Navbar (compact mode) */}
             <LanguageSwitcher compact />
