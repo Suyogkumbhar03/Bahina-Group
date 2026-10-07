@@ -50,8 +50,21 @@ function getInitialLanguage() {
   return "en"
 }
 
+function getInitialTextScale() {
+  if (typeof window === "undefined") return "100"
+  try {
+    const saved = localStorage.getItem("bahina_text_scale")
+    if (saved === "100" || saved === "115" || saved === "130") {
+      return saved
+    }
+  } catch (e) {}
+  return "100"
+}
+
+
 export function LanguageProvider({ children }) {
   const [language, setLanguageState] = useState(getInitialLanguage)
+  const [textScale, setTextScaleState] = useState(getInitialTextScale)
   const [isFading, setIsFading] = useState(false)
   const [announcement, setAnnouncement] = useState("")
   const isInitialMount = useRef(true)
@@ -150,6 +163,25 @@ export function LanguageProvider({ children }) {
     isInitialMount.current = false
   }, [language, applyLanguageEffects])
 
+  // Apply root font-size scaling for textScale (100%, 115%, 130%)
+  useEffect(() => {
+    if (typeof document === "undefined") return
+    document.documentElement.style.fontSize = `${textScale}%`
+    try {
+      localStorage.setItem("bahina_text_scale", textScale)
+    } catch (e) {}
+
+    // Refresh ScrollTrigger when text size changes to recalculate layouts
+    if (typeof window !== "undefined" && typeof ScrollTrigger !== "undefined") {
+      setTimeout(() => ScrollTrigger.refresh(), 120)
+    }
+  }, [textScale])
+
+  const setTextScale = useCallback((scale) => {
+    if (scale !== "100" && scale !== "115" && scale !== "130") return
+    setTextScaleState(scale)
+  }, [])
+
   // Language switch handler with smooth 200ms text fade & scroll position preservation
   const setLanguage = useCallback(
     (nextLang) => {
@@ -201,6 +233,8 @@ export function LanguageProvider({ children }) {
     t,
     isFading,
     isMarathi: language === "mr",
+    textScale,
+    setTextScale,
   }
 
   return React.createElement(

@@ -8,6 +8,7 @@ import { BorderBeam } from "@/components/ui/border-beam"
 import { FlickeringGrid } from "@/components/ui/flickering-grid"
 import { ShinyText } from "@/components/ui/shiny-text"
 import { Magnet } from "@/components/ui/Magnet"
+import { WarliCorner } from "@/components/ui/warli-divider"
 import { useLanguage } from "@/lib/i18n"
 
 export function DivisionsSection({ onThemeChange }) {
@@ -194,8 +195,12 @@ export function DivisionsSection({ onThemeChange }) {
           <div
             ref={cardRef}
             onMouseMove={handleCardMouseMove}
-            className="col-span-11 relative rounded-3xl border border-white/15 bg-[#070908]/50 backdrop-blur-xl p-10 lg:p-12 overflow-hidden shadow-2xl flex flex-col justify-between"
+            className="col-span-11 relative rounded-3xl border border-[#D9A441]/25 bg-[#070908]/45 backdrop-blur-[2px] p-8 lg:p-11 overflow-hidden shadow-2xl flex flex-col justify-between"
           >
+            <div className="absolute top-4 right-4 rotate-90">
+              <WarliCorner accent={current.accent} />
+            </div>
+
             {/* 1. Magic UI BorderBeam on the active division card */}
             <BorderBeam
               size={350}
@@ -250,16 +255,16 @@ export function DivisionsSection({ onThemeChange }) {
             )}
 
             {/* Inner Content Grid */}
-            <div className="grid grid-cols-12 gap-10 items-center">
+            <div className="grid grid-cols-12 gap-8 items-stretch">
               {/* Left Column: Number, Title, Tagline */}
-              <div className="col-span-5 flex flex-col justify-between border-r border-white/10 pr-8">
+              <div className="col-span-5 flex flex-col justify-between bg-black/40 backdrop-blur-[2px] p-7 rounded-2xl border border-white/10 shadow-lg">
                 <div>
                   <motion.span
                     key={current.number}
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.4 }}
-                    className="font-display text-8xl lg:text-9xl font-light tracking-tight block leading-none select-none transition-colors duration-500"
+                    className="font-display text-8xl lg:text-9xl font-light tracking-tight block leading-none select-none transition-colors duration-500 drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]"
                     style={{
                       color: current.accent,
                       textShadow: `0 0 25px ${current.accent}33`,
@@ -268,25 +273,25 @@ export function DivisionsSection({ onThemeChange }) {
                     {current.number}
                   </motion.span>
 
-                  <h3 className="mt-4 font-display text-3xl lg:text-4xl font-normal text-[#F3EFEA] leading-tight">
+                  <h3 className="mt-4 font-display text-3xl lg:text-4xl font-normal text-[#F3EFEA] leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
                     {current.name}
                   </h3>
 
                   <p
-                    className="mt-3 font-display italic text-lg lg:text-xl font-light tracking-wide transition-colors duration-500"
+                    className="mt-3 font-display italic text-lg lg:text-xl font-light tracking-wide transition-colors duration-500 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]"
                     style={{ color: current.accent }}
                   >
                     "{current.tagline}"
                   </p>
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-white/10 text-xs font-sans uppercase tracking-[0.14em] font-semibold text-neutral-400">
+                <div className="mt-8 pt-6 border-t border-white/10 text-xs font-sans uppercase tracking-[0.14em] font-semibold text-neutral-300 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
                   {current.category}
                 </div>
               </div>
 
               {/* Right Column: Lead text, 3 bullets, explore button */}
-              <div className="col-span-7 flex flex-col justify-between pl-4 space-y-6">
+              <div className="col-span-7 flex flex-col justify-between space-y-6 bg-black/40 backdrop-blur-[2px] p-7 rounded-2xl border border-white/10 shadow-lg">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={current.id}
@@ -296,7 +301,7 @@ export function DivisionsSection({ onThemeChange }) {
                     transition={{ duration: 0.35 }}
                     className="space-y-6"
                   >
-                    <p className="font-sans text-[18px] text-neutral-200 font-normal leading-[1.65]">
+                    <p className="font-sans text-[18px] text-neutral-100 font-normal leading-[1.65] drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]">
                       {current.leadText}
                     </p>
 
@@ -310,7 +315,7 @@ export function DivisionsSection({ onThemeChange }) {
                           >
                             —
                           </span>
-                          <span className="font-sans text-sm text-neutral-300 font-normal leading-relaxed">
+                          <span className="font-sans text-sm text-neutral-200 font-normal leading-relaxed drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
                             {bullet}
                           </span>
                         </div>
@@ -318,7 +323,7 @@ export function DivisionsSection({ onThemeChange }) {
                     </div>
 
                     {/* Explore Link with Magnet */}
-                    <div className="pt-4">
+                    <div className="pt-2">
                       <Magnet magnetStrength={0.2} padding={30}>
                         <a href={current.link} data-cursor-label="Explore">
                           <Button
@@ -348,39 +353,39 @@ export function DivisionsSection({ onThemeChange }) {
           </div>
         </div>
 
-        {/* Mobile Layout: Clean Vertical Stack */}
-        <div className="lg:hidden flex flex-col space-y-8 mt-6">
+        {/* Mobile Layout: Clean Translucent Stack */}
+        <div className="lg:hidden flex flex-col space-y-6 mt-6">
           {divisions.map((div) => (
             <div
               key={div.id}
-              className="p-7 rounded-2xl border border-white/10 bg-[#070908]/70 backdrop-blur-lg flex flex-col space-y-4"
+              className="p-7 rounded-2xl border border-white/15 bg-black/45 backdrop-blur-[2px] flex flex-col space-y-4 shadow-xl"
               style={{ borderLeft: `3px solid ${div.accent}` }}
             >
               <div className="flex items-baseline justify-between">
                 <span
-                  className="font-display text-5xl font-light"
+                  className="font-display text-5xl font-light drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]"
                   style={{ color: div.accent }}
                 >
                   {div.number}
                 </span>
-                <span className="font-sans text-xs uppercase font-semibold tracking-[0.14em] text-neutral-400">
+                <span className="font-sans text-xs uppercase font-semibold tracking-[0.14em] text-neutral-300 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
                   {div.shortName}
                 </span>
               </div>
 
               <div>
-                <h3 className="font-display text-2xl font-normal text-white">
+                <h3 className="font-display text-2xl font-normal text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]">
                   {div.name}
                 </h3>
                 <p
-                  className="mt-1 font-display italic text-base"
+                  className="mt-1 font-display italic text-base drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]"
                   style={{ color: div.accent }}
                 >
                   "{div.tagline}"
                 </p>
               </div>
 
-              <p className="text-sm text-neutral-300 leading-relaxed font-normal">
+              <p className="text-sm text-neutral-100 leading-relaxed font-normal drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
                 {div.leadText}
               </p>
 

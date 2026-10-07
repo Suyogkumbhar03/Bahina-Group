@@ -24,13 +24,13 @@ export const mr = {
   "preloader.ariaLabel": "BAHINA ग्रुप संकेतस्थळ लोड होत आहे",
 
   // Navigation
-  "nav.about": "आमच्याबद्दल",
-  "nav.divisions": "कंपन्या",
+  "nav.about": "आमची ओळख",
+  "nav.divisions": "आमच्या कंपन्या",
   "nav.visionMission": "दृष्टी",
   "nav.focusAreas": "कार्यक्षेत्रे",
   "nav.values": "मूल्ये",
   "nav.approach": "पद्धत",
-  "nav.contact": "आमच्याशी संपर्क साधा",
+  "nav.contact": "संपर्क साधा",
   "nav.menuOpen": "मेनू उघडा",
   "nav.menuClose": "मेनू बंद करा",
   "nav.mainNavAria": "मुख्य नेव्हिगेशन",
@@ -43,13 +43,39 @@ export const mr = {
   "lang.mr": "मराठी",
   "lang.announced": "भाषा मराठीत बदलली आहे",
 
+  // Text Size Control
+  "textSize.label": "अक्षराचा आकार",
+  "textSize.small": "अ",
+  "textSize.medium": "अ+",
+  "textSize.large": "अ++",
+  "textSize.smallAria": "साधारण मजकूर आकार १००%",
+  "textSize.mediumAria": "मोठा मजकूर आकार ११५%",
+  "textSize.largeAria": "सर्वात मोठा मजकूर आकार १३०%",
+
+  // Rural Greetings
+  "greeting.welcome": "नमस्कार! आपले स्वागत आहे.",
+  "greeting.morning": "शुभ सकाळ",
+  "greeting.afternoon": "शुभ दुपार",
+  "greeting.evening": "शुभ संध्याकाळ",
+  "greeting.night": "शुभ रात्री",
+  "greeting.listenVoice": "ऐका",
+  "greeting.pauseVoice": "थांबवा",
+  "greeting.listenAria": "मराठीत स्वागत संदेश ऐका",
+
+  // Rural Actions
+  "action.call": "आम्हाला फोन करा",
+  "action.whatsapp": "व्हॉट्सअॅपवर बोला",
+  "action.seeWork": "आमचे काम पाहा",
+  "action.shareDetails": "आपली माहिती द्या, आम्ही फोन करू",
+  "action.callSoon": "धन्यवाद! आम्ही लवकरच आपल्याला फोन करू.",
+
   // Section Indicator (Tooltips & Aria)
   "indicator.aria": "विभाग निर्देशक",
   "indicator.overview": "माहिती",
-  "indicator.essence": "आमच्याबद्दल",
-  "indicator.divisions": "कंपन्या",
+  "indicator.essence": "आमची ओळख",
+  "indicator.divisions": "आमच्या कंपन्या",
   "indicator.pillars": "ध्येय",
-  "indicator.connect": "संपर्क",
+  "indicator.connect": "संपर्क साधा",
   "indicator.scrollTo": "येथे जा",
 
   // Hero Section
@@ -218,21 +244,25 @@ export const mr = {
   "cta.emailAction": "ईमेल पाठवा",
 
   // Contact Form
-  "form.title": "आम्हाला संदेश पाठवा",
-  "form.description": "हा सोपा फॉर्म भरा. आमची टीम दोन दिवसांत तुम्हाला उत्तर देईल.",
-  "form.nameLabel": "तुमचे नाव",
-  "form.namePlaceholder": "तुमचे पूर्ण नाव लिहा",
+  "form.title": "आपली माहिती द्या, आम्ही फोन करू",
+  "form.description": "खाली आपले नाव आणि फोन नंबर लिहा. आमची टीम लवकरच आपल्याला फोन करेल.",
+  "form.nameLabel": "आपले नाव",
+  "form.namePlaceholder": "आपले पूर्ण नाव लिहा",
+  "form.villageLabel": "गाव किंवा शहर",
+  "form.villagePlaceholder": "आपल्या गावाचे किंवा शहराचे नाव (ऐच्छिक)",
   "form.emailLabel": "ईमेल पत्ता",
-  "form.emailPlaceholder": "तुमचा ईमेल पत्ता लिहा",
+  "form.emailPlaceholder": "आपला ईमेल पत्ता लिहा",
   "form.phoneLabel": "फोन नंबर",
-  "form.phonePlaceholder": "तुमचा फोन नंबर लिहा",
-  "form.messageLabel": "तुमचा संदेश",
-  "form.messagePlaceholder": "आम्ही तुम्हाला कशी मदत करू शकतो ते सांगा",
-  "form.submit": "संदेश पाठवा",
-  "form.submitting": "संदेश पाठवत आहे...",
-  "form.success": "धन्यवाद! तुमचा संदेश यशस्वीरीत्या पाठवला गेला आहे.",
-  "form.error": "क्षमस्व, संदेश पाठवताना अडचण आली. कृपया थेट info@bahinaa.com वर ईमेल करा.",
+  "form.phonePlaceholder": "आपला १० अंकी फोन नंबर लिहा",
+  "form.messageLabel": "आपला संदेश",
+  "form.messagePlaceholder": "आपल्याला काय मदत हवी आहे ते सांगा",
+  "form.submit": "आपली माहिती द्या, आम्ही फोन करू",
+  "form.submitting": "माहिती पाठवत आहे...",
+  "form.success": "धन्यवाद! आम्ही लवकरच आपल्याला फोन करू.",
+  "form.error": "क्षमस्व, अडचण आली. कृपया आम्हाला थेट फोन करा.",
   "form.required": "हे भरणे आवश्यक आहे.",
+  "form.phoneError": "कृपया आपला फोन नंबर तपासा.",
+  "form.nameError": "कृपया आपले नाव लिहा.",
   "form.invalidEmail": "कृपया योग्य ईमेल पत्ता लिहा.",
 
   // Mailto Fallback
@@ -272,6 +302,27 @@ export const mr = {
   "footer.subline": "एक नाव. तीन वचने. अमर्याद प्रभाव.",
   "footer.emailAria": "info@bahinaa.com वर ईमेल पाठवा",
   "footer.websiteAria": "www.bahinaa.com ला भेट द्या",
+  "footer.warmWelcome": "आपले नेहमी स्वागत आहे.",
+
+  // Welcome Video Overlay
+  "welcome.dialogAria": "BAHINA ग्रुप स्वागत व्हिडिओ",
+  "welcome.soundOn": "आवाज सुरू करा",
+  "welcome.soundOff": "आवाज बंद करा",
+  "welcome.soundOnAria": "आवाज ऐकण्यासाठी आवाज सुरू करा",
+  "welcome.soundOffAria": "आवाज बंद करा",
+  "welcome.skip": "वगळा",
+  "welcome.skipAria": "व्हिडिओ वगळा आणि मुख्य संकेतस्थळावर जा",
+  "welcome.play": "सुरू करा",
+  "welcome.pause": "थांबवा",
+  "welcome.playAria": "व्हिडिओ सुरू करा",
+  "welcome.pauseAria": "व्हिडिओ थांबवा",
+  "welcome.playWithSize": "पाहा (२० MB)",
+  "welcome.captionsOn": "उपशीर्षके",
+  "welcome.captionsOff": "उपशीर्षके बंद",
+  "welcome.captionsAria": "उपशीर्षके बदला",
+  "welcome.watchVideo": "स्वागत व्हिडिओ पाहा",
+  "welcome.watchVideoAria": "स्वागत व्हिडिओ उघडा",
+  "welcome.loading": "संकेतस्थळ लोड होत आहे...",
 }
 
 export default mr

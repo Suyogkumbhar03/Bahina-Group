@@ -34,7 +34,7 @@ function Word({ children, progress, range }) {
 
   return (
     <span className="relative mr-2.5 lg:mr-3.5 my-1 inline-block">
-      <motion.span style={{ opacity, y }} className="text-[#F3EFEA] inline-block transition-colors">
+      <motion.span style={{ opacity, y }} className="text-[#F3EFEA] inline-block transition-colors drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
         {children}
       </motion.span>
     </span>

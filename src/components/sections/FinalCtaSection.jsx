@@ -1,21 +1,21 @@
 import React, { useState } from "react"
-import { ArrowUpRight, Copy, Check, Mail, Send } from "lucide-react"
-import { BorderBeam } from "@/components/ui/border-beam"
-import { StarBorder } from "@/components/ui/star-border"
+import { ArrowUpRight, Copy, Check, Mail, Send, Phone, MessageCircle } from "lucide-react"
 import { AnimatedGradientText } from "@/components/ui/animated-gradient-text"
 import { ShinyText } from "@/components/ui/shiny-text"
 import { Magnet } from "@/components/ui/Magnet"
+import { WarliCorner } from "@/components/ui/warli-divider"
 import { useLanguage } from "@/lib/i18n"
+import { RURAL_CONFIG } from "@/config"
 
 export function FinalCtaSection() {
   const { t, language, isMarathi } = useLanguage()
   const [copied, setCopied] = useState(false)
 
-  // Contact Form State
+  // Rural-first Contact Form State (Name, Phone, Village, optional Message)
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
     phone: "",
+    village: "",
     message: "",
   })
   const [errors, setErrors] = useState({})
@@ -33,15 +33,11 @@ export function FinalCtaSection() {
   const validate = () => {
     const errs = {}
     if (!formData.name.trim()) {
-      errs.name = t("form.required")
+      errs.name = t("form.nameError")
     }
-    if (!formData.email.trim()) {
-      errs.email = t("form.required")
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      errs.email = t("form.invalidEmail")
-    }
-    if (!formData.message.trim()) {
-      errs.message = t("form.required")
+    const phoneDigits = formData.phone.replace(/\D/g, "")
+    if (!formData.phone.trim() || phoneDigits.length < 10) {
+      errs.phone = t("form.phoneError")
     }
     setErrors(errs)
     return Object.keys(errs).length === 0
@@ -57,37 +53,40 @@ export function FinalCtaSection() {
     setTimeout(() => {
       setSubmitting(false)
       setSubmitted(true)
-      setFormData({ name: "", email: "", phone: "", message: "" })
-      setTimeout(() => setSubmitted(false), 6000)
+      setFormData({ name: "", phone: "", village: "", message: "" })
+      setTimeout(() => setSubmitted(false), 8000)
     }, 600)
   }
 
   const mailtoSubject = encodeURIComponent(t("mailto.subject"))
   const mailtoBody = encodeURIComponent(
-    `${t("mailto.body")}\n\nLanguage: ${language}\n`
+    `${t("mailto.body")}\n\nName: ${formData.name}\nPhone: ${formData.phone}\nVillage: ${formData.village}\nLanguage: ${language}\n`
   )
   const mailtoLink = `mailto:${emailAddress}?subject=${mailtoSubject}&body=${mailtoBody}`
 
+  const hasPhone = Boolean(RURAL_CONFIG.phoneNumber)
+  const hasWhatsapp = Boolean(RURAL_CONFIG.whatsappNumber)
+
   return (
-    <section id="contact" className="relative z-10 w-full scroll-mt-28 py-32 md:py-44 px-6 md:px-12 max-w-7xl mx-auto">
-      {/* Editorial Card with Magic UI BorderBeam */}
-      <div className="relative rounded-3xl border border-white/20 bg-[#121815]/95 p-8 sm:p-12 md:p-16 overflow-hidden shadow-2xl">
-        <BorderBeam
-          size={380}
-          duration={18}
-          colorFrom="#D9A441"
-          colorTo="#4C8DF6"
-          borderWidth={1.5}
-        />
+    <section id="contact" className="relative z-10 w-full scroll-mt-28 py-28 md:py-36 px-6 md:px-12 max-w-7xl mx-auto">
+      {/* Painted Wall Style Container (Earth palette, soft rounded corners, thin warm border) */}
+      <div className="relative rounded-3xl border border-[#D9A441]/25 bg-[#090D0B]/60 backdrop-blur-[2px] p-8 sm:p-12 md:p-16 overflow-hidden shadow-2xl">
+        {/* Warli Corner Accents */}
+        <div className="absolute top-4 left-4">
+          <WarliCorner accent="#D9A441" />
+        </div>
+        <div className="absolute top-4 right-4 rotate-90">
+          <WarliCorner accent="#D9A441" />
+        </div>
 
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column: Headline, Subline, Direct Contact */}
+          {/* Left Column: Direct Outreach, Phone, WhatsApp */}
           <div className="lg:col-span-6 flex flex-col justify-between">
             <div>
               <ShinyText text={t("cta.eyebrow")} className="text-[12px] font-sans font-semibold tracking-[0.14em]" />
 
-              {/* Big Editorial Headline */}
-              <h2 className="mt-6 font-display font-light text-[#F3EFEA] leading-[1.1] tracking-[-0.02em] text-[clamp(2.25rem,5.5vw,4.5rem)]">
+              {/* Editorial Headline */}
+              <h2 className="mt-6 font-display font-light text-[#F3EFEA] leading-[1.15] tracking-[-0.02em] text-[clamp(2.25rem,5.5vw,4.25rem)] drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
                 {t("cta.headlinePart1")} <br />
                 {t("cta.headlinePart2")} <br />
                 <AnimatedGradientText className={`font-normal ${isMarathi ? "not-italic font-medium text-[#D9A441]" : "italic"}`}>
@@ -95,32 +94,52 @@ export function FinalCtaSection() {
                 </AnimatedGradientText>
               </h2>
 
-              <p className="mt-6 font-sans text-[18px] text-neutral-200 font-normal leading-[1.65] max-w-xl">
+              <p className="mt-6 font-sans text-[18px] text-[#EDE8E1] font-normal leading-[1.65] max-w-xl drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
                 {t("cta.subline")}
               </p>
             </div>
 
-            {/* Direct Contact Buttons */}
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              {/* Star Border Mailto Button with Magnet */}
-              <Magnet magnetStrength={0.25} padding={40}>
-                <a href={mailtoLink} data-cursor-label="Email">
-                  <StarBorder speed="3.5s" color="#D9A441">
-                    <span className="flex items-center space-x-2">
-                      <Mail className="h-3.5 w-3.5 mr-1" />
-                      <span>{t("cta.action")}</span>
-                      <ArrowUpRight className="h-3.5 w-3.5 ml-1" />
-                    </span>
-                  </StarBorder>
+            {/* Prominent Direct Action Buttons */}
+            <div className="mt-8 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3.5">
+              {/* Biggest Action: Direct Call (When configured in config.js) */}
+              {hasPhone && (
+                <a
+                  href={`tel:${RURAL_CONFIG.phoneNumber}`}
+                  className="inline-flex items-center justify-center space-x-3 px-6 py-3.5 rounded-full bg-[#D9A441] text-black font-sans font-bold text-sm uppercase tracking-[0.08em] hover:bg-[#E5A823] transition-all shadow-lg min-h-[52px]"
+                >
+                  <Phone className="h-5 w-5 shrink-0" />
+                  <span>{t("action.call")}</span>
                 </a>
-              </Magnet>
+              )}
 
-              {/* Copy-Email Button */}
+              {/* Biggest Action: WhatsApp (When configured in config.js) */}
+              {hasWhatsapp && (
+                <a
+                  href={`https://wa.me/${RURAL_CONFIG.whatsappNumber}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center space-x-3 px-6 py-3.5 rounded-full bg-[#25D366] text-black font-sans font-bold text-sm uppercase tracking-[0.08em] hover:bg-[#20BA56] transition-all shadow-lg min-h-[52px]"
+                >
+                  <MessageCircle className="h-5 w-5 shrink-0" />
+                  <span>{t("action.whatsapp")}</span>
+                </a>
+              )}
+
+              {/* Email Mailto Button */}
+              <a
+                href={mailtoLink}
+                className="inline-flex items-center justify-center space-x-2 px-5 py-3.5 rounded-full border border-white/25 bg-white/5 hover:bg-white/10 text-neutral-100 hover:text-white font-sans font-semibold text-xs uppercase tracking-[0.1em] transition-all min-h-[52px]"
+              >
+                <Mail className="h-4 w-4 mr-1 text-[#D9A441]" />
+                <span>{t("cta.emailAction")}</span>
+                <ArrowUpRight className="h-4 w-4 ml-1 opacity-70" />
+              </a>
+
+              {/* Copy Email Button */}
               <button
                 type="button"
                 onClick={handleCopyEmail}
-                data-cursor-label="Copy"
-                className="flex items-center space-x-2.5 px-5 py-3 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 hover:border-white/40 text-xs font-sans font-semibold uppercase tracking-[0.12em] text-neutral-200 hover:text-white transition-all focus:outline-none focus-visible:ring-1 focus-visible:ring-white/60 active:scale-[0.98] min-h-[44px]"
+                className="inline-flex items-center justify-center space-x-2 px-5 py-3.5 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 text-xs font-sans font-semibold uppercase tracking-[0.1em] text-neutral-200 hover:text-white transition-all min-h-[52px]"
                 aria-label={t("cta.copyEmailAria")}
               >
                 {copied ? (
@@ -138,8 +157,8 @@ export function FinalCtaSection() {
             </div>
           </div>
 
-          {/* Right Column: Contact Form with Hidden Language Field */}
-          <div className="lg:col-span-6 rounded-2xl border border-white/15 bg-[#090D0B]/80 p-6 sm:p-8 backdrop-blur-md">
+          {/* Right Column: Simplified Village Contact Form (Name, Phone, Village) */}
+          <div className="lg:col-span-6 rounded-2xl border border-white/20 bg-black/45 p-6 sm:p-8 backdrop-blur-[2px] shadow-2xl">
             <h3 className="font-display text-2xl font-light text-white mb-2">
               {t("form.title")}
             </h3>
@@ -150,14 +169,14 @@ export function FinalCtaSection() {
             {submitted ? (
               <div
                 role="status"
-                className="p-4 rounded-xl border border-[#3E9B63]/40 bg-[#3E9B63]/15 text-[#E6F4EA] text-sm font-sans flex items-center space-x-3"
+                className="p-5 rounded-2xl border border-[#3E9B63]/40 bg-[#3E9B63]/15 text-[#E6F4EA] text-base font-sans flex items-center space-x-3"
               >
-                <Check className="h-5 w-5 text-[#3E9B63] shrink-0" />
-                <span>{t("form.success")}</span>
+                <Check className="h-6 w-6 text-[#3E9B63] shrink-0" />
+                <span className="font-medium">{t("form.success")}</span>
               </div>
             ) : (
               <form onSubmit={handleSubmit} noValidate className="space-y-4">
-                {/* Hidden language field (en or mr) per requirements */}
+                {/* Hidden language field */}
                 <input type="hidden" name="language" value={language} />
 
                 {/* Name Field */}
@@ -166,7 +185,7 @@ export function FinalCtaSection() {
                     htmlFor="contact-name"
                     className="block text-xs font-sans font-semibold uppercase tracking-[0.12em] text-neutral-300 mb-1.5"
                   >
-                    {t("form.nameLabel")} *
+                    {t("form.nameLabel")} <span className="text-[#D9A441]">*</span>
                   </label>
                   <input
                     id="contact-name"
@@ -175,42 +194,22 @@ export function FinalCtaSection() {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder={t("form.namePlaceholder")}
-                    className="w-full px-4 py-3 rounded-xl border border-white/15 bg-white/[0.04] text-white placeholder-neutral-500 font-sans text-sm focus:outline-none focus:border-white/50 focus:ring-1 focus:ring-white/40 transition-colors min-h-[44px]"
+                    className="w-full px-4 py-3 rounded-xl border border-white/20 bg-white/[0.05] text-white placeholder-neutral-400 font-sans text-base focus:outline-none focus:border-[#D9A441] focus:ring-1 focus:ring-[#D9A441] transition-colors min-h-[52px]"
                   />
                   {errors.name && (
-                    <p className="mt-1 text-xs text-rose-400 font-sans">{errors.name}</p>
+                    <p className="mt-1.5 text-xs text-rose-300 font-sans font-medium">{errors.name}</p>
                   )}
                 </div>
 
-                {/* Email and Phone Grid */}
+                {/* Phone & Village Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label
-                      htmlFor="contact-email"
-                      className="block text-xs font-sans font-semibold uppercase tracking-[0.12em] text-neutral-300 mb-1.5"
-                    >
-                      {t("form.emailLabel")} *
-                    </label>
-                    <input
-                      id="contact-email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder={t("form.emailPlaceholder")}
-                      className="w-full px-4 py-3 rounded-xl border border-white/15 bg-white/[0.04] text-white placeholder-neutral-500 font-sans text-sm focus:outline-none focus:border-white/50 focus:ring-1 focus:ring-white/40 transition-colors min-h-[44px]"
-                    />
-                    {errors.email && (
-                      <p className="mt-1 text-xs text-rose-400 font-sans">{errors.email}</p>
-                    )}
-                  </div>
-
+                  {/* Phone Field */}
                   <div>
                     <label
                       htmlFor="contact-phone"
                       className="block text-xs font-sans font-semibold uppercase tracking-[0.12em] text-neutral-300 mb-1.5"
                     >
-                      {t("form.phoneLabel")}
+                      {t("form.phoneLabel")} <span className="text-[#D9A441]">*</span>
                     </label>
                     <input
                       id="contact-phone"
@@ -219,40 +218,59 @@ export function FinalCtaSection() {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder={t("form.phonePlaceholder")}
-                      className="w-full px-4 py-3 rounded-xl border border-white/15 bg-white/[0.04] text-white placeholder-neutral-500 font-sans text-sm focus:outline-none focus:border-white/50 focus:ring-1 focus:ring-white/40 transition-colors min-h-[44px]"
+                      className="w-full px-4 py-3 rounded-xl border border-white/20 bg-white/[0.05] text-white placeholder-neutral-400 font-sans text-base focus:outline-none focus:border-[#D9A441] focus:ring-1 focus:ring-[#D9A441] transition-colors min-h-[52px]"
+                    />
+                    {errors.phone && (
+                      <p className="mt-1.5 text-xs text-rose-300 font-sans font-medium">{errors.phone}</p>
+                    )}
+                  </div>
+
+                  {/* Village Field (Optional) */}
+                  <div>
+                    <label
+                      htmlFor="contact-village"
+                      className="block text-xs font-sans font-semibold uppercase tracking-[0.12em] text-neutral-300 mb-1.5"
+                    >
+                      {t("form.villageLabel")}
+                    </label>
+                    <input
+                      id="contact-village"
+                      name="village"
+                      type="text"
+                      value={formData.village}
+                      onChange={(e) => setFormData({ ...formData, village: e.target.value })}
+                      placeholder={t("form.villagePlaceholder")}
+                      className="w-full px-4 py-3 rounded-xl border border-white/20 bg-white/[0.05] text-white placeholder-neutral-400 font-sans text-base focus:outline-none focus:border-[#D9A441] focus:ring-1 focus:ring-[#D9A441] transition-colors min-h-[52px]"
                     />
                   </div>
                 </div>
 
-                {/* Message Field */}
+                {/* Optional Message Field */}
                 <div>
                   <label
                     htmlFor="contact-message"
                     className="block text-xs font-sans font-semibold uppercase tracking-[0.12em] text-neutral-300 mb-1.5"
                   >
-                    {t("form.messageLabel")} *
+                    {t("form.messageLabel")}
                   </label>
                   <textarea
                     id="contact-message"
                     name="message"
-                    rows={4}
+                    rows={3}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder={t("form.messagePlaceholder")}
-                    className="w-full px-4 py-3 rounded-xl border border-white/15 bg-white/[0.04] text-white placeholder-neutral-500 font-sans text-sm focus:outline-none focus:border-white/50 focus:ring-1 focus:ring-white/40 transition-colors resize-y min-h-[100px]"
+                    className="w-full px-4 py-3 rounded-xl border border-white/20 bg-white/[0.05] text-white placeholder-neutral-400 font-sans text-base focus:outline-none focus:border-[#D9A441] focus:ring-1 focus:ring-[#D9A441] transition-colors resize-y min-h-[90px]"
                   />
-                  {errors.message && (
-                    <p className="mt-1 text-xs text-rose-400 font-sans">{errors.message}</p>
-                  )}
                 </div>
 
-                {/* Submit Button */}
+                {/* Big Action Submit Button (>= 52px tap target) */}
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full py-3.5 px-6 rounded-full bg-white text-black hover:bg-neutral-200 font-sans font-semibold text-xs uppercase tracking-[0.14em] transition-all flex items-center justify-center space-x-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white disabled:opacity-50 min-h-[44px] cursor-pointer"
+                  className="w-full py-4 px-6 rounded-full bg-[#D9A441] text-black hover:bg-[#E5A823] font-sans font-bold text-sm uppercase tracking-[0.1em] transition-all flex items-center justify-center space-x-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white disabled:opacity-50 min-h-[52px] cursor-pointer shadow-lg active:scale-[0.99]"
                 >
-                  <Send className="h-3.5 w-3.5" />
+                  <Send className="h-4 w-4" />
                   <span>{submitting ? t("form.submitting") : t("form.submit")}</span>
                 </button>
               </form>

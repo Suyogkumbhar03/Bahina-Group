@@ -1,5 +1,5 @@
 import React, { useMemo } from "react"
-import { ArrowUp, ArrowUpRight, Mail, Globe } from "lucide-react"
+import { ArrowUp, ArrowUpRight, Mail, Globe, Play } from "lucide-react"
 import { FlowingMenu } from "@/components/ui/flowing-menu"
 import { ScrollVelocity } from "@/components/ui/scroll-velocity"
 import { HyperText } from "@/components/ui/hyper-text"
@@ -7,7 +7,7 @@ import { Magnet } from "@/components/ui/Magnet"
 import { LanguageSwitcher } from "@/components/ui/language-switcher"
 import { useLanguage } from "@/lib/i18n"
 
-export function FooterSection() {
+export function FooterSection({ onOpenWelcomeVideo }) {
   const { t, isMarathi } = useLanguage()
 
   const scrollToTop = () => {
@@ -193,6 +193,25 @@ export function FooterSection() {
               />
             </div>
           </div>
+        </div>
+
+        {/* Warm Village Welcome Line & Watch Video CTA */}
+        <div className="pt-8 pb-5 border-b border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+          <p className="font-display text-lg sm:text-xl text-[#F3EFEA] font-light tracking-wide opacity-90">
+            "{t("footer.warmWelcome")}"
+          </p>
+
+          {onOpenWelcomeVideo && (
+            <button
+              onClick={onOpenWelcomeVideo}
+              type="button"
+              className="inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 text-xs font-sans font-medium text-neutral-200 hover:text-white transition-all min-h-[44px]"
+              aria-label={t("welcome.watchVideoAria")}
+            >
+              <Play className="h-3 w-3 text-[#D9A441] fill-current" />
+              <span>{t("welcome.watchVideo")}</span>
+            </button>
+          )}
         </div>
 
         {/* Bottom Rights */}

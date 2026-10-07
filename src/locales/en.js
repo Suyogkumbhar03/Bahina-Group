@@ -42,6 +42,32 @@ export const en = {
   "lang.mr": "मराठी",
   "lang.announced": "Language changed to English",
 
+  // Text Size Control
+  "textSize.label": "Text size",
+  "textSize.small": "A",
+  "textSize.medium": "A+",
+  "textSize.large": "A++",
+  "textSize.smallAria": "Set normal text size 100%",
+  "textSize.mediumAria": "Set larger text size 115%",
+  "textSize.largeAria": "Set largest text size 130%",
+
+  // Rural Greetings
+  "greeting.welcome": "Namaskar! You are welcome.",
+  "greeting.morning": "Good morning",
+  "greeting.afternoon": "Good afternoon",
+  "greeting.evening": "Good evening",
+  "greeting.night": "Good night",
+  "greeting.listenVoice": "Listen",
+  "greeting.pauseVoice": "Pause",
+  "greeting.listenAria": "Listen to welcome message in Marathi",
+
+  // Rural Actions
+  "action.call": "Call us",
+  "action.whatsapp": "Message on WhatsApp",
+  "action.seeWork": "See our work",
+  "action.shareDetails": "Share details, we will call you",
+  "action.callSoon": "Thank you! We will call you soon.",
+
   // Section Indicator (Tooltips & Aria)
   "indicator.aria": "Page section indicator",
   "indicator.overview": "Overview",
@@ -217,21 +243,25 @@ export const en = {
   "cta.emailAction": "Send Email",
 
   // Contact Form
-  "form.title": "Send Us a Message",
-  "form.description": "Fill out this quick form. Our team will reply within two business days.",
+  "form.title": "Share Your Details, We Will Call You",
+  "form.description": "Give your name and phone number. Our team will call you back shortly.",
   "form.nameLabel": "Your Name",
   "form.namePlaceholder": "Enter your full name",
+  "form.villageLabel": "Village / Town",
+  "form.villagePlaceholder": "Enter your village or town name (optional)",
   "form.emailLabel": "Email Address",
   "form.emailPlaceholder": "Enter your email address",
   "form.phoneLabel": "Phone Number",
-  "form.phonePlaceholder": "Enter your phone number",
+  "form.phonePlaceholder": "Enter your 10-digit phone number",
   "form.messageLabel": "Your Message",
   "form.messagePlaceholder": "Tell us how we can help you",
-  "form.submit": "Send message",
+  "form.submit": "Share details, we will call you",
   "form.submitting": "Sending...",
-  "form.success": "Thank you! Your message was sent successfully.",
-  "form.error": "Sorry, something went wrong. Please email us directly at info@bahinaa.com.",
+  "form.success": "Thank you! We will call you soon.",
+  "form.error": "Sorry, something went wrong. Please call us directly.",
   "form.required": "This field is required.",
+  "form.phoneError": "Please check your phone number.",
+  "form.nameError": "Please enter your name.",
   "form.invalidEmail": "Please enter a valid email address.",
 
   // Mailto Fallback
@@ -271,6 +301,27 @@ export const en = {
   "footer.subline": "One Name. Three Commitments. Endless Impact.",
   "footer.emailAria": "Send email to info@bahinaa.com",
   "footer.websiteAria": "Visit www.bahinaa.com in a new tab",
+  "footer.warmWelcome": "You are always welcome here.",
+
+  // Welcome Video Overlay
+  "welcome.dialogAria": "Welcome to BAHINA Group",
+  "welcome.soundOn": "Turn sound on",
+  "welcome.soundOff": "Turn sound off",
+  "welcome.soundOnAria": "Turn sound on to hear voice",
+  "welcome.soundOffAria": "Turn sound off",
+  "welcome.skip": "Skip",
+  "welcome.skipAria": "Skip welcome video and enter website",
+  "welcome.play": "Play",
+  "welcome.pause": "Pause",
+  "welcome.playAria": "Play video",
+  "welcome.pauseAria": "Pause video",
+  "welcome.playWithSize": "Play (20 MB)",
+  "welcome.captionsOn": "Captions",
+  "welcome.captionsOff": "Captions off",
+  "welcome.captionsAria": "Toggle captions",
+  "welcome.watchVideo": "Watch welcome video",
+  "welcome.watchVideoAria": "Open welcome video",
+  "welcome.loading": "Loading website...",
 }
 
 export default en

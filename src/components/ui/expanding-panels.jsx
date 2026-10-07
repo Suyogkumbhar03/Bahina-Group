@@ -36,8 +36,8 @@ export function ExpandingPanels({ values }) {
               transition={{ type: "spring", stiffness: 220, damping: 24 }}
               className={`relative overflow-hidden rounded-2xl border cursor-pointer transition-all duration-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-white/60 ${
                 isActive
-                  ? "flex-[3.5] border-white/30 bg-[#0E1310]/95 shadow-2xl"
-                  : "flex-1 border-white/10 bg-[#080B09]/80 hover:border-white/20"
+                  ? "flex-[3.5] border-white/30 bg-black/50 backdrop-blur-[2px] shadow-2xl"
+                  : "flex-1 border-white/15 bg-black/35 backdrop-blur-[2px] hover:border-white/25"
               }`}
             >
               <GlareHover className="h-full w-full p-7 flex flex-col justify-between">
@@ -56,7 +56,7 @@ export function ExpandingPanels({ values }) {
                 {/* Title & Description */}
                 <div>
                   <h3
-                    className={`font-display font-normal text-[#F3EFEA] transition-all leading-tight ${
+                    className={`font-display font-normal text-[#F3EFEA] transition-all leading-tight drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)] ${
                       isActive ? "text-3xl" : "text-xl truncate"
                     }`}
                   >
@@ -71,7 +71,7 @@ export function ExpandingPanels({ values }) {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 5 }}
                         transition={{ duration: 0.3, delay: 0.1 }}
-                        className="mt-4 font-sans text-sm sm:text-base text-neutral-200 font-normal leading-relaxed max-w-sm"
+                        className="mt-4 font-sans text-sm sm:text-base text-neutral-100 font-normal leading-relaxed max-w-sm drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]"
                       >
                         {val.desc}
                       </motion.p>
@@ -81,7 +81,7 @@ export function ExpandingPanels({ values }) {
 
                 {/* Bottom tag */}
                 <div className="pt-2">
-                  <span className="font-sans text-[11px] uppercase tracking-[0.14em] font-semibold text-neutral-400">
+                  <span className="font-sans text-[11px] uppercase tracking-[0.14em] font-semibold text-neutral-300 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
                     {t("values.badge")}
                   </span>
                 </div>
@@ -99,7 +99,7 @@ export function ExpandingPanels({ values }) {
           return (
             <div
               key={val.name}
-              className="rounded-2xl border border-white/10 bg-[#0C100E] p-5 overflow-hidden transition-all"
+              className="rounded-2xl border border-white/15 bg-black/45 backdrop-blur-[2px] p-5 overflow-hidden transition-all shadow-lg"
             >
               <button
                 onClick={() => setActiveIdx(isOpen ? -1 : idx)}

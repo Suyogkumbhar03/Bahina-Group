@@ -2,11 +2,10 @@ import React, { useEffect, useState, useCallback } from "react"
 import Lenis from "lenis"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Preloader } from "@/components/sections/Preloader"
+import { WelcomeOverlay } from "@/components/ui/welcome-overlay"
 import { FrameSequenceBackground } from "@/components/background/FrameSequenceBackground"
 import { SmoothCursor } from "@/components/ui/smooth-cursor"
 import { ClickSpark } from "@/components/ui/ClickSpark"
-import { Particles } from "@/components/ui/particles"
 import { SectionIndicator } from "@/components/ui/section-indicator"
 import { Navbar } from "@/components/sections/Navbar"
 import { HeroSection } from "@/components/sections/HeroSection"
@@ -18,37 +17,35 @@ import { ValuesSection } from "@/components/sections/ValuesSection"
 import { ApproachSection } from "@/components/sections/ApproachSection"
 import { FinalCtaSection } from "@/components/sections/FinalCtaSection"
 import { FooterSection } from "@/components/sections/FooterSection"
+import { WarliSectionDivider } from "@/components/ui/warli-divider"
 import { LanguageProvider } from "@/lib/i18n"
+
+function shouldShowWelcomeInitial() {
+  if (typeof window === "undefined") return false
+  try {
+    const params = new URLSearchParams(window.location.search)
+    if (params.get("welcome") === "1") return true
+    const seen = localStorage.getItem("bahina_welcome_seen")
+    return !seen
+  } catch (e) {
+    return true
+  }
+}
 
 export function App() {
   const [activeTheme, setActiveTheme] = useState("neutral")
   const [loaded, setLoaded] = useState(false)
   const [pass1Progress, setPass1Progress] = useState(0)
   const [pass1Ready, setPass1Ready] = useState(false)
+  const [isWelcomeOpen, setIsWelcomeOpen] = useState(shouldShowWelcomeInitial)
 
-  const handlePreloaderComplete = useCallback(() => {
+  const handlePass1Complete = useCallback(() => {
+    setPass1Ready(true)
     setLoaded(true)
     if (typeof window !== "undefined") {
       ScrollTrigger.refresh()
     }
   }, [])
-
-  const handlePass1Complete = useCallback(() => {
-    setPass1Ready(true)
-    if (typeof window !== "undefined") {
-      ScrollTrigger.refresh()
-    }
-  }, [])
-
-  // Particle color mapped to active division
-  const particleColor =
-    activeTheme === "hospitality"
-      ? "#D9A441"
-      : activeTheme === "foundation"
-      ? "#3E9B63"
-      : activeTheme === "labs"
-      ? "#4C8DF6"
-      : "#C8C4BD"
 
   // Initialize Lenis Smooth Scrolling and sync with GSAP ScrollTrigger
   useEffect(() => {
@@ -109,22 +106,28 @@ export function App() {
         {/* 2. React Bits Click Spark (Tiny gold spark burst on click) */}
         <ClickSpark sparkColor="#D9A441" sparkCount={8} duration={400} />
 
-        {/* 3. Magic UI Particles (Tiny dust motes tinted by section, max 35 on desktop, 0 on mobile) */}
-        <Particles color={particleColor} quantity={35} />
-
-        {/* 4. Desktop Fixed Right-Edge Section Indicator (01-05 dots) */}
+        {/* 3. Desktop Fixed Right-Edge Section Indicator (01-05 dots) */}
         <SectionIndicator />
 
-        {/* 5. The Preloader Sequence (waits for Pass 1 frames; counter shows real loading progress) */}
-        <Preloader
-          progress={pass1Progress}
-          isReady={pass1Ready}
-          onComplete={handlePreloaderComplete}
+        {/* 4. Fullscreen Welcome Video Overlay with Native Voice */}
+        <WelcomeOverlay
+          isOpen={isWelcomeOpen}
+          onClose={() => setIsWelcomeOpen(false)}
+          isPageReady={pass1Ready}
         />
 
-        {/* 6. The Frame Sequence Background (Fixed full-screen canvas with progressive multi-pass loader) */}
+        {/* Thin Loading Bar (shown only if frames are still loading after welcome overlay is dismissed) */}
+        {!pass1Ready && !isWelcomeOpen && (
+          <div className="fixed top-0 left-0 right-0 z-50 h-[2px] bg-white/10 overflow-hidden pointer-events-none">
+            <div
+              className="h-full bg-[#D9A441] transition-all duration-200"
+              style={{ width: `${Math.max(5, Math.round(pass1Progress * 100))}%` }}
+            />
+          </div>
+        )}
+
+        {/* 5. The Frame Sequence Background (Fixed full-screen canvas with progressive multi-pass loader) */}
         <FrameSequenceBackground
-          activeTheme={activeTheme}
           onPass1Progress={setPass1Progress}
           onPass1Complete={handlePass1Complete}
         />
@@ -135,13 +138,17 @@ export function App() {
           <Navbar />
 
           {/* Hero Section */}
-          <HeroSection />
+          <HeroSection onOpenWelcomeVideo={() => setIsWelcomeOpen(true)} />
 
           {/* About Section */}
           <AboutSection />
 
+          <WarliSectionDivider />
+
           {/* Three Divisions (GSAP Pinned Scroll Showpiece with pinSpacing: true) */}
           <DivisionsSection onThemeChange={setActiveTheme} />
+
+          <WarliSectionDivider />
 
           {/* Vision and Mission (With Animated Beam Diagram) */}
           <VisionMissionSection />
@@ -155,11 +162,15 @@ export function App() {
           {/* Our Approach (Vertical Sticky Timeline with SVG Line-Draw) */}
           <ApproachSection />
 
-          {/* Final CTA (Lighter card with BorderBeam & Aurora Text) */}
+          <WarliSectionDivider />
+
+          {/* Final CTA (Rural-first painted wall card with Warli accents) */}
           <FinalCtaSection />
 
+          <WarliSectionDivider />
+
           {/* Footer (Flowing Menu + Scroll Velocity + HyperText + Magnet Back to Top) */}
-          <FooterSection />
+          <FooterSection onOpenWelcomeVideo={() => setIsWelcomeOpen(true)} />
         </div>
       </div>
     </LanguageProvider>

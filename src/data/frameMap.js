@@ -1,29 +1,29 @@
 /**
  * Frame Sequence Story Mapping
  * 
- * Maps page scroll progress and section boundaries to frame progress (0.0 to 1.0).
- * 
- * Storyline Arc:
- * - Frames 1 to ~145 (0.00 - 0.48): Approach to open white door in daytime meadow
- * - Frame ~145-150 (0.48): Camera passes through the doorway portal ("door moment")
- * - Frames 150 to ~250 (0.48 - 0.85): Night meadow, stars, milky way, Earth rising
- * - Frames 250 to 300 (0.85 - 1.00): Earth fully risen and glowing, lone person gazing forward
+ * Maps page scroll progress and section boundaries to frame progress (0.0 to 1.0)
+ * for the 120-frame "Day in the Village" animation:
+ * - Frames 1 to ~40 (0.00 - 0.33): Morning ploughing field & rural landscape
+ * - Frames 40 to ~80 (0.33 - 0.67): Village street, community, school, daily life (the 3 companies)
+ * - Frames 80 to ~95 (0.67 - 0.79): Late afternoon golden hour transition (Vision, Focus, Values, Approach)
+ * - Frames 95 to 120 (0.79 - 1.00): Sunset with the cart and children into dusk / starry evening sky (Contact & Footer)
  * 
  * Section Requirements:
- * (a) Hero and About show the approach to the door
- * (b) Camera passes through the door right as Three Divisions section begins
- * (c) Night field and rising planet play during Divisions, Vision, Focus Areas and Values
- * (d) Planet is fully risen and person is visible by Final CTA
- * (e) Hold first frame for first 4% of scroll, hold last frame for last 4%
- * (f) Section speeds stay within 0.5x to 2.0x of average speed
+ * (a) Hero and About show the ploughing field
+ * (b) The three company sections show the village street
+ * (c) Contact and the footer show the sunset
+ * (d) Hold first frame for first 3% of scroll, hold last frame for last 3%
+ * (e) Section speeds strictly stay within 0.5x to 2.0x of average speed
  */
 
 // Normalized milestone frame progress (0.0 to 1.0)
 export const FRAME_MILESTONES = {
-  DOOR_PASSAGE: 0.48, // Frame ~145-150 / 300 (camera crosses threshold)
-  PLANET_RISEN: 0.94, // Frame ~270-285 / 300 (Earth fully risen & person standing)
-  FIRST_FRAME_HOLD_SCROLL: 0.04, // First 4% of page scroll holds frame 0
-  LAST_FRAME_HOLD_SCROLL: 0.96,  // Last 4% of page scroll holds last frame
+  PLOUGHING_END: 0.33,      // Frame ~40 / 120 (end of ploughing field)
+  VILLAGE_STREET_END: 0.67, // Frame ~80 / 120 (end of village street)
+  SUNSET_START: 0.79,       // Frame ~95 / 120 (golden sunset with cart & children)
+  SUNSET_DUSK: 1.00,        // Frame 120 / 120 (starry dusk resting frame)
+  FIRST_FRAME_HOLD_SCROLL: 0.03, // First 3% of page scroll holds frame 0
+  LAST_FRAME_HOLD_SCROLL: 0.97,  // Last 3% of page scroll holds last frame
 };
 
 /**
@@ -35,55 +35,55 @@ export const SECTION_MILESTONES = [
     id: "hero",
     label: "Hero",
     defaultScrollRatio: 0.00,
-    targetFrameRatio: 0.00, // Daylight meadow, looking at door
+    targetFrameRatio: 0.00, // Morning ploughing field
   },
   {
     id: "about",
     label: "About",
     defaultScrollRatio: 0.12,
-    targetFrameRatio: 0.20, // Approaching door along flower path
+    targetFrameRatio: 0.15, // Ploughing field & rural morning
   },
   {
     id: "divisions",
-    label: "Three Divisions",
-    defaultScrollRatio: 0.26,
-    targetFrameRatio: FRAME_MILESTONES.DOOR_PASSAGE, // 0.48: crosses door right as Divisions begins!
+    label: "Three Companies",
+    defaultScrollRatio: 0.25,
+    targetFrameRatio: 0.33, // Village street begins for Hospitality, Foundation & Labs
   },
   {
     id: "vision-mission",
     label: "Vision & Mission",
-    defaultScrollRatio: 0.56,
-    targetFrameRatio: 0.70, // Night field, stars emerging, Earth crest rising
+    defaultScrollRatio: 0.55,
+    targetFrameRatio: 0.67, // Village street transition
   },
   {
     id: "focus-areas",
     label: "Focus Areas",
-    defaultScrollRatio: 0.68,
-    targetFrameRatio: 0.79, // Earth rising higher in night sky
+    defaultScrollRatio: 0.66,
+    targetFrameRatio: 0.76, // Late afternoon light
   },
   {
     id: "values",
     label: "Values",
-    defaultScrollRatio: 0.78,
-    targetFrameRatio: 0.86, // Luminous blue Earth ascending
+    defaultScrollRatio: 0.76,
+    targetFrameRatio: 0.83, // Golden hour warmth
   },
   {
     id: "approach",
     label: "Approach",
-    defaultScrollRatio: 0.85,
-    targetFrameRatio: 0.90, // Earth almost fully elevated
+    defaultScrollRatio: 0.84,
+    targetFrameRatio: 0.89, // Sunset begins
   },
   {
     id: "contact",
-    label: "Final CTA",
+    label: "Contact",
     defaultScrollRatio: 0.92,
-    targetFrameRatio: FRAME_MILESTONES.PLANET_RISEN, // 0.94 - 0.96: Planet fully risen & person visible
+    targetFrameRatio: 0.94, // Sunset with cart & children
   },
   {
     id: "footer",
     label: "Footer",
     defaultScrollRatio: 1.00,
-    targetFrameRatio: 1.00, // Resting final frame
+    targetFrameRatio: 1.00, // Dusk & starry sky resting frame
   },
 ];
 
@@ -96,15 +96,14 @@ export const SECTION_MILESTONES = [
  * @returns {number} Mapped frame ratio (0 to 1)
  */
 export function getFrameRatioFromScroll(scrollProgress, customMilestones = null) {
-  // Clamp progress
   const progress = Math.max(0, Math.min(1, scrollProgress));
 
-  // Hold first frame for the first 4% of scroll
+  // Hold first frame for the first 3% of scroll
   if (progress <= FRAME_MILESTONES.FIRST_FRAME_HOLD_SCROLL) {
     return 0;
   }
 
-  // Hold last frame for the last 4% of scroll
+  // Hold last frame for the last 3% of scroll
   if (progress >= FRAME_MILESTONES.LAST_FRAME_HOLD_SCROLL) {
     return 1;
   }
@@ -113,8 +112,7 @@ export function getFrameRatioFromScroll(scrollProgress, customMilestones = null)
     ? customMilestones
     : SECTION_MILESTONES;
 
-  // Remap inner scroll [0.04, 0.96] to effective progression
-  // Normalize progress within [firstHold, lastHold]
+  // Remap inner scroll [0.03, 0.97] to effective progression
   const pNorm = (progress - FRAME_MILESTONES.FIRST_FRAME_HOLD_SCROLL) / 
                 (FRAME_MILESTONES.LAST_FRAME_HOLD_SCROLL - FRAME_MILESTONES.FIRST_FRAME_HOLD_SCROLL);
 
@@ -173,4 +171,26 @@ export function validateSectionSpeeds(milestones = SECTION_MILESTONES) {
     });
   }
   return speeds;
+}
+
+/**
+ * Re-measures section scroll ratios dynamically based on actual DOM element positions.
+ * Call after fonts load and after language switches.
+ */
+export function measureSectionScrollRatios() {
+  if (typeof window === "undefined" || typeof document === "undefined") {
+    return SECTION_MILESTONES;
+  }
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  if (docHeight <= 0) return SECTION_MILESTONES;
+
+  return SECTION_MILESTONES.map((m) => {
+    if (m.id === "hero") return { ...m, scrollRatio: 0 };
+    if (m.id === "footer") return { ...m, scrollRatio: 1 };
+    const el = document.getElementById(m.id);
+    if (!el) return m;
+    const top = el.getBoundingClientRect().top + window.scrollY;
+    const ratio = Math.max(0, Math.min(1, top / docHeight));
+    return { ...m, scrollRatio: ratio };
+  });
 }

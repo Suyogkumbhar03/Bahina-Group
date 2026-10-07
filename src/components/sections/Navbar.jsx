@@ -5,6 +5,7 @@ import { Magnet } from "@/components/ui/Magnet"
 import { StaggeredMenu } from "@/components/ui/staggered-menu"
 import { ScrollProgress } from "@/components/ui/scroll-progress"
 import { LanguageSwitcher } from "@/components/ui/language-switcher"
+import { TextSizeControl } from "@/components/ui/text-size-control"
 import { useLanguage } from "@/lib/i18n"
 
 export function Navbar() {
@@ -117,6 +118,9 @@ export function Navbar() {
 
           {/* Right Action Elements: Language Switcher + Contact + Hamburger */}
           <div className="flex items-center space-x-2 sm:space-x-2.5 shrink-0">
+            {/* Text Size Scaling Control (A, A+, A++) */}
+            <TextSizeControl compact />
+
             {/* Language Switcher in Navbar (compact mode) */}
             <LanguageSwitcher compact />
 

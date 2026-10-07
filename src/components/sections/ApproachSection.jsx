@@ -97,7 +97,7 @@ export function ApproachSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.55, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="relative p-8 rounded-2xl border border-white/10 bg-[#0A0E0C]/90 group hover:border-white/25 transition-all"
+                className="relative p-8 rounded-2xl border border-white/15 bg-black/45 backdrop-blur-[2px] group hover:border-white/30 transition-all shadow-lg"
               >
                 {/* Milestone Node on Timeline with illuminated pulse on view */}
                 <motion.div
@@ -116,17 +116,17 @@ export function ApproachSection() {
                 />
 
                 <div className="flex items-baseline justify-between mb-3">
-                  <span className="font-sans text-xs font-semibold uppercase tracking-[0.14em] text-neutral-400">
+                  <span className="font-sans text-xs font-semibold uppercase tracking-[0.14em] text-neutral-300 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
                     {t("approach.stepLabel")} {step.num}
                   </span>
                   <span className="h-[1px] w-12 bg-white/10 group-hover:w-20 group-hover:bg-white/30 transition-all" />
                 </div>
 
-                <h3 className="font-display text-2xl font-light text-[#F3EFEA]">
+                <h3 className="font-display text-2xl font-light text-[#F3EFEA] drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]">
                   {step.title}
                 </h3>
 
-                <p className="mt-3 font-sans text-sm sm:text-base text-neutral-300 font-normal leading-relaxed max-w-2xl">
+                <p className="mt-3 font-sans text-sm sm:text-base text-neutral-200 font-normal leading-relaxed max-w-2xl drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
                   {step.desc}
                 </p>
               </motion.div>

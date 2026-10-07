@@ -1,30 +1,25 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import crypto from 'crypto';
 import sharp from 'sharp';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 
-// Find input frames: either in raw-frames (if already moved) or public/frames
-const rawDir = path.join(rootDir, 'raw-frames');
+const frame2Dir = path.join(rootDir, 'public', 'frame2');
 const publicFramesDir = path.join(rootDir, 'public', 'frames');
+const rawRuralDir = path.join(rootDir, 'raw-frames-rural');
+const bgJpgPath = path.join(rootDir, 'public', 'bg.jpg');
 
-let sourceDir = '';
-if (fs.existsSync(rawDir) && fs.readdirSync(rawDir).filter(f => f.endsWith('.jpg')).length > 0) {
-  sourceDir = rawDir;
-} else if (fs.existsSync(publicFramesDir) && fs.readdirSync(publicFramesDir).filter(f => f.endsWith('.jpg')).length > 0) {
-  sourceDir = publicFramesDir;
-} else {
-  console.error('No source frames found in raw-frames or public/frames');
+if (!fs.existsSync(frame2Dir)) {
+  console.error(`Source directory ${frame2Dir} does not exist!`);
   process.exit(1);
 }
 
-console.log(`Source directory: ${sourceDir}`);
-
 // Read and sort files numerically
-const frameFiles = fs.readdirSync(sourceDir)
+const frameFiles = fs.readdirSync(frame2Dir)
   .filter(f => f.match(/^ezgif-frame-\d+\.jpg$/i))
   .sort((a, b) => {
     const numA = parseInt(a.match(/\d+/)[0], 10);
@@ -32,77 +27,65 @@ const frameFiles = fs.readdirSync(sourceDir)
     return numA - numB;
   });
 
-console.log(`Found ${frameFiles.length} source frames (first: ${frameFiles[0]}, last: ${frameFiles[frameFiles.length - 1]})`);
+console.log(`Found ${frameFiles.length} source frames in public/frame2`);
+console.log(`First frame: ${frameFiles[0]}, Last frame: ${frameFiles[frameFiles.length - 1]}`);
 
 if (frameFiles.length === 0) {
-  console.error('No frame files matching ezgif-frame-*.jpg found');
+  console.error('No frame files matching ezgif-frame-*.jpg found in public/frame2');
   process.exit(1);
 }
 
-// Ensure destination directories exist
 const desktopDir = path.join(publicFramesDir, 'desktop');
 const mobileDir = path.join(publicFramesDir, 'mobile');
 
 fs.mkdirSync(desktopDir, { recursive: true });
 fs.mkdirSync(mobileDir, { recursive: true });
 
-// Configuration targeting <12MB desktop (150 frames) and <4MB mobile (75 frames)
-// 1280x720 at q58 WebP yields ~11.5 MB total for 150 frames with crisp visual quality.
-// 854x480 at q60 WebP yields ~3.6 MB total for 75 frames.
-const CONFIG = {
-  desktop: {
-    width: 1280,
-    quality: 58,
-    effort: 5,
-    step: 2,
-    dir: desktopDir,
-  },
-  mobile: {
-    width: 854,
-    quality: 60,
-    effort: 5,
-    step: 4,
-    dir: mobileDir,
-  },
-};
+async function build() {
+  console.log('\n--- 1. Building bg.jpg (First frame as JPG under 300KB) ---');
+  const firstFramePath = path.join(frame2Dir, frameFiles[0]);
+  const lastFramePath = path.join(frame2Dir, frameFiles[frameFiles.length - 1]);
 
-async function processFrames() {
-  console.log('\n--- Building Poster Frames ---');
-  const firstFramePath = path.join(sourceDir, frameFiles[0]);
-  const lastFramePath = path.join(sourceDir, frameFiles[frameFiles.length - 1]);
+  await sharp(firstFramePath)
+    .resize(1600, null, { withoutEnlargement: true })
+    .jpeg({ quality: 80, mozjpeg: true })
+    .toFile(bgJpgPath);
 
+  const bgSize = fs.statSync(bgJpgPath).size;
+  console.log(`Created public/bg.jpg (${(bgSize / 1024).toFixed(1)} KB) - Target: < 300 KB`);
+
+  console.log('\n--- 2. Building Posters (poster.webp and poster-end.webp) ---');
   const posterPath = path.join(publicFramesDir, 'poster.webp');
   const posterEndPath = path.join(publicFramesDir, 'poster-end.webp');
 
   await sharp(firstFramePath)
-    .resize(1600, null, { withoutEnlargement: true })
+    .resize(1400, null, { withoutEnlargement: true })
     .webp({ quality: 75, effort: 5 })
     .toFile(posterPath);
 
   await sharp(lastFramePath)
-    .resize(1600, null, { withoutEnlargement: true })
+    .resize(1400, null, { withoutEnlargement: true })
     .webp({ quality: 75, effort: 5 })
     .toFile(posterEndPath);
 
-  const posterMeta = await sharp(posterPath).metadata();
-  console.log(`Created poster.webp (${(fs.statSync(posterPath).size / 1024).toFixed(1)} KB, ${posterMeta.width}x${posterMeta.height})`);
+  console.log(`Created poster.webp (${(fs.statSync(posterPath).size / 1024).toFixed(1)} KB)`);
   console.log(`Created poster-end.webp (${(fs.statSync(posterEndPath).size / 1024).toFixed(1)} KB)`);
 
-  console.log('\n--- Building Desktop Frames (every 2nd frame) ---');
+  console.log('\n--- 3. Building Desktop Frames (All frames, width 1400, WebP q70) ---');
   let desktopTotalBytes = 0;
   let desktopCount = 0;
   let desktopWidth = 0;
   let desktopHeight = 0;
 
-  for (let i = 0; i < frameFiles.length; i += CONFIG.desktop.step) {
+  for (let i = 0; i < frameFiles.length; i++) {
     desktopCount++;
     const outName = `f_${String(desktopCount).padStart(4, '0')}.webp`;
     const outPath = path.join(desktopDir, outName);
-    const inPath = path.join(sourceDir, frameFiles[i]);
+    const inPath = path.join(frame2Dir, frameFiles[i]);
 
     await sharp(inPath)
-      .resize(CONFIG.desktop.width, null, { withoutEnlargement: true })
-      .webp({ quality: CONFIG.desktop.quality, effort: CONFIG.desktop.effort })
+      .resize(1400, null, { withoutEnlargement: true })
+      .webp({ quality: 70, effort: 4 })
       .toFile(outPath);
 
     const stat = fs.statSync(outPath);
@@ -114,26 +97,47 @@ async function processFrames() {
       desktopHeight = meta.height;
     }
 
-    if (desktopCount % 30 === 0 || desktopCount === 150) {
-      console.log(`Desktop: processed ${desktopCount}/150 frames (${(desktopTotalBytes / (1024 * 1024)).toFixed(2)} MB)`);
+    if (desktopCount % 30 === 0 || desktopCount === frameFiles.length) {
+      console.log(`Desktop: processed ${desktopCount}/${frameFiles.length} frames (${(desktopTotalBytes / (1024 * 1024)).toFixed(2)} MB)`);
     }
   }
 
-  console.log('\n--- Building Mobile Frames (every 4th frame) ---');
+  // Check if desktop size exceeds 8MB; if so, compress further
+  if (desktopTotalBytes > 8 * 1024 * 1024) {
+    console.log(`Desktop size ${(desktopTotalBytes / (1024 * 1024)).toFixed(2)} MB exceeds 8MB! Re-compressing with q60...`);
+    desktopTotalBytes = 0;
+    desktopCount = 0;
+    for (let i = 0; i < frameFiles.length; i++) {
+      desktopCount++;
+      const outName = `f_${String(desktopCount).padStart(4, '0')}.webp`;
+      const outPath = path.join(desktopDir, outName);
+      const inPath = path.join(frame2Dir, frameFiles[i]);
+
+      await sharp(inPath)
+        .resize(1280, null, { withoutEnlargement: true })
+        .webp({ quality: 60, effort: 4 })
+        .toFile(outPath);
+
+      const stat = fs.statSync(outPath);
+      desktopTotalBytes += stat.size;
+    }
+  }
+
+  console.log('\n--- 4. Building Mobile Frames (Every 2nd frame, width 800, WebP q62) ---');
   let mobileTotalBytes = 0;
   let mobileCount = 0;
   let mobileWidth = 0;
   let mobileHeight = 0;
 
-  for (let i = 0; i < frameFiles.length; i += CONFIG.mobile.step) {
+  for (let i = 0; i < frameFiles.length; i += 2) {
     mobileCount++;
     const outName = `f_${String(mobileCount).padStart(4, '0')}.webp`;
     const outPath = path.join(mobileDir, outName);
-    const inPath = path.join(sourceDir, frameFiles[i]);
+    const inPath = path.join(frame2Dir, frameFiles[i]);
 
     await sharp(inPath)
-      .resize(CONFIG.mobile.width, null, { withoutEnlargement: true })
-      .webp({ quality: CONFIG.mobile.quality, effort: CONFIG.mobile.effort })
+      .resize(800, null, { withoutEnlargement: true })
+      .webp({ quality: 62, effort: 4 })
       .toFile(outPath);
 
     const stat = fs.statSync(outPath);
@@ -145,19 +149,27 @@ async function processFrames() {
       mobileHeight = meta.height;
     }
 
-    if (mobileCount % 25 === 0 || mobileCount === 75) {
-      console.log(`Mobile: processed ${mobileCount}/75 frames (${(mobileTotalBytes / (1024 * 1024)).toFixed(2)} MB)`);
+    if (mobileCount % 20 === 0 || i + 2 >= frameFiles.length) {
+      console.log(`Mobile: processed ${mobileCount} frames (${(mobileTotalBytes / (1024 * 1024)).toFixed(2)} MB)`);
     }
   }
 
-  // Create manifest.json
+  // Generate version hash from first, middle and last frame content
+  const hash = crypto.createHash('md5');
+  hash.update(fs.readFileSync(path.join(desktopDir, 'f_0001.webp')));
+  hash.update(fs.readFileSync(path.join(desktopDir, `f_${String(Math.floor(desktopCount / 2)).padStart(4, '0')}.webp`)));
+  hash.update(fs.readFileSync(path.join(desktopDir, `f_${String(desktopCount).padStart(4, '0')}.webp`)));
+  const version = hash.digest('hex').slice(0, 8);
+
   const manifest = {
+    version: version,
+    updatedAt: new Date().toISOString(),
     desktop: {
       count: desktopCount,
       width: desktopWidth,
       height: desktopHeight,
       pattern: 'desktop/f_%04d.webp',
-      step: CONFIG.desktop.step,
+      step: 1,
       totalBytes: desktopTotalBytes,
       totalMB: (desktopTotalBytes / (1024 * 1024)).toFixed(2),
     },
@@ -166,7 +178,7 @@ async function processFrames() {
       width: mobileWidth,
       height: mobileHeight,
       pattern: 'mobile/f_%04d.webp',
-      step: CONFIG.mobile.step,
+      step: 2,
       totalBytes: mobileTotalBytes,
       totalMB: (mobileTotalBytes / (1024 * 1024)).toFixed(2),
     },
@@ -176,40 +188,31 @@ async function processFrames() {
 
   const manifestPath = path.join(publicFramesDir, 'manifest.json');
   fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
-  console.log(`\nCreated manifest.json at ${manifestPath}`);
+  console.log(`\nCreated manifest.json with version "${version}"`);
 
-  console.log('\n================ SUMMARY ================');
-  console.log(`Desktop: ${desktopCount} frames, ${manifest.desktop.width}x${manifest.desktop.height}, Total Size: ${manifest.desktop.totalMB} MB (Target: < 12 MB)`);
-  console.log(`Mobile: ${mobileCount} frames, ${manifest.mobile.width}x${manifest.mobile.height}, Total Size: ${manifest.mobile.totalMB} MB (Target: < 4 MB)`);
-  console.log('=========================================\n');
+  console.log('\n================ FINAL FRAME STATS ================');
+  console.log(`Desktop: ${desktopCount} frames (${manifest.desktop.width}x${manifest.desktop.height}) = ${manifest.desktop.totalMB} MB (Target: < 8 MB)`);
+  console.log(`Mobile:  ${mobileCount} frames (${manifest.mobile.width}x${manifest.mobile.height}) = ${manifest.mobile.totalMB} MB (Target: < 3 MB)`);
+  console.log(`Poster: ${(fs.statSync(posterPath).size / 1024).toFixed(1)} KB`);
+  console.log(`Poster End: ${(fs.statSync(posterEndPath).size / 1024).toFixed(1)} KB`);
+  console.log(`Version hash: ${version}`);
+  console.log('===================================================\n');
 
-  // Move original JPGs to /raw-frames if source is public/frames
-  if (sourceDir === publicFramesDir) {
-    console.log(`Moving ${frameFiles.length} original frames to raw-frames/ ...`);
-    fs.mkdirSync(rawDir, { recursive: true });
-    for (const f of frameFiles) {
-      fs.renameSync(path.join(publicFramesDir, f), path.join(rawDir, f));
-    }
-    console.log('Originals moved successfully to /raw-frames.');
+  // Move public/frame2 into /raw-frames-rural (outside public)
+  console.log(`Moving public/frame2 to ${rawRuralDir} ...`);
+  if (fs.existsSync(rawRuralDir)) {
+    fs.rmSync(rawRuralDir, { recursive: true, force: true });
   }
-
-  // Ensure /raw-frames is in .gitignore
-  const gitignorePath = path.join(rootDir, '.gitignore');
-  if (fs.existsSync(gitignorePath)) {
-    let gitignore = fs.readFileSync(gitignorePath, 'utf8');
-    if (!gitignore.includes('/raw-frames') && !gitignore.includes('raw-frames')) {
-      gitignore += '\n# Raw frame originals\n/raw-frames\n';
-      fs.writeFileSync(gitignorePath, gitignore);
-      console.log('Added /raw-frames to .gitignore');
-    }
-  }
+  fs.renameSync(frame2Dir, rawRuralDir);
+  console.log('Moved public/frame2 to raw-frames-rural successfully.');
+  console.log('public/frame2 exists:', fs.existsSync(frame2Dir));
 
   // Verify final contents of public/frames
-  const remaining = fs.readdirSync(publicFramesDir);
-  console.log('Final contents of public/frames:', remaining);
+  const finalFiles = fs.readdirSync(publicFramesDir);
+  console.log('Final contents of public/frames:', finalFiles);
 }
 
-processFrames().catch(err => {
-  console.error('Error processing frames:', err);
+build().catch(err => {
+  console.error('Error during build:', err);
   process.exit(1);
 });

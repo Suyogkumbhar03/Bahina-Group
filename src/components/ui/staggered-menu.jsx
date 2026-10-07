@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { X, ArrowUpRight } from "lucide-react"
 import { useLanguage } from "@/lib/i18n"
 import { LanguageSwitcher } from "@/components/ui/language-switcher"
+import { TextSizeControl } from "@/components/ui/text-size-control"
 
 export function StaggeredMenu({ isOpen, onClose }) {
   const { t, isMarathi } = useLanguage()
@@ -79,9 +80,10 @@ export function StaggeredMenu({ isOpen, onClose }) {
                 </button>
               </div>
 
-              {/* Language Switcher at top of mobile menu */}
-              <div className="pt-2 flex justify-start">
+              {/* Language Switcher & Text Size at top of mobile menu */}
+              <div className="pt-2 flex flex-wrap items-center justify-between gap-2.5">
                 <LanguageSwitcher />
+                <TextSizeControl />
               </div>
             </div>
 

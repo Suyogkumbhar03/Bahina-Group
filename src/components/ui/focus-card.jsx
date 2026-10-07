@@ -88,7 +88,7 @@ export function FocusCard({
             : "transform 0.5s ease-out, box-shadow 0.5s ease-out",
         }}
         className={cn(
-          "relative h-full w-full rounded-2xl border border-white/10 bg-[#0B0E0D]/90 backdrop-blur-xl p-6 sm:p-7 md:p-8 flex flex-col justify-between overflow-hidden shadow-2xl group transition-all duration-300",
+          "relative h-full w-full rounded-2xl border border-white/15 bg-black/45 backdrop-blur-[2px] p-6 sm:p-7 md:p-8 flex flex-col justify-between overflow-hidden shadow-xl group transition-all duration-300",
           "hover:border-white/25 hover:shadow-[0_20px_50px_rgba(0,0,0,0.8)]",
           className
         )}
@@ -191,7 +191,7 @@ export function FocusCard({
             style={{
               transform: isReducedMotion ? "none" : "translateZ(25px)",
             }}
-            className="font-display text-xl sm:text-2xl md:text-[1.6rem] font-light text-[#F3EFEA] tracking-[-0.01em] mb-3 group-hover:text-white transition-colors"
+            className="font-display text-xl sm:text-2xl md:text-[1.6rem] font-light text-[#F3EFEA] tracking-[-0.01em] mb-3 group-hover:text-white transition-colors drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]"
           >
             {area.title}
           </h3>
@@ -201,7 +201,7 @@ export function FocusCard({
             style={{
               transform: isReducedMotion ? "none" : "translateZ(20px)",
             }}
-            className="font-sans text-sm sm:text-[15px] md:text-base text-neutral-300 font-normal leading-[1.65]"
+            className="font-sans text-sm sm:text-[15px] md:text-base text-neutral-200 font-normal leading-[1.65] drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]"
           >
             {area.desc}
           </p>

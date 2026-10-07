@@ -23,5 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 
-# Raw frame originals
+# Raw frame originals and archives
 /raw-frames
+/raw-frames-rural
+/archive-old-frames
