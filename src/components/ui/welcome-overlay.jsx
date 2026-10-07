@@ -7,12 +7,12 @@ import { RURAL_CONFIG } from "@/data/config"
  * WelcomeOverlay
  * 
  * Clean, cinematic, mobile-responsive welcome video overlay:
- * - Computer screens: Edge-to-edge full screen (object-cover).
- * - Mobile portrait: Zero-crop guarantee (object-contain with ambient blurred background layer).
- * - Minimal controls: Timeline, play button, sound button, captions, and language switch REMOVED.
+ * - Plays automatically on 1st website load.
+ * - Zero player controls: NO play button, NO timeline / progress bar.
  * - Only the clean, accessible Skip button ("Skip" / "वगळा") in the top-right corner.
- * - Silent/muted playback compliant with browser autoplay policies.
- * - Smoothly fades out and reveals the website when video finishes or skip is clicked.
+ * - Responsive presentation: Edge-to-edge on desktop (object-cover), and zero-crop contained
+ *   with ambient blurred backdrop on mobile/portrait screens (object-contain).
+ * - Smoothly dissolves out (700ms cinematic ease) to reveal the actual website at the end or on skip.
  */
 export function WelcomeOverlay({
   isOpen,
@@ -26,25 +26,10 @@ export function WelcomeOverlay({
   const hasClosedRef = useRef(false)
 
   const [isFadingOut, setIsFadingOut] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(false)
   const [isPortraitScreen, setIsPortraitScreen] = useState(false)
-  const [portraitMediaAvailable, setPortraitMediaAvailable] = useState(false)
 
-  // Check if optional vertical video exists (welcome-portrait.mp4)
-  useEffect(() => {
-    let active = true
-    fetch("/video/welcome-portrait.mp4", { method: "HEAD" })
-      .then((res) => {
-        if (active && res.ok) {
-          setPortraitMediaAvailable(true)
-        }
-      })
-      .catch(() => {
-        // Missing vertical video is expected and gracefully handled
-      })
-    return () => { active = false }
-  }, [])
-
-  // Detect viewport aspect ratio and orientation
+  // Detect viewport aspect ratio and orientation for mobile portrait optimization
   useEffect(() => {
     const updateViewport = () => {
       const w = window.innerWidth
@@ -61,12 +46,10 @@ export function WelcomeOverlay({
     }
   }, [])
 
-  // Choose vertical or landscape source
-  const usePortrait = isPortraitScreen && portraitMediaAvailable
-  const videoSource = usePortrait ? RURAL_CONFIG.welcomePortraitVideo : RURAL_CONFIG.welcomeVideo
-  const posterSource = usePortrait ? RURAL_CONFIG.welcomePortraitPoster : RURAL_CONFIG.welcomePoster
+  const videoSource = RURAL_CONFIG.welcomeVideo
+  const posterSource = RURAL_CONFIG.welcomePoster
 
-  // Close handler with smooth fade-out
+  // Smooth close handler: fades out gracefully to reveal website underneath
   const handleClose = useCallback(() => {
     if (hasClosedRef.current) return
     hasClosedRef.current = true
@@ -74,15 +57,18 @@ export function WelcomeOverlay({
 
     try {
       localStorage.setItem("bahina_welcome_seen", "1")
-    } catch (e) {}
+    } catch (e) {
+      // LocalStorage access issues ignored safely
+    }
 
+    // 700ms smooth dissolve into the actual website
     setTimeout(() => {
       const video = videoRef.current
       if (video) {
         try {
           video.pause()
           video.currentTime = 0
-          video.src = ""
+          video.removeAttribute("src")
           video.load()
         } catch (e) {}
       }
@@ -91,15 +77,16 @@ export function WelcomeOverlay({
       if (previousFocusRef.current && typeof previousFocusRef.current.focus === "function") {
         previousFocusRef.current.focus()
       }
-    }, 450)
+    }, 700)
   }, [onClose])
 
-  // Dialog open/close, focus management, Escape key and body scroll lock
+  // Dialog lifecycle, focus management, Escape key, and body scroll lock
   useEffect(() => {
     if (!isOpen) return
 
     hasClosedRef.current = false
     setIsFadingOut(false)
+    setIsPlaying(false)
     previousFocusRef.current = document.activeElement
     const originalOverflow = document.body.style.overflow
     document.body.style.overflow = "hidden"
@@ -122,14 +109,15 @@ export function WelcomeOverlay({
     }
   }, [isOpen, handleClose])
 
-  // Safety watchdog: 9.2s max duration so visitor is NEVER trapped
+  // Safety fallback watchdog: only triggers if video fails to load/play after 12 seconds
   useEffect(() => {
-    if (!isOpen) return
-    const watchdogTimer = setTimeout(() => {
+    if (!isOpen || isPlaying) return
+    const stallTimer = setTimeout(() => {
+      // If after 12s the video still hasn't started playing, smoothly open website
       handleClose()
-    }, 9200)
-    return () => clearTimeout(watchdogTimer)
-  }, [isOpen, handleClose])
+    }, 12000)
+    return () => clearTimeout(stallTimer)
+  }, [isOpen, isPlaying, handleClose])
 
   // Start video automatically muted (browser policy compliant)
   useEffect(() => {
@@ -138,8 +126,39 @@ export function WelcomeOverlay({
     if (!video) return
 
     video.muted = true
-    video.play().catch(() => {})
+    video.defaultMuted = true
+    video.playsInline = true
+
+    const attemptPlay = () => {
+      const playPromise = video.play()
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            setIsPlaying(true)
+          })
+          .catch(() => {
+            // Re-enforce muted and retry for strict browsers
+            video.muted = true
+            video.play()
+              .then(() => setIsPlaying(true))
+              .catch(() => {})
+          })
+      }
+    }
+
+    attemptPlay()
   }, [isOpen, videoSource])
+
+  // Handle canplay to ensure autoplay begins as soon as first frames are ready
+  const handleCanPlay = () => {
+    const video = videoRef.current
+    if (video && video.paused) {
+      video.muted = true
+      video.play()
+        .then(() => setIsPlaying(true))
+        .catch(() => {})
+    }
+  }
 
   // Smoothly close when reaching end of video
   const handleTimeUpdate = (e) => {
@@ -162,11 +181,11 @@ export function WelcomeOverlay({
         minHeight: "100svh",
         height: "100dvh",
       }}
-      className={`fixed inset-0 z-50 flex items-center justify-center bg-black text-white outline-none select-none transition-opacity duration-500 ease-out overflow-hidden ${
+      className={`fixed inset-0 z-[100] flex items-center justify-center bg-black text-white outline-none select-none transition-opacity duration-700 ease-in-out overflow-hidden ${
         isFadingOut ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
     >
-      {/* 1. Ambient Background Layer (fills letterbox space on mobile portrait with blurred copy) */}
+      {/* 1. Ambient Background Layer (fills letterbox space on mobile portrait with blurred poster) */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none select-none -z-10">
         <img
           src={posterSource}
@@ -174,34 +193,35 @@ export function WelcomeOverlay({
           aria-hidden="true"
           className="w-full h-full object-cover scale-110"
           style={{
-            filter: "blur(24px) brightness(0.6)",
+            filter: "blur(28px) brightness(0.55)",
           }}
         />
         <div className="absolute inset-0 bg-black/40 pointer-events-none" />
       </div>
 
-      {/* 2. Top Bar: Only the Skip Button ("वगळा" / "Skip", >=52px touch target) */}
+      {/* 2. Top-Right: ONLY the Skip Button ("वगळा" / "Skip", min 48px touch target) */}
       <div
         className="absolute z-30 flex items-center justify-end"
         style={{
-          top: "max(1rem, env(safe-area-inset-top, 1rem))",
-          right: "max(1rem, env(safe-area-inset-right, 1rem))",
+          top: "max(1.25rem, env(safe-area-inset-top, 1.25rem))",
+          right: "max(1.25rem, env(safe-area-inset-right, 1.25rem))",
         }}
       >
         <button
           type="button"
           onClick={handleClose}
-          className="inline-flex items-center space-x-2 px-5 py-2.5 rounded-full bg-black/75 hover:bg-black/90 border border-white/25 hover:border-[#D9A441] text-[#F3EFEA] hover:text-white font-sans font-bold text-xs sm:text-sm uppercase tracking-wider backdrop-blur-md active:scale-95 shadow-2xl min-h-[52px] min-w-[52px] transition-all cursor-pointer"
+          className="inline-flex items-center space-x-2 px-5 py-2.5 rounded-full bg-black/40 hover:bg-black/80 border border-white/20 hover:border-[#D9A441] text-[#F3EFEA] hover:text-white font-sans font-semibold text-xs sm:text-sm uppercase tracking-wider backdrop-blur-md active:scale-95 shadow-2xl min-h-[48px] min-w-[48px] transition-all cursor-pointer"
           aria-label={t("welcome.skipAria")}
         >
           <span>{t("welcome.skip")}</span>
-          <X className="h-4 w-4" />
+          <X className="h-4 w-4 text-[#D9A441]" />
         </button>
       </div>
 
       {/* 3. The Video:
           - Computer screens: Full screen edge-to-edge (object-cover).
           - Mobile phones in portrait: Fully contained without cropping text (object-contain).
+          - ZERO controls: No play button, no timeline, only pure video playback.
       */}
       <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
         <video
@@ -211,11 +231,20 @@ export function WelcomeOverlay({
           autoPlay
           muted
           playsInline
+          webkit-playsinline="true"
           preload="auto"
+          controls={false}
+          disablePictureInPicture
+          controlsList="nodownload nofullscreen noremoteplayback"
+          onCanPlay={handleCanPlay}
+          onPlaying={() => setIsPlaying(true)}
           onTimeUpdate={handleTimeUpdate}
           onEnded={handleClose}
-          onError={handleClose}
-          className={`w-full h-full ${
+          onError={() => {
+            // Graceful fallback if any media error occurs
+            handleClose()
+          }}
+          className={`welcome-video-clean w-full h-full ${
             isPortraitScreen ? "object-contain" : "object-cover"
           } md:object-cover drop-shadow-[0_12px_40px_rgba(0,0,0,0.85)] pointer-events-none`}
         />
@@ -223,7 +252,7 @@ export function WelcomeOverlay({
 
       {/* Subtle loader notice if background frames are still finishing */}
       {!isPageReady && (
-        <div className="absolute bottom-3 inset-x-0 text-center text-[11px] text-neutral-400 font-sans pointer-events-none z-30">
+        <div className="absolute bottom-4 inset-x-0 text-center text-[11px] text-white/70 font-sans pointer-events-none z-30 tracking-wider">
           {t("welcome.loading")}
         </div>
       )}
@@ -232,3 +261,4 @@ export function WelcomeOverlay({
 }
 
 export default WelcomeOverlay
+

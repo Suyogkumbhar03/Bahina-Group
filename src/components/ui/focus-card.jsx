@@ -88,7 +88,7 @@ export function FocusCard({
             : "transform 0.5s ease-out, box-shadow 0.5s ease-out",
         }}
         className={cn(
-          "relative h-full w-full rounded-2xl border border-white/15 bg-black/45 backdrop-blur-[2px] p-5 sm:p-7 md:p-8 flex flex-col justify-between overflow-hidden shadow-xl group transition-all duration-300",
+          "relative h-full w-full rounded-2xl border border-white/15 bg-black/65 backdrop-blur-md p-5 sm:p-7 md:p-8 flex flex-col justify-between overflow-hidden shadow-xl group transition-all duration-300",
           "hover:border-white/25 hover:shadow-[0_20px_50px_rgba(0,0,0,0.8)]",
           className
         )}
@@ -136,7 +136,7 @@ export function FocusCard({
           style={{
             transform: isReducedMotion ? "none" : "translateZ(15px)",
           }}
-          className="pointer-events-none absolute top-4 right-6 font-display font-light text-5xl sm:text-6xl text-white/[0.04] group-hover:text-white/[0.09] transition-colors duration-300 select-none"
+          className="pointer-events-none absolute top-4 right-6 font-display font-medium text-5xl sm:text-6xl text-white/[0.04] group-hover:text-white/[0.09] transition-colors duration-300 select-none"
         >
           {formattedNum}
         </div>
@@ -157,7 +157,7 @@ export function FocusCard({
                 boxShadow: `0 8px 20px -4px ${area.accent}33`,
               }}
             >
-              <Icon className="h-5 w-5 text-neutral-200 group-hover:text-white transition-colors" />
+              <Icon className="h-5 w-5 text-white group-hover:text-white transition-colors" />
               <div
                 className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                 style={{
@@ -191,7 +191,7 @@ export function FocusCard({
             style={{
               transform: isReducedMotion ? "none" : "translateZ(25px)",
             }}
-            className="font-display text-xl sm:text-2xl md:text-[1.6rem] font-light text-[#F3EFEA] tracking-[-0.01em] mb-3 group-hover:text-white transition-colors drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]"
+            className="font-display text-xl sm:text-2xl md:text-[1.6rem] font-medium text-[#F3EFEA] tracking-[-0.01em] mb-3 group-hover:text-white transition-colors drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]"
           >
             {area.title}
           </h3>
@@ -201,7 +201,7 @@ export function FocusCard({
             style={{
               transform: isReducedMotion ? "none" : "translateZ(20px)",
             }}
-            className="font-sans text-sm sm:text-[15px] md:text-base text-neutral-200 font-normal leading-[1.65] drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]"
+            className="font-sans text-sm sm:text-[15px] md:text-base text-white font-semibold leading-[1.65] drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]"
           >
             {area.desc}
           </p>
@@ -212,18 +212,18 @@ export function FocusCard({
           style={{
             transform: isReducedMotion ? "none" : "translateZ(25px)",
           }}
-          className="relative z-10 mt-8 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-sans text-neutral-400 uppercase tracking-wider"
+          className="relative z-10 mt-8 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-sans text-white uppercase tracking-wider"
         >
           <div className="flex items-center space-x-2">
             <span className="text-neutral-500 font-mono">0{index + 1}</span>
             <span className="h-1 w-1 rounded-full bg-neutral-600" />
-            <span className="text-neutral-400 group-hover:text-neutral-200 transition-colors">
+            <span className="text-white group-hover:text-white transition-colors">
               {t ? t("focus.strategicBadge") : "Strategic Capability"}
             </span>
           </div>
 
           <div
-            className="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-neutral-400 group-hover:text-white transition-all duration-300 group-hover:border-white/30 group-hover:bg-white/[0.08]"
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white group-hover:text-white transition-all duration-300 group-hover:border-white/30 group-hover:bg-white/[0.08]"
             style={{
               borderColor: isHovered ? `${area.accent}60` : undefined,
             }}

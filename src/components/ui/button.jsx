@@ -12,9 +12,9 @@ const buttonVariants = cva(
         editorial:
           "border border-white/20 bg-transparent text-[#F3EFEA] hover:bg-white/10 hover:border-white/40 active:scale-[0.98]",
         subtle:
-          "border border-white/10 bg-[#0E1210]/60 text-neutral-300 hover:text-white hover:border-white/25 active:scale-[0.98]",
+          "border border-white/10 bg-[#0E1210]/60 text-neutral-100 hover:text-white hover:border-white/25 active:scale-[0.98]",
         ghost:
-          "text-neutral-400 hover:text-white hover:bg-white/5",
+          "text-white hover:text-white hover:bg-white/5",
         link:
           "text-[#F3EFEA] underline-offset-4 hover:underline p-0 h-auto",
         shimmer:

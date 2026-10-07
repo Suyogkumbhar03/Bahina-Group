@@ -8,7 +8,7 @@ export function AnimatedBeamDiagram() {
   return (
     <div className="relative w-full max-w-lg mx-auto p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-white/10 bg-[#0A0D0B]/85 flex flex-col items-center justify-center min-h-[340px] sm:min-h-[360px]">
       <div className="text-center mb-6 sm:mb-8">
-        <span className="font-sans text-xs uppercase font-semibold tracking-[0.14em] text-neutral-400">
+        <span className="font-sans text-xs uppercase font-semibold tracking-[0.14em] text-white">
           {t("beam.badge")}
         </span>
       </div>
@@ -93,7 +93,7 @@ export function AnimatedBeamDiagram() {
               BAHINA
             </span>
           </div>
-          <span className="mt-1 font-sans text-[10px] uppercase font-semibold text-neutral-400">
+          <span className="mt-1 font-sans text-[10px] uppercase font-semibold text-white">
             {t("beam.centerNode")}
           </span>
         </div>

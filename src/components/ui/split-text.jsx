@@ -55,7 +55,7 @@ export function SplitText({
         const emphasisClass = isEmphasized
           ? isMarathi
             ? "font-medium text-[#D9A441]"
-            : "italic font-light text-neutral-100"
+            : "italic font-medium text-neutral-100"
           : ""
 
         return (

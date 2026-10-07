@@ -45,26 +45,26 @@ export function VisionMissionSection() {
       {/* Top Split: Left Column Vision, Right Column Animated Beam Diagram */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-center mb-16 sm:mb-24">
         {/* Left Column: Vision Statement */}
-        <div className="relative lg:col-span-6 p-6 sm:p-10 rounded-2xl sm:rounded-3xl border border-[#D9A441]/20 bg-black/40 backdrop-blur-[2px] shadow-xl">
+        <div className="relative lg:col-span-6 p-6 sm:p-10 rounded-2xl sm:rounded-3xl border border-[#D9A441]/25 bg-black/65 backdrop-blur-md shadow-xl">
           <div className="absolute top-3 right-3 rotate-90">
             <WarliCorner accent="#D9A441" />
           </div>
           <ShinyText text={t("visionMission.eyebrow")} className="text-[12px] font-sans font-semibold tracking-[0.14em]" />
 
-          <h3 className="mt-3 font-sans text-xs uppercase tracking-[0.14em] font-semibold text-neutral-300">
+          <h3 className="mt-3 font-sans text-xs uppercase tracking-[0.14em] font-semibold text-neutral-100">
             {t("visionMission.visionBadge")}
           </h3>
 
           {/* Vision Statement with AnimatedGradientText on highlight phrase */}
-          <blockquote className="mt-5 sm:mt-6 font-display font-light text-[#F3EFEA] leading-[1.2] tracking-[-0.01em] text-[clamp(1.6rem,3.6vw,3rem)] drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
+          <blockquote className="mt-5 sm:mt-6 font-display font-medium text-[#F3EFEA] leading-[1.2] tracking-[-0.01em] text-[clamp(1.6rem,3.6vw,3rem)] drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
             "{t("visionMission.visionQuotePart1")}{" "}
-            <AnimatedGradientText className={`font-normal ${isMarathi ? "not-italic font-medium text-[#D9A441]" : "italic"}`}>
+            <AnimatedGradientText className={`font-semibold ${isMarathi ? "not-italic font-medium text-[#D9A441]" : "italic"}`}>
               {t("visionMission.visionQuoteHighlight")}
             </AnimatedGradientText>{" "}
             {t("visionMission.visionQuotePart2")}"
           </blockquote>
 
-          <div className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-white/10 flex items-center justify-between text-xs font-sans text-neutral-300 uppercase tracking-[0.14em] font-semibold">
+          <div className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-white/10 flex items-center justify-between text-xs font-sans text-neutral-100 uppercase tracking-[0.14em] font-semibold">
             <span>{t("visionMission.purposeLabel")}</span>
             <span lang="en">BAHINA Group</span>
           </div>
@@ -79,7 +79,7 @@ export function VisionMissionSection() {
       {/* Bottom: Mission Points as a Numbered List with Staggered BlurFade */}
       <div className="border-t border-white/10 pt-12 sm:pt-16">
         <div className="mb-8 sm:mb-10">
-          <span className="font-sans text-xs uppercase tracking-[0.14em] font-semibold text-neutral-300 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
+          <span className="font-sans text-xs uppercase tracking-[0.14em] font-semibold text-neutral-100 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
             {t("visionMission.missionBadge")}
           </span>
         </div>
@@ -90,16 +90,16 @@ export function VisionMissionSection() {
               key={item.num}
               delay={idx * 0.08}
               yOffset={20}
-              className="p-5 sm:p-7 rounded-2xl border border-white/15 bg-black/40 backdrop-blur-[2px] flex flex-col justify-between group hover:border-white/30 transition-all shadow-lg"
+              className="p-5 sm:p-7 rounded-2xl border border-white/15 bg-black/65 backdrop-blur-md flex flex-col justify-between group hover:border-white/30 transition-all shadow-lg"
             >
               <div>
-                <span className="font-display text-2xl font-light text-neutral-400 group-hover:text-white transition-colors block mb-3 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
+                <span className="font-display text-2xl font-medium text-white group-hover:text-white transition-colors block mb-3 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
                   {item.num}
                 </span>
-                <h4 className="font-display text-lg font-normal text-[#F3EFEA] leading-snug drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]">
+                <h4 className="font-display text-lg font-semibold text-[#F3EFEA] leading-snug drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]">
                   {item.title}
                 </h4>
-                <p className="mt-2.5 sm:mt-3 font-sans text-sm text-neutral-200 leading-relaxed font-normal drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
+                <p className="mt-2.5 sm:mt-3 font-sans text-sm text-white leading-relaxed font-semibold drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
                   {item.desc}
                 </p>
               </div>

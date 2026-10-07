@@ -70,7 +70,7 @@ export function FinalCtaSection() {
   return (
     <section id="contact" className="relative z-10 w-full scroll-mt-28 py-20 sm:py-28 md:py-36 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto">
       {/* Painted Wall Style Container (Earth palette, soft rounded corners, thin warm border) */}
-      <div className="relative rounded-2xl sm:rounded-3xl border border-[#D9A441]/25 bg-[#090D0B]/60 backdrop-blur-[2px] p-5 sm:p-10 md:p-16 overflow-hidden shadow-2xl">
+      <div className="relative rounded-2xl sm:rounded-3xl border border-[#D9A441]/25 bg-black/70 backdrop-blur-md p-5 sm:p-10 md:p-16 overflow-hidden shadow-2xl">
         {/* Warli Corner Accents */}
         <div className="absolute top-4 left-4">
           <WarliCorner accent="#D9A441" />
@@ -86,15 +86,15 @@ export function FinalCtaSection() {
               <ShinyText text={t("cta.eyebrow")} className="text-[12px] font-sans font-semibold tracking-[0.14em]" />
 
               {/* Editorial Headline */}
-              <h2 className="mt-4 sm:mt-6 font-display font-light text-[#F3EFEA] leading-[1.15] tracking-[-0.02em] text-[clamp(1.95rem,5.5vw,4.25rem)] drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
+              <h2 className="mt-4 sm:mt-6 font-display font-medium text-[#F3EFEA] leading-[1.15] tracking-[-0.02em] text-[clamp(1.95rem,5.5vw,4.25rem)] drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
                 {t("cta.headlinePart1")} <br />
                 {t("cta.headlinePart2")} <br />
-                <AnimatedGradientText className={`font-normal ${isMarathi ? "not-italic font-medium text-[#D9A441]" : "italic"}`}>
+                <AnimatedGradientText className={`font-semibold ${isMarathi ? "not-italic font-medium text-[#D9A441]" : "italic"}`}>
                   {t("cta.headlineHighlight")}
                 </AnimatedGradientText>
               </h2>
 
-              <p className="mt-4 sm:mt-6 font-sans text-base sm:text-[18px] text-[#EDE8E1] font-normal leading-[1.65] max-w-xl drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
+              <p className="mt-4 sm:mt-6 font-sans text-base sm:text-[18px] text-[#EDE8E1] font-semibold leading-[1.65] max-w-xl drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
                 {t("cta.subline")}
               </p>
             </div>
@@ -139,7 +139,7 @@ export function FinalCtaSection() {
               <button
                 type="button"
                 onClick={handleCopyEmail}
-                className="inline-flex items-center justify-center space-x-2 px-5 py-3.5 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 text-xs font-sans font-semibold uppercase tracking-[0.1em] text-neutral-200 hover:text-white transition-all min-h-[50px] sm:min-h-[52px]"
+                className="inline-flex items-center justify-center space-x-2 px-5 py-3.5 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 text-xs font-sans font-semibold uppercase tracking-[0.1em] text-white hover:text-white transition-all min-h-[50px] sm:min-h-[52px]"
                 aria-label={t("cta.copyEmailAria")}
               >
                 {copied ? (
@@ -149,7 +149,7 @@ export function FinalCtaSection() {
                   </>
                 ) : (
                   <>
-                    <Copy className="h-4 w-4 text-neutral-400" />
+                    <Copy className="h-4 w-4 text-white" />
                     <span lang="en">{emailAddress}</span>
                   </>
                 )}
@@ -158,11 +158,11 @@ export function FinalCtaSection() {
           </div>
 
           {/* Right Column: Simplified Village Contact Form (Name, Phone, Village) */}
-          <div className="lg:col-span-6 rounded-2xl border border-white/20 bg-black/45 p-5 sm:p-8 backdrop-blur-[2px] shadow-2xl">
-            <h3 className="font-display text-2xl font-light text-white mb-2">
+          <div className="lg:col-span-6 rounded-2xl border border-white/20 bg-black/65 p-5 sm:p-8 backdrop-blur-md shadow-2xl">
+            <h3 className="font-display text-2xl font-medium text-white mb-2">
               {t("form.title")}
             </h3>
-            <p className="font-sans text-sm text-neutral-300 font-normal leading-relaxed mb-6">
+            <p className="font-sans text-sm text-neutral-100 font-semibold leading-relaxed mb-6">
               {t("form.description")}
             </p>
 
@@ -183,7 +183,7 @@ export function FinalCtaSection() {
                 <div>
                   <label
                     htmlFor="contact-name"
-                    className="block text-xs font-sans font-semibold uppercase tracking-[0.12em] text-neutral-300 mb-1.5"
+                    className="block text-xs font-sans font-semibold uppercase tracking-[0.12em] text-neutral-100 mb-1.5"
                   >
                     {t("form.nameLabel")} <span className="text-[#D9A441]">*</span>
                   </label>
@@ -194,7 +194,7 @@ export function FinalCtaSection() {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder={t("form.namePlaceholder")}
-                    className="w-full px-4 py-3 rounded-xl border border-white/20 bg-white/[0.05] text-white placeholder-neutral-400 font-sans text-base focus:outline-none focus:border-[#D9A441] focus:ring-1 focus:ring-[#D9A441] transition-colors min-h-[52px]"
+                    className="w-full px-4 py-3 rounded-xl border border-white/20 bg-black/50 text-white placeholder-neutral-400 font-sans text-base focus:outline-none focus:border-[#D9A441] focus:ring-1 focus:ring-[#D9A441] transition-colors min-h-[52px]"
                   />
                   {errors.name && (
                     <p className="mt-1.5 text-xs text-rose-300 font-sans font-medium">{errors.name}</p>
@@ -207,7 +207,7 @@ export function FinalCtaSection() {
                   <div>
                     <label
                       htmlFor="contact-phone"
-                      className="block text-xs font-sans font-semibold uppercase tracking-[0.12em] text-neutral-300 mb-1.5"
+                      className="block text-xs font-sans font-semibold uppercase tracking-[0.12em] text-neutral-100 mb-1.5"
                     >
                       {t("form.phoneLabel")} <span className="text-[#D9A441]">*</span>
                     </label>
@@ -218,7 +218,7 @@ export function FinalCtaSection() {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder={t("form.phonePlaceholder")}
-                      className="w-full px-4 py-3 rounded-xl border border-white/20 bg-white/[0.05] text-white placeholder-neutral-400 font-sans text-base focus:outline-none focus:border-[#D9A441] focus:ring-1 focus:ring-[#D9A441] transition-colors min-h-[52px]"
+                      className="w-full px-4 py-3 rounded-xl border border-white/20 bg-black/50 text-white placeholder-neutral-400 font-sans text-base focus:outline-none focus:border-[#D9A441] focus:ring-1 focus:ring-[#D9A441] transition-colors min-h-[52px]"
                     />
                     {errors.phone && (
                       <p className="mt-1.5 text-xs text-rose-300 font-sans font-medium">{errors.phone}</p>
@@ -229,7 +229,7 @@ export function FinalCtaSection() {
                   <div>
                     <label
                       htmlFor="contact-village"
-                      className="block text-xs font-sans font-semibold uppercase tracking-[0.12em] text-neutral-300 mb-1.5"
+                      className="block text-xs font-sans font-semibold uppercase tracking-[0.12em] text-neutral-100 mb-1.5"
                     >
                       {t("form.villageLabel")}
                     </label>
@@ -240,7 +240,7 @@ export function FinalCtaSection() {
                       value={formData.village}
                       onChange={(e) => setFormData({ ...formData, village: e.target.value })}
                       placeholder={t("form.villagePlaceholder")}
-                      className="w-full px-4 py-3 rounded-xl border border-white/20 bg-white/[0.05] text-white placeholder-neutral-400 font-sans text-base focus:outline-none focus:border-[#D9A441] focus:ring-1 focus:ring-[#D9A441] transition-colors min-h-[52px]"
+                      className="w-full px-4 py-3 rounded-xl border border-white/20 bg-black/50 text-white placeholder-neutral-400 font-sans text-base focus:outline-none focus:border-[#D9A441] focus:ring-1 focus:ring-[#D9A441] transition-colors min-h-[52px]"
                     />
                   </div>
                 </div>
@@ -249,7 +249,7 @@ export function FinalCtaSection() {
                 <div>
                   <label
                     htmlFor="contact-message"
-                    className="block text-xs font-sans font-semibold uppercase tracking-[0.12em] text-neutral-300 mb-1.5"
+                    className="block text-xs font-sans font-semibold uppercase tracking-[0.12em] text-neutral-100 mb-1.5"
                   >
                     {t("form.messageLabel")}
                   </label>
@@ -260,7 +260,7 @@ export function FinalCtaSection() {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder={t("form.messagePlaceholder")}
-                    className="w-full px-4 py-3 rounded-xl border border-white/20 bg-white/[0.05] text-white placeholder-neutral-400 font-sans text-base focus:outline-none focus:border-[#D9A441] focus:ring-1 focus:ring-[#D9A441] transition-colors resize-y min-h-[90px]"
+                    className="w-full px-4 py-3 rounded-xl border border-white/20 bg-black/50 text-white placeholder-neutral-400 font-sans text-base focus:outline-none focus:border-[#D9A441] focus:ring-1 focus:ring-[#D9A441] transition-colors resize-y min-h-[90px]"
                   />
                 </div>
 

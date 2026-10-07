@@ -240,3 +240,28 @@ html.lenis, html.lenis body {
     animation: none !important;
   }
 }
+
+/* Suppress any native browser video player controls and overlays on welcome video */
+video.welcome-video-clean::-webkit-media-controls {
+  display: none !important;
+  -webkit-appearance: none;
+}
+video.welcome-video-clean::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+video.welcome-video-clean::-webkit-media-controls-panel {
+  display: none !important;
+}
+video.welcome-video-clean::-webkit-media-controls-play-button,
+video.welcome-video-clean::-webkit-media-controls-start-playback-button,
+video.welcome-video-clean::-webkit-media-controls-current-time-display,
+video.welcome-video-clean::-webkit-media-controls-time-remaining-display,
+video.welcome-video-clean::-webkit-media-controls-timeline,
+video.welcome-video-clean::-webkit-media-controls-volume-slider,
+video.welcome-video-clean::-webkit-media-controls-mute-button,
+video.welcome-video-clean::-webkit-media-controls-toggle-closed-captions-button,
+video.welcome-video-clean::-webkit-media-controls-fullscreen-button {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}

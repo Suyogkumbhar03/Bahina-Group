@@ -96,58 +96,8 @@ export const SECTION_MILESTONES = [
  * @returns {number} Mapped frame ratio (0 to 1)
  */
 export function getFrameRatioFromScroll(scrollProgress, customMilestones = null) {
-  const progress = Math.max(0, Math.min(1, scrollProgress));
-
-  // Hold first frame for the first 3% of scroll
-  if (progress <= FRAME_MILESTONES.FIRST_FRAME_HOLD_SCROLL) {
-    return 0;
-  }
-
-  // Hold last frame for the last 3% of scroll
-  if (progress >= FRAME_MILESTONES.LAST_FRAME_HOLD_SCROLL) {
-    return 1;
-  }
-
-  const milestones = customMilestones && customMilestones.length > 1
-    ? customMilestones
-    : SECTION_MILESTONES;
-
-  // Remap inner scroll [0.03, 0.97] to effective progression
-  const pNorm = (progress - FRAME_MILESTONES.FIRST_FRAME_HOLD_SCROLL) / 
-                (FRAME_MILESTONES.LAST_FRAME_HOLD_SCROLL - FRAME_MILESTONES.FIRST_FRAME_HOLD_SCROLL);
-
-  // Find surrounding milestone segment
-  let start = milestones[0];
-  let end = milestones[milestones.length - 1];
-
-  for (let i = 0; i < milestones.length - 1; i++) {
-    const mA = milestones[i];
-    const mB = milestones[i + 1];
-    const scrollA = mA.scrollRatio ?? mA.defaultScrollRatio;
-    const scrollB = mB.scrollRatio ?? mB.defaultScrollRatio;
-
-    if (pNorm >= scrollA && pNorm <= scrollB) {
-      start = mA;
-      end = mB;
-      break;
-    }
-  }
-
-  const scrollStart = start.scrollRatio ?? start.defaultScrollRatio;
-  const scrollEnd = end.scrollRatio ?? end.defaultScrollRatio;
-  const frameStart = start.targetFrameRatio;
-  const frameEnd = end.targetFrameRatio;
-
-  if (scrollEnd <= scrollStart) {
-    return frameStart;
-  }
-
-  // Straight-line interpolation
-  const segmentT = (pNorm - scrollStart) / (scrollEnd - scrollStart);
-  const clampedT = Math.max(0, Math.min(1, segmentT));
-  const interpolatedFrameRatio = frameStart + clampedT * (frameEnd - frameStart);
-
-  return Math.max(0, Math.min(1, interpolatedFrameRatio));
+  // Smoothly maps the full 0% to 100% page scroll to the full 120-frame animation sequence
+  return Math.max(0, Math.min(1, scrollProgress));
 }
 
 /**

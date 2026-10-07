@@ -36,14 +36,14 @@ export function ExpandingPanels({ values }) {
               transition={{ type: "spring", stiffness: 220, damping: 24 }}
               className={`relative overflow-hidden rounded-2xl border cursor-pointer transition-all duration-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-white/60 ${
                 isActive
-                  ? "flex-[3.5] border-white/30 bg-black/50 backdrop-blur-[2px] shadow-2xl"
-                  : "flex-1 border-white/15 bg-black/35 backdrop-blur-[2px] hover:border-white/25"
+                  ? "flex-[3.5] border-white/30 bg-black/70 backdrop-blur-md shadow-2xl"
+                  : "flex-1 border-white/15 bg-black/45 backdrop-blur-md hover:border-white/25 hover:bg-black/60"
               }`}
             >
               <GlareHover className="h-full w-full p-7 flex flex-col justify-between">
                 {/* Top Header */}
                 <div className="flex items-center justify-between">
-                  <span className="font-sans text-xs font-semibold text-neutral-400">
+                  <span className="font-sans text-xs font-semibold text-white">
                     0{idx + 1}
                   </span>
                   <span
@@ -56,7 +56,7 @@ export function ExpandingPanels({ values }) {
                 {/* Title & Description */}
                 <div>
                   <h3
-                    className={`font-display font-normal text-[#F3EFEA] transition-all leading-tight drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)] ${
+                    className={`font-display font-semibold text-[#F3EFEA] transition-all leading-tight drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)] ${
                       isActive ? "text-3xl" : "text-xl truncate"
                     }`}
                   >
@@ -71,7 +71,7 @@ export function ExpandingPanels({ values }) {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 5 }}
                         transition={{ duration: 0.3, delay: 0.1 }}
-                        className="mt-4 font-sans text-sm sm:text-base text-neutral-100 font-normal leading-relaxed max-w-sm drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]"
+                        className="mt-4 font-sans text-sm sm:text-base text-neutral-100 font-semibold leading-relaxed max-w-sm drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]"
                       >
                         {val.desc}
                       </motion.p>
@@ -81,7 +81,7 @@ export function ExpandingPanels({ values }) {
 
                 {/* Bottom tag */}
                 <div className="pt-2">
-                  <span className="font-sans text-[11px] uppercase tracking-[0.14em] font-semibold text-neutral-300 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
+                  <span className="font-sans text-[11px] uppercase tracking-[0.14em] font-semibold text-neutral-100 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
                     {t("values.badge")}
                   </span>
                 </div>
@@ -99,7 +99,7 @@ export function ExpandingPanels({ values }) {
           return (
             <div
               key={val.name}
-              className="rounded-2xl border border-white/15 bg-black/45 backdrop-blur-[2px] p-4 sm:p-5 overflow-hidden transition-all shadow-lg"
+              className="rounded-2xl border border-white/15 bg-black/65 backdrop-blur-md p-4 sm:p-5 overflow-hidden transition-all shadow-lg"
             >
               <button
                 onClick={() => setActiveIdx(isOpen ? -1 : idx)}
@@ -107,15 +107,15 @@ export function ExpandingPanels({ values }) {
                 aria-expanded={isOpen}
               >
                 <div className="flex items-center space-x-3">
-                  <span className="font-sans text-xs font-semibold text-neutral-400">
+                  <span className="font-sans text-xs font-semibold text-white">
                     0{idx + 1}
                   </span>
-                  <h3 className="font-display text-xl font-normal text-[#F3EFEA]">
+                  <h3 className="font-display text-xl font-semibold text-[#F3EFEA]">
                     {val.name}
                   </h3>
                 </div>
                 <ChevronDown
-                  className={`h-4 w-4 text-neutral-400 transition-transform duration-300 ${
+                  className={`h-4 w-4 text-white transition-transform duration-300 ${
                     isOpen ? "rotate-180 text-white" : ""
                   }`}
                 />
@@ -130,7 +130,7 @@ export function ExpandingPanels({ values }) {
                     transition={{ duration: 0.25 }}
                     className="overflow-hidden"
                   >
-                    <p className="mt-3 pt-3 border-t border-white/10 font-sans text-sm text-neutral-300 font-normal leading-relaxed">
+                    <p className="mt-3 pt-3 border-t border-white/10 font-sans text-sm text-neutral-100 font-semibold leading-relaxed">
                       {val.desc}
                     </p>
                   </motion.div>

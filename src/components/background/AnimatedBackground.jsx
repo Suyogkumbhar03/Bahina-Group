@@ -83,10 +83,10 @@ export function AnimatedBackground({ activeTheme = "neutral" }) {
 
       {/* A3: Left-Side Text Column Scrim (70% dark on text side, fading to 0% on open photo side) */}
       {/* This ensures the photo is clearly visible on the right while text on the left passes WCAG AA */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#070908]/85 via-[#070908]/50 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-white/10 via-white/5 to-transparent pointer-events-none" />
 
       {/* Top & Bottom Ambient Vignette to protect Navbar and Footer legibility */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#070908]/75 via-transparent to-[#070908]/80 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-white/10 pointer-events-none" />
 
       {/* A2: Visible Section Tint Crossfades */}
       {/* Hospitality: Amber #D9A441 */}

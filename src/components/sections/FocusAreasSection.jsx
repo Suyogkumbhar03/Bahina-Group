@@ -89,25 +89,25 @@ export function FocusAreasSection() {
       {/* Header Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 mb-8 sm:mb-12">
         <ShinyText text={t("focus.eyebrow")} className="text-[12px] font-sans font-semibold tracking-[0.14em]" />
-        <h2 className="mt-3 font-display font-light text-[#F3EFEA] text-[clamp(1.75rem,3.8vw,3.25rem)]">
+        <h2 className="mt-3 font-display font-medium text-[#F3EFEA] text-[clamp(1.75rem,3.8vw,3.25rem)]">
           {t("focus.heading")}
         </h2>
-        <p className="mt-3 font-sans text-base sm:text-[18px] text-neutral-300 max-w-xl font-normal leading-[1.65]">
+        <p className="mt-3 font-sans text-base sm:text-[18px] text-neutral-100 max-w-xl font-semibold leading-[1.65]">
           {t("focus.description")}
         </p>
       </div>
 
       {/* 1. Two-Row Marquee Moving in Opposite Directions with Soft Fade Edges */}
       <div className="relative w-full py-3 sm:py-4 mb-12 sm:mb-16 overflow-hidden border-y border-white/10 bg-white/[0.01] space-y-2.5 sm:space-y-3">
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-10 w-12 sm:w-28 bg-gradient-to-r from-[#070908] to-transparent" />
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-12 sm:w-28 bg-gradient-to-l from-[#070908] to-transparent" />
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-10 w-12 sm:w-28 bg-gradient-to-r from-white/10 to-transparent" />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-12 sm:w-28 bg-gradient-to-l from-white/10 to-transparent" />
 
         {/* Row 1: Forward */}
         <Marquee pauseOnHover repeat={4} className="py-1">
           {row1.map((area) => (
             <div
               key={`row1-${area.id}`}
-              className="flex items-center space-x-3 rounded-full border border-white/10 bg-[#0E1210]/70 px-4 sm:px-5 py-2 sm:py-2.5 mx-1.5 sm:mx-2 text-xs font-sans text-neutral-200"
+              className="flex items-center space-x-3 rounded-full border border-white/10 bg-[#0E1210]/70 px-4 sm:px-5 py-2 sm:py-2.5 mx-1.5 sm:mx-2 text-xs font-sans text-white"
             >
               <span
                 className="h-2 w-2 rounded-full"
@@ -116,7 +116,7 @@ export function FocusAreasSection() {
               <span className="font-display font-medium text-white">
                 {area.title}
               </span>
-              <span className="text-[11px] font-sans font-semibold text-neutral-400 uppercase tracking-wider">
+              <span className="text-[11px] font-sans font-semibold text-white uppercase tracking-wider">
                 / {area.division}
               </span>
             </div>
@@ -128,7 +128,7 @@ export function FocusAreasSection() {
           {row2.map((area) => (
             <div
               key={`row2-${area.id}`}
-              className="flex items-center space-x-3 rounded-full border border-white/10 bg-[#0E1210]/70 px-4 sm:px-5 py-2 sm:py-2.5 mx-1.5 sm:mx-2 text-xs font-sans text-neutral-200"
+              className="flex items-center space-x-3 rounded-full border border-white/10 bg-[#0E1210]/70 px-4 sm:px-5 py-2 sm:py-2.5 mx-1.5 sm:mx-2 text-xs font-sans text-white"
             >
               <span
                 className="h-2 w-2 rounded-full"
@@ -137,7 +137,7 @@ export function FocusAreasSection() {
               <span className="font-display font-medium text-white">
                 {area.title}
               </span>
-              <span className="text-[11px] font-sans font-semibold text-neutral-400 uppercase tracking-wider">
+              <span className="text-[11px] font-sans font-semibold text-white uppercase tracking-wider">
                 / {area.division}
               </span>
             </div>

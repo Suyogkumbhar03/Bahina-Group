@@ -64,7 +64,7 @@ export function ScrollVelocity({ texts = [], className = "" }) {
         <ParallaxRow
           key={idx}
           baseVelocity={idx % 2 === 0 ? 1.5 : -1.5}
-          className="font-display text-2xl sm:text-3xl md:text-4xl uppercase tracking-[0.12em] font-light text-neutral-400/80"
+          className="font-display text-2xl sm:text-3xl md:text-4xl uppercase tracking-[0.12em] font-medium text-white/80"
         >
           {text}
         </ParallaxRow>

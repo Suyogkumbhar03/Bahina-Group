@@ -61,7 +61,7 @@ export function BentoCard({
         <h4 className="font-display font-bold text-lg md:text-xl text-[#F3EFEA] mb-1.5">
           {title}
         </h4>
-        <p className="font-sans font-light text-xs md:text-sm text-neutral-400 leading-relaxed">
+        <p className="font-sans font-medium text-xs md:text-sm text-white leading-relaxed">
           {description}
         </p>
       </div>

@@ -26,7 +26,7 @@ export function Sheet({ open, onOpenChange, children }) {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             onClick={() => onOpenChange(false)}
-            className="fixed inset-0 bg-black/85 backdrop-blur-sm"
+            className="fixed inset-0 bg-white/10 backdrop-blur-sm"
           />
 
           {/* Drawer */}
@@ -39,7 +39,7 @@ export function Sheet({ open, onOpenChange, children }) {
           >
             <button
               onClick={() => onOpenChange(false)}
-              className="absolute right-6 top-6 p-2 rounded-full text-neutral-400 hover:text-white transition-colors"
+              className="absolute right-6 top-6 p-2 rounded-full text-white hover:text-white transition-colors"
               aria-label="Close navigation"
             >
               <X className="h-5 w-5" />

@@ -54,7 +54,7 @@ export function TextSizeControl({ className = "", compact = false }) {
             } ${
               isActive
                 ? "bg-[#D9A441] text-black shadow-md font-extrabold"
-                : "text-neutral-200 hover:text-white hover:bg-white/10"
+                : "text-white hover:text-white hover:bg-white/10"
             }`}
           >
             <span>{opt.label}</span>

@@ -36,7 +36,7 @@ CardTitle.displayName = "CardTitle"
 export const CardDescription = React.forwardRef(({ className, children, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn("text-xs md:text-sm text-neutral-400 leading-relaxed font-light", className)}
+    className={cn("text-xs md:text-sm text-white leading-relaxed font-medium", className)}
     {...props}
   >
     {children}

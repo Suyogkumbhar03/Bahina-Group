@@ -56,7 +56,7 @@ export function SectionIndicator() {
             aria-label={`${t("indicator.scrollTo")} ${sec.name}`}
           >
             {/* Hover Tooltip */}
-            <span className="pointer-events-none absolute right-7 opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-[11px] font-sans uppercase tracking-[0.14em] text-neutral-300 bg-[#0E1210]/90 border border-white/10 px-2 py-0.5 rounded backdrop-blur-sm whitespace-nowrap">
+            <span className="pointer-events-none absolute right-7 opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-[11px] font-sans uppercase tracking-[0.14em] text-neutral-100 bg-[#0E1210]/90 border border-white/10 px-2 py-0.5 rounded backdrop-blur-sm whitespace-nowrap">
               {sec.name}
             </span>
 

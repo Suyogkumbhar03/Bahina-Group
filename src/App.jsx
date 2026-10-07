@@ -99,7 +99,7 @@ export function App() {
 
   return (
     <LanguageProvider>
-      <div className="relative min-h-screen bg-[#070908] text-[#F3EFEA] font-sans selection:bg-[#3E9B63]/30 selection:text-white overflow-x-hidden">
+      <div className="relative min-h-screen bg-transparent text-[#F3EFEA] font-sans selection:bg-[#3E9B63]/30 selection:text-white overflow-x-clip">
         {/* 1. Magic UI Smooth Cursor (Desktop mouse only) */}
         <SmoothCursor />
 

@@ -23,7 +23,7 @@ export function LanguageSwitcher({ className = "", compact = false }) {
           aria-pressed={language === "en"}
           className={cn(
             "relative h-8 px-2.5 text-[11px] font-sans font-semibold transition-colors duration-200 rounded-full flex items-center justify-center focus:outline-none focus-visible:ring-1 focus-visible:ring-white/70",
-            language === "en" ? "text-white" : "text-neutral-400 hover:text-neutral-200"
+            language === "en" ? "text-white" : "text-white hover:text-white"
           )}
         >
           <span className="relative z-10 tracking-[0.04em]">English</span>
@@ -43,7 +43,7 @@ export function LanguageSwitcher({ className = "", compact = false }) {
           aria-pressed={language === "mr"}
           className={cn(
             "relative h-8 px-2.5 text-[12px] font-sans font-semibold transition-colors duration-200 rounded-full flex items-center justify-center focus:outline-none focus-visible:ring-1 focus-visible:ring-white/70",
-            language === "mr" ? "text-white" : "text-neutral-400 hover:text-neutral-200"
+            language === "mr" ? "text-white" : "text-white hover:text-white"
           )}
         >
           <span className="relative z-10 tracking-normal">मराठी</span>
@@ -75,7 +75,7 @@ export function LanguageSwitcher({ className = "", compact = false }) {
         aria-pressed={language === "en"}
         className={cn(
           "relative min-h-[44px] min-w-[44px] px-3.5 py-2 text-xs font-sans font-semibold transition-colors duration-200 rounded-full flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70",
-          language === "en" ? "text-white" : "text-neutral-400 hover:text-neutral-200"
+          language === "en" ? "text-white" : "text-white hover:text-white"
         )}
       >
         <span className="relative z-10 tracking-[0.06em]">English</span>
@@ -95,7 +95,7 @@ export function LanguageSwitcher({ className = "", compact = false }) {
         aria-pressed={language === "mr"}
         className={cn(
           "relative min-h-[44px] min-w-[44px] px-3.5 py-2 text-xs font-sans font-semibold transition-colors duration-200 rounded-full flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70",
-          language === "mr" ? "text-white" : "text-neutral-400 hover:text-neutral-200"
+          language === "mr" ? "text-white" : "text-white hover:text-white"
         )}
       >
         <span className="relative z-10 tracking-normal text-[13px]">मराठी</span>

@@ -10,7 +10,7 @@ export const InteractiveHoverButton = React.forwardRef(
       <button
         ref={ref}
         className={cn(
-          "group relative cursor-pointer overflow-hidden rounded-full border border-white/20 bg-white/[0.03] px-7 py-3 text-center font-sans text-xs font-semibold uppercase tracking-[0.14em] text-neutral-200 transition-all duration-300 hover:border-white/50 hover:bg-white/10 active:scale-[0.98] focus:outline-none focus-visible:ring-1 focus-visible:ring-white/60",
+          "group relative cursor-pointer overflow-hidden rounded-full border border-white/20 bg-white/[0.03] px-7 py-3 text-center font-sans text-xs font-semibold uppercase tracking-[0.14em] text-white transition-all duration-300 hover:border-white/50 hover:bg-white/10 active:scale-[0.98] focus:outline-none focus-visible:ring-1 focus-visible:ring-white/60",
           className
         )}
         {...props}
@@ -19,7 +19,7 @@ export const InteractiveHoverButton = React.forwardRef(
           <div className="h-1.5 w-1.5 rounded-full bg-white/60 transition-all duration-300 group-hover:scale-[100] group-hover:opacity-0" />
           <div className="relative h-[22px] overflow-hidden flex items-center">
             <div className="transition-transform duration-300 ease-out group-hover:-translate-y-1/2">
-              <span className="block text-neutral-300 leading-normal">{children || text}</span>
+              <span className="block text-neutral-100 leading-normal">{children || text}</span>
               <span className="block text-white leading-normal">{children || text}</span>
             </div>
           </div>

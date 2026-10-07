@@ -42,11 +42,11 @@ export function ValuesSection() {
       <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-white/10 pb-5 sm:pb-6 mb-10 sm:mb-16">
         <div>
           <ShinyText text={t("values.eyebrow")} className="text-[12px] font-sans font-semibold tracking-[0.14em]" />
-          <h2 className="mt-3 font-display font-light text-[#F3EFEA] text-[clamp(1.75rem,3.8vw,3.25rem)]">
+          <h2 className="mt-3 font-display font-medium text-[#F3EFEA] text-[clamp(1.75rem,3.8vw,3.25rem)]">
             {t("values.heading")}
           </h2>
         </div>
-        <p className="mt-3 sm:mt-0 font-sans text-sm sm:text-base text-neutral-300 max-w-sm font-normal leading-relaxed">
+        <p className="mt-3 sm:mt-0 font-sans text-sm sm:text-base text-neutral-100 max-w-sm font-semibold leading-relaxed">
           {t("values.description")}
         </p>
       </div>

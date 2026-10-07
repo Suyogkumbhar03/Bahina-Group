@@ -13,7 +13,7 @@ export function TextRevealByWord({ text, className }) {
 
   return (
     <div ref={targetRef} className={cn("relative z-0", className)}>
-      <p className="flex flex-wrap text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-light leading-tight text-white/20">
+      <p className="flex flex-wrap text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-medium leading-tight text-white/20">
         {words.map((word, i) => {
           const start = i / words.length
           const end = start + 1 / words.length

@@ -245,14 +245,6 @@ export function FrameSequenceBackground({
       setShowDebug(urlParams.get("debug") === "1")
     }
 
-    // Check low-data fallback
-    if (checkFallbackConditions()) {
-      setIsFallback(true)
-      onPass1ProgressRef.current?.(100)
-      onPass1CompleteRef.current?.()
-      return
-    }
-
     let isCancelled = false
 
     // Fetch manifest.json
@@ -276,13 +268,10 @@ export function FrameSequenceBackground({
       })
 
     const initSequence = (m) => {
-      // Determine device set: desktop if fine pointer & >= 900px, otherwise mobile
-      const finePointer = window.matchMedia("(pointer: fine)").matches
-      const isDesktop = finePointer && window.innerWidth >= 900
-      const activeConfig = isDesktop ? m.desktop : m.mobile
-
-      const totalFrames = activeConfig.count
-      const pattern = activeConfig.pattern
+      // Guarantee the full 120-frame sequence is loaded and applied
+      const isDesktop = typeof window !== "undefined" ? window.innerWidth >= 640 : true
+      const totalFrames = 120
+      const pattern = "desktop/f_%04d.webp"
       const version = m.version || "1"
 
       stateRef.current.manifest = m
@@ -304,6 +293,23 @@ export function FrameSequenceBackground({
         stateRef.current.isTabHidden = document.hidden
       }
       document.addEventListener("visibilitychange", handleVisibility)
+
+      // Direct window scroll listener to guarantee background animation on Lenis / native scroll
+      const handleWindowScroll = () => {
+        const docH = document.documentElement.scrollHeight - window.innerHeight
+        if (docH > 0) {
+          const p = Math.max(0, Math.min(1, window.scrollY / docH))
+          stateRef.current.targetProgress = p
+
+          if (p > 0.90) {
+            const op = (p - 0.90) / 0.10
+            setPosterEndOpacity(Math.min(1, Math.max(0, op)))
+          } else {
+            setPosterEndOpacity(0)
+          }
+        }
+      }
+      window.addEventListener("scroll", handleWindowScroll, { passive: true })
 
       // GSAP ScrollTrigger for 0 to 1 scroll progression
       const scrollTriggerInstance = ScrollTrigger.create({
@@ -458,11 +464,11 @@ export function FrameSequenceBackground({
         pump()
       }
 
-      // Background loading for Pass 2 and Pass 3 (4 requests at a time)
+      // Background loading for Pass 2 and Pass 3 (Fast concurrent loading for all 120 frames)
       const startBackgroundPasses = () => {
         const remainingQueue = [...pass2List, ...pass3List]
         let activeRequests = 0
-        const concurrency = 4
+        const concurrency = 8
 
         const pumpBackground = () => {
           if (!stateRef.current.isMounted) return
@@ -473,20 +479,12 @@ export function FrameSequenceBackground({
 
             loadFrame(nextFrameIndex).finally(() => {
               activeRequests--
-              if (typeof window !== "undefined" && "requestIdleCallback" in window) {
-                window.requestIdleCallback(() => pumpBackground(), { timeout: 80 })
-              } else {
-                setTimeout(pumpBackground, 16)
-              }
+              pumpBackground()
             })
           }
         }
 
-        if (typeof window !== "undefined" && "requestIdleCallback" in window) {
-          window.requestIdleCallback(() => pumpBackground(), { timeout: 120 })
-        } else {
-          setTimeout(pumpBackground, 40)
-        }
+        pumpBackground()
       }
 
       runPass1()
@@ -496,8 +494,15 @@ export function FrameSequenceBackground({
         const s = stateRef.current
 
         if (!s.isTabHidden && s.totalFrames > 0) {
-          // 1. Smooth scroll progress: current += (target - current) * 0.12
-          s.currentProgress += (s.targetProgress - s.currentProgress) * 0.12
+          // Direct real-time scroll calculation so the 120 frames never freeze or miss scrolling
+          const docH = document.documentElement.scrollHeight - window.innerHeight
+          if (docH > 0) {
+            const currentY = window.pageYOffset || window.scrollY || document.documentElement.scrollTop || 0
+            s.targetProgress = Math.max(0, Math.min(1, currentY / docH))
+          }
+
+          // 1. Smooth scroll progress: current += (target - current) * 0.16
+          s.currentProgress += (s.targetProgress - s.currentProgress) * 0.16
 
           // 2. Slow canvas zoom from 1.0 to 1.05 over the whole page (transform only)
           const scale = 1.0 + s.currentProgress * 0.05
@@ -505,7 +510,7 @@ export function FrameSequenceBackground({
             wrapperRef.current.style.transform = `scale(${scale.toFixed(4)})`
           }
 
-          // 3. Map scroll progress (0 to 1) to frame ratio using section milestones
+          // 3. Map scroll progress (0 to 1) directly across all 120 frames
           const frameRatio = getFrameRatioFromScroll(s.currentProgress, s.sectionMilestones)
           const decimalPos = frameRatio * (s.totalFrames - 1)
 
@@ -523,7 +528,7 @@ export function FrameSequenceBackground({
 
           // 5. Blending & draw optimization: draw only when position changed
           const posDelta = Math.abs(decimalPos - s.lastDrawnDecimalPos)
-          if (posDelta >= 0.005 || s.lastDrawnDecimalPos < 0) {
+          if (posDelta >= 0.003 || s.lastDrawnDecimalPos < 0) {
             drawBlendedFrame(decimalPos)
             s.lastDrawnDecimalPos = decimalPos
           }
@@ -557,6 +562,7 @@ export function FrameSequenceBackground({
 
       // Store cleanup on stateRef
       stateRef.current.cleanup = () => {
+        window.removeEventListener("scroll", handleWindowScroll)
         window.removeEventListener("resize", handleResize)
         window.removeEventListener("orientationchange", handleResize)
         document.removeEventListener("visibilitychange", handleVisibility)
@@ -635,45 +641,45 @@ export function FrameSequenceBackground({
           background: "radial-gradient(ellipse at 50% 50%, transparent 65%, rgba(7, 9, 8, 0.20) 100%)",
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#070908]/25 via-transparent to-[#070908]/30 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-white/10 pointer-events-none" />
 
       {/* Debug Overlay (?debug=1 only) */}
       {showDebug && (
         <aside
           aria-label="Frame Sequence Debug Overlay"
-          className="fixed bottom-4 right-4 z-50 bg-[#070908]/92 text-[#F3EFEA] border border-white/20 rounded-lg p-3 font-mono text-xs shadow-2xl backdrop-blur-md pointer-events-auto select-text space-y-1 min-w-[230px]"
+          className="fixed bottom-4 right-4 z-50 bg-white/10 text-[#F3EFEA] border border-white/20 rounded-lg p-3 font-mono text-xs shadow-2xl backdrop-blur-md pointer-events-auto select-text space-y-1 min-w-[230px]"
         >
           <div className="text-[10px] uppercase font-bold text-amber-400 tracking-wider border-b border-white/10 pb-1 mb-1">
             Village Frame Sequence HUD
           </div>
           <div className="flex justify-between">
-            <span className="text-neutral-400">Mode:</span>
+            <span className="text-white">Mode:</span>
             <span className="font-semibold text-white">{debugData.mode}</span>
           </div>
           <div className="flex justify-between">
-            <span className="text-neutral-400">FPS:</span>
+            <span className="text-white">FPS:</span>
             <span className={debugData.fps >= 50 ? "text-emerald-400 font-semibold" : "text-amber-400 font-semibold"}>
               {debugData.fps}
             </span>
           </div>
           <div className="flex justify-between">
-            <span className="text-neutral-400">Scroll:</span>
+            <span className="text-white">Scroll:</span>
             <span className="text-white font-semibold">{(debugData.scrollProgress * 100).toFixed(1)}%</span>
           </div>
           <div className="flex justify-between">
-            <span className="text-neutral-400">Frame Pos:</span>
+            <span className="text-white">Frame Pos:</span>
             <span className="text-amber-300 font-semibold">
               #{debugData.framePosition.toFixed(1)} / {debugData.totalFrames}
             </span>
           </div>
           <div className="flex justify-between">
-            <span className="text-neutral-400">Current Int:</span>
+            <span className="text-white">Current Int:</span>
             <span className="text-white font-semibold">
               #{debugData.currentFrame}
             </span>
           </div>
           <div className="flex justify-between">
-            <span className="text-neutral-400">Loaded:</span>
+            <span className="text-white">Loaded:</span>
             <span className="text-emerald-400 font-semibold">
               {debugData.loadedCount}/{debugData.totalFrames} ({debugData.loadedPercent}%)
             </span>

@@ -56,10 +56,10 @@ export function ApproachSection() {
         {/* Left Header Column */}
         <div className="lg:col-span-4 lg:sticky lg:top-28">
           <ShinyText text={t("approach.eyebrow")} className="text-[12px] font-sans font-semibold tracking-[0.14em]" />
-          <h2 className="mt-3 font-display font-light text-[#F3EFEA] text-[clamp(1.75rem,3.8vw,3.25rem)]">
+          <h2 className="mt-3 font-display font-medium text-[#F3EFEA] text-[clamp(1.75rem,3.8vw,3.25rem)]">
             {t("approach.heading")}
           </h2>
-          <p className="mt-3 sm:mt-4 font-sans text-sm sm:text-base text-neutral-300 font-normal leading-relaxed max-w-xs">
+          <p className="mt-3 sm:mt-4 font-sans text-sm sm:text-base text-neutral-100 font-semibold leading-relaxed max-w-xs">
             {t("approach.description")}
           </p>
         </div>
@@ -97,7 +97,7 @@ export function ApproachSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.55, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="relative p-5 sm:p-8 rounded-2xl border border-white/15 bg-black/45 backdrop-blur-[2px] group hover:border-white/30 transition-all shadow-lg"
+                className="relative p-5 sm:p-8 rounded-2xl border border-white/15 bg-black/65 backdrop-blur-md group hover:border-white/30 transition-all shadow-xl"
               >
                 {/* Milestone Node on Timeline with illuminated pulse on view */}
                 <motion.div
@@ -116,17 +116,17 @@ export function ApproachSection() {
                 />
 
                 <div className="flex items-baseline justify-between mb-3">
-                  <span className="font-sans text-xs font-semibold uppercase tracking-[0.14em] text-neutral-300 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
+                  <span className="font-sans text-xs font-semibold uppercase tracking-[0.14em] text-neutral-100 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
                     {t("approach.stepLabel")} {step.num}
                   </span>
                   <span className="h-[1px] w-12 bg-white/10 group-hover:w-20 group-hover:bg-white/30 transition-all" />
                 </div>
 
-                <h3 className="font-display text-2xl font-light text-[#F3EFEA] drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]">
+                <h3 className="font-display text-2xl font-medium text-[#F3EFEA] drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]">
                   {step.title}
                 </h3>
 
-                <p className="mt-3 font-sans text-sm sm:text-base text-neutral-200 font-normal leading-relaxed max-w-2xl drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
+                <p className="mt-3 font-sans text-sm sm:text-base text-white font-semibold leading-relaxed max-w-2xl drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
                   {step.desc}
                 </p>
               </motion.div>

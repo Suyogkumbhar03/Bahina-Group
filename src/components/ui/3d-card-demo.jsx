@@ -16,7 +16,7 @@ export function ThreeDCardDemo() {
         <CardItem
           as="p"
           translateZ="60"
-          className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300">
+          className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-100">
           Hover over this card to unleash the power of CSS perspective
         </CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
@@ -33,7 +33,7 @@ export function ThreeDCardDemo() {
             as="a"
             href="https://twitter.com/mannupaaji"
             target="__blank"
-            className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white">
+            className="px-4 py-2 rounded-xl text-xs font-semibold dark:text-white">
             Try now →
           </CardItem>
           <CardItem

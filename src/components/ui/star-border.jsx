@@ -34,7 +34,7 @@ export function StarBorder({
       <div className="relative z-10 bg-[#0E1210] border border-white/20 text-white text-xs font-sans font-semibold uppercase tracking-[0.14em] text-center rounded-full px-8 py-3.5 transition-all duration-300 group-hover:bg-[#141A17] group-hover:border-white/50 active:scale-[0.98]">
         <div className="relative h-4 overflow-hidden">
           <div className="transition-transform duration-300 ease-out group-hover:-translate-y-full">
-            <span className="block text-neutral-200">{children}</span>
+            <span className="block text-white">{children}</span>
             <span className="block text-white">{children}</span>
           </div>
         </div>

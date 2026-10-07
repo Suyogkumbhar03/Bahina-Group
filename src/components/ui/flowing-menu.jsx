@@ -35,13 +35,13 @@ export function FlowingMenu({ items = [] }) {
               <span className="font-sans text-xs uppercase tracking-[0.18em] text-neutral-500 font-semibold shrink-0">
                 {item.number || `0${idx + 1}`}
               </span>
-              <span className="font-display text-base sm:text-2xl md:text-3xl font-light text-neutral-200 group-hover:text-white transition-colors duration-300 truncate">
+              <span className="font-display text-base sm:text-2xl md:text-3xl font-medium text-white group-hover:text-white transition-colors duration-300 truncate">
                 {item.text || item.title}
               </span>
             </div>
 
             <div className="relative z-10 flex items-center space-x-4">
-              <span className="hidden sm:inline-block text-xs font-sans uppercase tracking-[0.14em] text-neutral-400">
+              <span className="hidden sm:inline-block text-xs font-sans uppercase tracking-[0.14em] text-white">
                 {item.category || "Explore"}
               </span>
               <div
@@ -78,7 +78,7 @@ export function FlowingMenu({ items = [] }) {
                         <span className="font-display text-2xl md:text-3xl font-semibold uppercase tracking-[0.12em] text-black">
                           {item.text || item.title}
                         </span>
-                        <span className="w-2 h-2 rounded-full bg-black/40" />
+                        <span className="w-2 h-2 rounded-full bg-white/10" />
                         <span className="font-sans text-xs uppercase tracking-[0.2em] font-bold text-black/70">
                           {item.tagline || "BAHINA Group"}
                         </span>

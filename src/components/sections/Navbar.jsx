@@ -84,7 +84,7 @@ export function Navbar() {
                 >
                   BAHINA
                 </span>
-                <span className="text-[11px] uppercase font-sans font-semibold tracking-[0.12em] text-neutral-400">
+                <span className="text-[11px] uppercase font-sans font-semibold tracking-[0.12em] text-white">
                   {t("brand.group")}
                 </span>
               </a>
@@ -100,7 +100,7 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   className={`relative px-2.5 xl:px-3 py-1.5 text-[11px] xl:text-[12px] font-sans font-semibold uppercase tracking-[0.08em] whitespace-nowrap transition-colors duration-200 z-10 ${
-                    isActive ? "text-white" : "text-neutral-300 hover:text-white"
+                    isActive ? "text-white" : "text-neutral-100 hover:text-white"
                   }`}
                 >
                   {link.name}
@@ -134,10 +134,10 @@ export function Navbar() {
                   className="group relative inline-flex items-center justify-center overflow-hidden rounded-full border border-white/20 bg-white/5 px-3.5 py-1.5 transition-all duration-300 hover:border-white/50 hover:bg-white/10 focus:outline-none focus-visible:ring-1 focus-visible:ring-white/60 min-h-[36px]"
                   data-cursor-label="Contact"
                 >
-                  <span className="block text-[11px] xl:text-[12px] font-sans font-semibold uppercase tracking-[0.1em] text-neutral-200 group-hover:text-white transition-colors whitespace-nowrap">
+                  <span className="block text-[11px] xl:text-[12px] font-sans font-semibold uppercase tracking-[0.1em] text-white group-hover:text-white transition-colors whitespace-nowrap">
                     {t("nav.contact")}
                   </span>
-                  <ArrowUpRight className="h-3 w-3 ml-1 text-neutral-300 group-hover:text-white transition-colors" />
+                  <ArrowUpRight className="h-3 w-3 ml-1 text-neutral-100 group-hover:text-white transition-colors" />
                 </a>
               </Magnet>
             </div>
@@ -145,7 +145,7 @@ export function Navbar() {
             {/* Mobile Hamburger Trigger (below 1024px) */}
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="flex lg:hidden p-2 rounded-full text-neutral-300 hover:text-white transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-white/60 min-h-[44px] min-w-[44px] items-center justify-center"
+              className="flex lg:hidden p-2 rounded-full text-neutral-100 hover:text-white transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-white/60 min-h-[44px] min-w-[44px] items-center justify-center"
               aria-label={t("nav.menuOpen")}
             >
               <Menu className="h-5 w-5" />

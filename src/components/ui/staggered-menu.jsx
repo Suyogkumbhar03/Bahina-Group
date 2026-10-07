@@ -46,7 +46,7 @@ export function StaggeredMenu({ isOpen, onClose }) {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             onClick={onClose}
-            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+            className="absolute inset-0 bg-white/10 backdrop-blur-sm"
           />
 
           {/* Layer 2: Sliding Panel */}
@@ -63,17 +63,17 @@ export function StaggeredMenu({ isOpen, onClose }) {
                 <div className="flex items-center space-x-2">
                   <span
                     lang="en"
-                    className="font-display text-2xl font-light tracking-[0.16em] text-white"
+                    className="font-display text-2xl font-medium tracking-[0.16em] text-white"
                   >
                     BAHINA
                   </span>
-                  <span className="text-[12px] uppercase font-sans font-semibold tracking-[0.14em] text-neutral-400">
+                  <span className="text-[12px] uppercase font-sans font-semibold tracking-[0.14em] text-white">
                     {t("brand.group")}
                   </span>
                 </div>
                 <button
                   onClick={onClose}
-                  className="min-h-[44px] min-w-[44px] p-2.5 rounded-full bg-white/5 border border-white/10 text-neutral-300 hover:text-white transition-colors flex items-center justify-center focus:outline-none focus-visible:ring-1 focus-visible:ring-white/60"
+                  className="min-h-[44px] min-w-[44px] p-2.5 rounded-full bg-white/5 border border-white/10 text-neutral-100 hover:text-white transition-colors flex items-center justify-center focus:outline-none focus-visible:ring-1 focus-visible:ring-white/60"
                   aria-label={t("nav.menuClose")}
                 >
                   <X className="h-5 w-5" />
@@ -102,7 +102,7 @@ export function StaggeredMenu({ isOpen, onClose }) {
                     delay: 0.15 + idx * 0.05,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  className="group flex items-center justify-between py-2.5 text-xl sm:text-2xl font-display font-light text-neutral-200 hover:text-white transition-colors border-b border-white/5 min-h-[44px]"
+                  className="group flex items-center justify-between py-2.5 text-xl sm:text-2xl font-display font-medium text-white hover:text-white transition-colors border-b border-white/5 min-h-[44px]"
                 >
                   <span className="group-hover:translate-x-1 transition-transform duration-200">
                     {link.name}
@@ -114,7 +114,7 @@ export function StaggeredMenu({ isOpen, onClose }) {
 
             {/* Bottom: Three Division Color Dots + Contact CTA */}
             <div className="border-t border-white/10 pt-6 space-y-4">
-              <span className="block text-[12px] font-sans font-semibold uppercase tracking-[0.14em] text-neutral-400">
+              <span className="block text-[12px] font-sans font-semibold uppercase tracking-[0.14em] text-white">
                 {t("hero.divisionsBarLabel")}
               </span>
               <div className="flex items-center justify-between gap-2.5">
@@ -129,7 +129,7 @@ export function StaggeredMenu({ isOpen, onClose }) {
                       className="w-2.5 h-2.5 rounded-full shrink-0"
                       style={{ backgroundColor: div.accent }}
                     />
-                    <span className="text-[12px] font-sans font-medium text-neutral-300 truncate">
+                    <span className="text-[12px] font-sans font-medium text-neutral-100 truncate">
                       {div.shortName}
                     </span>
                   </a>
