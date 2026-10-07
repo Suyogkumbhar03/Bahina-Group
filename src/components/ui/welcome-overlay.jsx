@@ -7,11 +7,11 @@ import { RURAL_CONFIG } from "@/config"
  * WelcomeOverlay
  * 
  * Minimalist, cinematic welcome video overlay:
- * - Plays welcome video automatically with recorded voice.
- * - Clean UI: ONLY the Skip button is displayed.
- * - When video finishes (onEnded) or Skip is clicked, smoothly fades out (0.5s)
- *   and reveals the fully loaded website.
- * - Fullscreen accessible dialog with focus trap and Escape key support.
+ * - Starts playing instantly without getting stuck (native autoPlay + muted attributes).
+ * - Safety watchdog timer (9.2s max for the 8.07s video) ensures it NEVER hangs or gets stuck.
+ * - onError and onTimeUpdate fallbacks trigger smooth fade-out if buffering or network stalls.
+ * - Only the clean Skip button is shown in the top-right corner.
+ * - Fullscreen object-cover edge-to-edge layout.
  */
 export function WelcomeOverlay({
   isOpen,
@@ -22,13 +22,46 @@ export function WelcomeOverlay({
   const videoRef = useRef(null)
   const dialogRef = useRef(null)
   const previousFocusRef = useRef(null)
+  const hasClosedRef = useRef(false)
 
   const [isFadingOut, setIsFadingOut] = useState(false)
+
+  // Smooth fade-out close handler
+  const handleClose = useCallback(() => {
+    if (hasClosedRef.current) return
+    hasClosedRef.current = true
+    setIsFadingOut(true)
+
+    // Remember seen state in localStorage
+    try {
+      localStorage.setItem("bahina_welcome_seen", "1")
+    } catch (e) {}
+
+    setTimeout(() => {
+      const video = videoRef.current
+      if (video) {
+        try {
+          video.pause()
+          video.currentTime = 0
+          video.src = ""
+          video.load()
+        } catch (e) {}
+      }
+      onClose()
+
+      // Return focus to page
+      if (previousFocusRef.current && typeof previousFocusRef.current.focus === "function") {
+        previousFocusRef.current.focus()
+      }
+    }, 500)
+  }, [onClose])
 
   // Handle dialog opening / closing, focus trap, and scroll lock
   useEffect(() => {
     if (!isOpen) return
 
+    hasClosedRef.current = false
+    setIsFadingOut(false)
     previousFocusRef.current = document.activeElement
     const originalOverflow = document.body.style.overflow
     document.body.style.overflow = "hidden"
@@ -68,64 +101,61 @@ export function WelcomeOverlay({
       document.body.style.overflow = originalOverflow
       window.removeEventListener("keydown", handleKeyDown)
     }
-  }, [isOpen])
+  }, [isOpen, handleClose])
 
-  // Start video playback when opened
+  // SAFETY WATCHDOG TIMER:
+  // welcome.mp4 is 8.07 seconds long.
+  // If after 9.2 seconds the video hasn't naturally closed, close it automatically!
+  // This guarantees the visitor NEVER gets stuck on the preload screen.
   useEffect(() => {
     if (!isOpen) return
 
-    setIsFadingOut(false)
+    const watchdogTimer = setTimeout(() => {
+      handleClose()
+    }, 9200)
 
-    const timer = setTimeout(() => {
-      const video = videoRef.current
+    return () => clearTimeout(watchdogTimer)
+  }, [isOpen, handleClose])
+
+  // Video playback attempt with audio unmute check
+  useEffect(() => {
+    if (!isOpen) return
+
+    const video = videoRef.current
+    if (!video) return
+
+    // Video starts muted automatically via JSX attributes so it never blocks
+    // Attempt to unmute after 80ms if the browser allows audio
+    const audioTimer = setTimeout(() => {
       if (!video) return
-
-      // Try playing unmuted first so visitor hears voice immediately
       video.muted = false
       const playPromise = video.play()
       if (playPromise !== undefined) {
         playPromise.catch(() => {
-          // If browser policy blocks audio autoplay, fallback to muted autoplay
+          // If browser policy blocks sound autoplay, keep playing muted seamlessly
           video.muted = true
           video.play().catch(() => {})
         })
       }
-    }, 50)
+    }, 80)
 
-    return () => clearTimeout(timer)
+    return () => clearTimeout(audioTimer)
   }, [isOpen])
 
-  // Smooth fade-out close handler
-  const handleClose = useCallback(() => {
-    setIsFadingOut(true)
-
-    // Remember seen state in localStorage
-    try {
-      localStorage.setItem("bahina_welcome_seen", "1")
-    } catch (e) {}
-
-    setTimeout(() => {
-      const video = videoRef.current
-      if (video) {
-        video.pause()
-        video.currentTime = 0
-        video.src = ""
-        video.load()
-      }
-      onClose()
-
-      // Return focus to page
-      if (previousFocusRef.current && typeof previousFocusRef.current.focus === "function") {
-        previousFocusRef.current.focus()
-      }
-    }, 500)
-  }, [onClose])
-
-  // Tap anywhere on video to unmute if browser initially muted it
+  // Tap anywhere on video to unmute if browser kept it muted
   const handleVideoClick = () => {
     const video = videoRef.current
-    if (video && video.muted) {
+    if (video) {
       video.muted = false
+      video.play().catch(() => {})
+    }
+  }
+
+  // Monitor playback progress: when within 0.2s of end, transition smoothly
+  const handleTimeUpdate = (e) => {
+    const v = e.currentTarget
+    if (v.duration > 0 && v.currentTime >= v.duration - 0.25) {
+      handleClose()
     }
   }
 
@@ -143,14 +173,18 @@ export function WelcomeOverlay({
       }`}
     >
       {/* Fullscreen Video Viewport (Edge-to-edge object-cover) */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden flex items-center justify-center">
+      <div className="absolute inset-0 w-full h-full overflow-hidden flex items-center justify-center bg-[#070908]">
         <video
           ref={videoRef}
           src={RURAL_CONFIG.welcomeVideo}
           poster={RURAL_CONFIG.welcomePoster}
+          autoPlay
+          muted
           playsInline
           preload="auto"
           onEnded={handleClose}
+          onError={handleClose}
+          onTimeUpdate={handleTimeUpdate}
           onClick={handleVideoClick}
           className="w-full h-full min-w-full min-h-full object-cover cursor-pointer"
         />

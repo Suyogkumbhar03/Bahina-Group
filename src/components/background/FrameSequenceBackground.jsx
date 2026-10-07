@@ -339,7 +339,7 @@ export function FrameSequenceBackground({
             resolve(result)
           }
 
-          const timeoutId = setTimeout(() => finish(null), 3000)
+          const timeoutId = setTimeout(() => finish(null), 1500)
 
           const img = new Image()
           const frameNum = index + 1
@@ -395,9 +395,18 @@ export function FrameSequenceBackground({
         let nextIdx = 0
         let pass1Completed = false
 
+        // Absolute safety watchdog: Pass 1 should NEVER hold back the site for more than 2.0s
+        const pass1Watchdog = setTimeout(() => {
+          if (!pass1Completed && stateRef.current.isMounted) {
+            notifyComplete()
+          }
+        }, 2000)
+
         const notifyComplete = () => {
           if (pass1Completed) return
           pass1Completed = true
+          clearTimeout(fastTimer)
+          clearTimeout(pass1Watchdog)
           onPass1ProgressRef.current?.(100)
           onPass1CompleteRef.current?.()
           setTimeout(() => {
@@ -408,12 +417,12 @@ export function FrameSequenceBackground({
           startBackgroundPasses()
         }
 
-        // Fast-path safety: if first 6 frames load within 1.2s, allow preloader completion
+        // Fast-path safety: if first 4 frames load within 1.0s, allow completion
         const fastTimer = setTimeout(() => {
           if (!pass1Completed && stateRef.current.isMounted && pass1Loaded >= 4) {
             notifyComplete()
           }
-        }, 1200)
+        }, 1000)
 
         const pump = () => {
           if (!stateRef.current.isMounted) return
