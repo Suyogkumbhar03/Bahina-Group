@@ -49,7 +49,7 @@ export function DivisionsSection({ onThemeChange }) {
           t("division.foundation.bullet3"),
         ],
         ctaText: t("division.foundation.cta"),
-        link: "#contact",
+        link: "/foundation",
       },
       {
         id: "labs",

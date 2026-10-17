@@ -31,6 +31,7 @@ export function FooterSection({ onOpenWelcomeVideo }) {
         tagline: t("division.foundation.tagline"),
         category: t("division.foundation.shortName"),
         color: "#3E9B63",
+        href: "/foundation",
       },
       {
         number: "03",
@@ -86,6 +87,11 @@ export function FooterSection({ onOpenWelcomeVideo }) {
           {/* Brand Column */}
           <div className="lg:col-span-5 flex flex-col space-y-4">
             <div className="flex items-center space-x-3 text-[#F3EFEA]">
+              <img
+                src="/logo-mark.png"
+                alt="BAHINA Group Emblem"
+                className="h-9 w-auto object-contain"
+              />
               <span
                 lang="en"
                 className="font-display text-2xl tracking-[0.2em] font-semibold"

@@ -22,7 +22,17 @@ export function FlowingMenu({ items = [] }) {
             key={item.text || item.title || idx}
             onMouseEnter={() => setHoveredIdx(idx)}
             onMouseLeave={() => setHoveredIdx(null)}
-            onClick={() => handleTouch(idx)}
+            onClick={() => {
+              handleTouch(idx)
+              if (item.href) {
+                if (item.href.startsWith("/")) {
+                  window.history.pushState({}, "", item.href)
+                  window.dispatchEvent(new PopStateEvent("popstate"))
+                } else {
+                  window.location.href = item.href
+                }
+              }
+            }}
             className="group relative w-full h-16 sm:h-24 md:h-28 overflow-hidden cursor-pointer flex items-center justify-between px-4 sm:px-10 transition-colors duration-300"
             style={{
               backgroundColor: isTapped
