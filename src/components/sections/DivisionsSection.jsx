@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ArrowUpRight, ChevronDown, ChevronRight } from "lucide-react"
+import { Link } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { BorderBeam } from "@/components/ui/border-beam"
 import { FlickeringGrid } from "@/components/ui/flickering-grid"
@@ -32,7 +33,7 @@ export function DivisionsSection({ onThemeChange }) {
           t("division.hospitality.bullet3"),
         ],
         ctaText: t("division.hospitality.cta"),
-        link: "#contact",
+        link: "/hospitality",
       },
       {
         id: "foundation",
@@ -352,19 +353,35 @@ export function DivisionsSection({ onThemeChange }) {
                         </div>
 
                         <Magnet magnetStrength={0.2} padding={15}>
-                          <a href={div.link} data-cursor-label="Explore">
-                            <Button
-                              variant="editorial"
-                              size="sm"
-                              className="group rounded-full text-xs font-sans font-semibold tracking-[0.12em] uppercase border-white/25 hover:border-white/60 px-4 py-1.5 min-h-[38px]"
-                            >
-                              <span>{div.ctaText}</span>
-                              <ArrowUpRight
-                                className="h-3.5 w-3.5 ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                                style={{ color: div.accent }}
-                              />
-                            </Button>
-                          </a>
+                          {div.id === "hospitality" ? (
+                            <Link to={div.link} data-cursor-label="Explore">
+                              <Button
+                                variant="editorial"
+                                size="sm"
+                                className="group rounded-full text-xs font-sans font-semibold tracking-[0.12em] uppercase border-white/25 hover:border-white/60 px-4 py-1.5 min-h-[38px]"
+                              >
+                                <span>{div.ctaText}</span>
+                                <ArrowUpRight
+                                  className="h-3.5 w-3.5 ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                                  style={{ color: div.accent }}
+                                />
+                              </Button>
+                            </Link>
+                          ) : (
+                            <a href={div.link} data-cursor-label="Explore">
+                              <Button
+                                variant="editorial"
+                                size="sm"
+                                className="group rounded-full text-xs font-sans font-semibold tracking-[0.12em] uppercase border-white/25 hover:border-white/60 px-4 py-1.5 min-h-[38px]"
+                              >
+                                <span>{div.ctaText}</span>
+                                <ArrowUpRight
+                                  className="h-3.5 w-3.5 ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                                  style={{ color: div.accent }}
+                                />
+                              </Button>
+                            </a>
+                          )}
                         </Magnet>
                       </div>
                     </motion.div>
@@ -521,16 +538,29 @@ export function DivisionsSection({ onThemeChange }) {
                           </div>
 
                           <div className="pt-3">
-                            <a href={div.link}>
-                              <Button
-                                variant="editorial"
-                                size="default"
-                                className="w-full text-xs font-sans font-semibold uppercase tracking-[0.14em] min-h-[44px]"
-                              >
-                                <span>{div.ctaText}</span>
-                                <ArrowUpRight className="h-4 w-4 ml-1.5" />
-                              </Button>
-                            </a>
+                            {div.id === "hospitality" ? (
+                              <Link to={div.link}>
+                                <Button
+                                  variant="editorial"
+                                  size="default"
+                                  className="w-full text-xs font-sans font-semibold uppercase tracking-[0.14em] min-h-[44px]"
+                                >
+                                  <span>{div.ctaText}</span>
+                                  <ArrowUpRight className="h-4 w-4 ml-1.5" />
+                                </Button>
+                              </Link>
+                            ) : (
+                              <a href={div.link}>
+                                <Button
+                                  variant="editorial"
+                                  size="default"
+                                  className="w-full text-xs font-sans font-semibold uppercase tracking-[0.14em] min-h-[44px]"
+                                >
+                                  <span>{div.ctaText}</span>
+                                  <ArrowUpRight className="h-4 w-4 ml-1.5" />
+                                </Button>
+                              </a>
+                            )}
                           </div>
                         </div>
                       </motion.div>

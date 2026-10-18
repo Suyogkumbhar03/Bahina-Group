@@ -181,6 +181,514 @@ This document contains all visible text across the BAHINA Group website for revi
 | `hero.scrollPromptAria` | Scroll down to About Us section | आमच्याबद्दल माहिती पाहण्यासाठी खाली स्क्रोल करा *(needs native review)* | | 
 | `hero.secondaryCta` | Contact us | आमच्याशी संपर्क साधा *(needs native review)* | | 
 | `hero.tagline` | Enriching Every Life. | प्रत्येक आयुष्य समृद्ध करण्यासाठी. *(needs native review)* | | 
+| `hosp.404.btn` | Browse all farmhouses | सर्व शेतघरे पाहा *(needs native review)* | | 
+| `hosp.404.desc` | The requested farmhouse page does not exist or has moved. | आपण शोधत असलेले शेतघर पृष्ठ उपलब्ध नाही. *(needs native review)* | | 
+| `hosp.404.title` | Farmhouse Not Found | शेतघर सापडले नाही *(needs native review)* | | 
+| `hosp.amenities.catAll` | All Essentials | सर्व सुविधा *(needs native review)* | | 
+| `hosp.amenities.catComfort` | Comfort & Living | सुविधा आणि आराम *(needs native review)* | | 
+| `hosp.amenities.catDining` | Dining & Care | जेवण आणि आतिथ्य *(needs native review)* | | 
+| `hosp.amenities.catLeisure` | Nature & Leisure | निसर्ग आणि विरंगुळा *(needs native review)* | | 
+| `hosp.amenities.eyebrow` | Hospitality & Amenities | सुविधा आणि आतिथ्य *(needs native review)* | | 
+| `hosp.amenities.heading` | Everything you need for a restful stay. | शांत मुक्कामासाठी आवश्यक सर्व सुविधा. *(needs native review)* | | 
+| `hosp.amenities.subheading` | Each BAHINA farmhouse is thoughtfully prepared with authentic rural warmth and comfortable modern conveniences. | प्रत्येक बहिणा शेतघर ग्रामीण आपुलकी आणि आधुनिक सोयीसुविधांनी सुसज्ज आहे. *(needs native review)* | | 
+| `hosp.amenity.ac` | Air conditioning | वातानुकूलित *(needs native review)* | | 
+| `hosp.amenity.acDesc` | AC in bedrooms | शयनकक्षात एसी सुविधा *(needs native review)* | | 
+| `hosp.amenity.campfire` | Campfire | शेकोटी *(needs native review)* | | 
+| `hosp.amenity.campfireDesc` | Evening bonfire area | संध्याकाळची शेकोटी *(needs native review)* | | 
+| `hosp.amenity.games` | Indoor games | घरातील खेळ *(needs native review)* | | 
+| `hosp.amenity.gamesDesc` | Carrom and board games | कॅरम आणि इतर खेळ *(needs native review)* | | 
+| `hosp.amenity.kitchen` | Kitchen | स्वयंपाकघर *(needs native review)* | | 
+| `hosp.amenity.kitchenDesc` | Equipped cooking space | साहित्य असलेले स्वयंपाकघर *(needs native review)* | | 
+| `hosp.amenity.lawn` | Garden lawn | हिरवेगार लॉन *(needs native review)* | | 
+| `hosp.amenity.lawnDesc` | Open green space | मोकळी हिरवी जागा *(needs native review)* | | 
+| `hosp.amenity.meals` | Local meals | गावरान जेवण *(needs native review)* | | 
+| `hosp.amenity.mealsDesc` | Fresh village cuisine | ताजे ग्रामीण भोजन *(needs native review)* | | 
+| `hosp.amenity.mountainView` | Mountain view | डोंगर दृश्य *(needs native review)* | | 
+| `hosp.amenity.mountainViewDesc` | Scenic valley scenery | निसर्गरम्य दरीचे दृश्य *(needs native review)* | | 
+| `hosp.amenity.parking` | Parking | पार्किंग *(needs native review)* | | 
+| `hosp.amenity.parkingDesc` | Safe vehicle parking | सुरक्षित वाहन पार्किंग *(needs native review)* | | 
+| `hosp.amenity.petFriendly` | Pet friendly | पाळीव प्राण्यांना परवानगी *(needs native review)* | | 
+| `hosp.amenity.petFriendlyDesc` | Pets are welcome | पाळीव प्राण्यांचे स्वागत आहे *(needs native review)* | | 
+| `hosp.amenity.pool` | Swimming pool | जलतरण तलाव *(needs native review)* | | 
+| `hosp.amenity.poolDesc` | Clean outdoor pool | स्वच्छ मैदानी तलाव *(needs native review)* | | 
+| `hosp.amenity.powerBackup` | Power backup | विद्युत बॅकअप *(needs native review)* | | 
+| `hosp.amenity.powerBackupDesc` | Inverter generator backup | इन्व्हर्टर व जनरेटर सुविधा *(needs native review)* | | 
+| `hosp.amenity.wifi` | Wi-Fi | वाय-फाय *(needs native review)* | | 
+| `hosp.amenity.wifiDesc` | Basic internet access | मूलभूत इंटरनेट सुविधा *(needs native review)* | | 
+| `hosp.aria.breadcrumbs` | Breadcrumbs | पृष्ठ मार्ग *(needs native review)* | | 
+| `hosp.aria.mainNav` | Hospitality Navigation | हॉस्पिटॅलिटी नेव्हिगेशन *(needs native review)* | | 
+| `hosp.badge.sample` | Sample | नमुना *(needs native review)* | | 
+| `hosp.bento.card1Desc` | Built with natural red laterite stone and teakwood ceilings. Open verandahs channel cool hill breezes naturally. | महाराष्ट्राच्या वातावरणाला अनुकूल असा जांभा दगड आणि सागवानी खांब. हवेशीर पडवीमुळे कृत्रिम थंड हवेची गरजच भासत नाही. *(needs native review)* | | 
+| `hosp.bento.card1Title` | Handcrafted with Red Stone & Teakwood. | जांभा दगड आणि सागवानी लाकडाची पारंपारिक रचना. *(needs native review)* | | 
+| `hosp.bento.card2Desc` | No shared lawns, no strangers next door. When you reserve a stay, the entire farmhouse, private pool, and orchards belong exclusively to your group. | कोणताही सामायिक परिसर नाही. तुम्ही शेतघर बुक केले की संपूर्ण इमारत, स्विमिंग पूल आणि आमराई फक्त तुमची असते. *(needs native review)* | | 
+| `hosp.bento.card2Title` | 100% Gated, Entire Property Yours. | १००% स्वतंत्र आणि खाजगी परिसर. *(needs native review)* | | 
+| `hosp.bento.card3Desc` | Enjoy hand-made jowar and bajra bhakris, stone-ground curries, garden greens, and farm fresh buttermilk prepared to your family's taste. | चुलीवर भाजलेली गरमागरम भाकरी, गावरान पिठलं, शेतातील ताज्या भाज्या आणि सुग्रास जेवणाचा मनसोक्त आस्वाद. *(needs native review)* | | 
+| `hosp.bento.card3Title` | Dedicated Local Farmhouse Chef. | गावरान जेवणासाठी स्थानिक शेफ. *(needs native review)* | | 
+| `hosp.bento.card4Desc` | Harnessing Maharashtra's abundant sun for 100% clean electricity, rainwater recharge pits that nourish native groundwater, and strict zero-single-use-plastic policies across all retreats. | १००% सौर ऊर्जेवर चालणारी यंत्रणा, भूजल पुनर्भरण आणि प्लास्टिकमुक्त जीवनशैली जपणारा निसर्गपूरक मुक्काम. *(needs native review)* | | 
+| `hosp.bento.card4Title` | Solar Powered & Zero Plastic Estates. | सौर ऊर्जा आणि पर्यावरणपूरक व्यवस्था. *(needs native review)* | | 
+| `hosp.bento.eyebrow` | THE BAHINA STANDARD | बहिणा आतिथ्य संकल्पना *(needs native review)* | | 
+| `hosp.bento.heading` | Crafted for complete privacy and countryside calm. | संपूर्ण खाजगीपणा आणि ग्रामीण शांततेसाठी निर्मित. *(needs native review)* | | 
+| `hosp.bento.subheading` | Every property is designed from the ground up to offer unhurried seclusion, authentic local flavours, and respectful stewardship of the land. | प्रत्येक शेतघर निसर्गाचा आदर राखून, गावरान स्वाद आणि केवळ आपल्या कुटुंबाच्या खाजगीपणासाठी तयार केले आहे. *(needs native review)* | | 
+| `hosp.book.consentRequired` | Please tick the consent box to continue. | कृपया पुढे जाण्यासाठी संमती द्या. *(needs native review)* | | 
+| `hosp.book.consentText` | I agree that BAHINA Hospitality may use my details to contact me about this request. | मी मान्य करतो की या विनंतीबाबत संपर्क करण्यासाठी बहिणा हॉस्पिटॅलिटी माझे तपशील वापरू शकते. *(needs native review)* | | 
+| `hosp.book.contactDetailsTitle` | Contact information | संपर्क माहिती *(needs native review)* | | 
+| `hosp.book.emailLabel` | Email Address | ईमेल पत्ता *(needs native review)* | | 
+| `hosp.book.emailPlaceholder` | name@example.com (optional) | ईमेल (पर्यायी) *(needs native review)* | | 
+| `hosp.book.errCapacity` | Number of guests exceeds farmhouse capacity. | पाहुण्यांची संख्या शेतघराच्या मर्यादेपेक्षा जास्त आहे. *(needs native review)* | | 
+| `hosp.book.errDates` | Please select valid check-in and check-out dates. | कृपया आगमनाची आणि प्रस्थानाची तारीख निवडा. *(needs native review)* | | 
+| `hosp.book.errName` | Please enter your name. | कृपया तुमचे नाव प्रविष्ट करा. *(needs native review)* | | 
+| `hosp.book.errPhone` | Enter a valid 10-digit Indian mobile number. | कृपया योग्य १० अंकी मोबाईल क्रमांक टाका. *(needs native review)* | | 
+| `hosp.book.errUnavailable` | Selected dates include unavailable days. | निवडलेल्या तारखांमध्ये शेतघर उपलब्ध नाही. *(needs native review)* | | 
+| `hosp.book.fullNameLabel` | Full Name | पूर्ण नाव *(needs native review)* | | 
+| `hosp.book.fullNamePlaceholder` | Enter your full name | तुमचे पूर्ण नाव लिहा *(needs native review)* | | 
+| `hosp.book.nextStep` | Continue | पुढे जा *(needs native review)* | | 
+| `hosp.book.noImmediateCharge` | No payment needed now. Our team calls to confirm. | आता कोणतेही पैसे भरावे लागत नाहीत. आमची टीम पुष्टी करण्यासाठी फोन करेल. *(needs native review)* | | 
+| `hosp.book.noteLabel` | Special Requests | काही विशेष सूचना *(needs native review)* | | 
+| `hosp.book.notePlaceholder` | Any notes or arrival plans (optional) | काही विशेष सूचना असल्यास लिहा (पर्यायी) *(needs native review)* | | 
+| `hosp.book.notifyNotice` | We will message you when this farmhouse opens for bookings. | हे शेतघर बुकिंगसाठी उघडल्यावर आम्ही आपल्याला संदेश पाठवू. *(needs native review)* | | 
+| `hosp.book.pageTitle` | Request Farmhouse Booking | शेतघर बुकिंगची विनंती करा *(needs native review)* | | 
+| `hosp.book.phoneHint` | Enter an Indian number starting with 6, 7, 8, or 9. | ६, ७, ८ किंवा ९ ने सुरू होणारा क्रमांक टाका. *(needs native review)* | | 
+| `hosp.book.phoneLabel` | Mobile Number | मोबाईल क्रमांक *(needs native review)* | | 
+| `hosp.book.phonePlaceholder` | 10-digit mobile number | १० अंकी मोबाईल क्रमांक *(needs native review)* | | 
+| `hosp.book.prevStep` | Back | मागे *(needs native review)* | | 
+| `hosp.book.reviewTitle` | Review your booking request | तुमची विनंती तपासा *(needs native review)* | | 
+| `hosp.book.sendRequestBtn` | Send booking request | बुकिंग विनंती पाठवा *(needs native review)* | | 
+| `hosp.book.stayDetailsTitle` | Stay details | मुक्काम तपशील *(needs native review)* | | 
+| `hosp.book.step1Title` | Dates & Guests | तारीख आणि पाहुणे *(needs native review)* | | 
+| `hosp.book.step2Title` | Your Details | तुमची माहिती *(needs native review)* | | 
+| `hosp.book.step3Title` | Review & Send | तपासा आणि पाठवा *(needs native review)* | | 
+| `hosp.book.stepperAria` | Booking progress | बुकिंग प्रगती *(needs native review)* | | 
+| `hosp.book.submittingState` | Preparing preview... | पूर्वावलोकन तयार होत आहे... *(needs native review)* | | 
+| `hosp.book.subtitle` | Design preview. No payment or confirmed reservation. | डिझाइन पूर्वावलोकन. कोणतीही रक्कम घेतली जात नाही. *(needs native review)* | | 
+| `hosp.book.villageLabel` | Village or City | गाव किंवा शहर *(needs native review)* | | 
+| `hosp.book.villagePlaceholder` | Your village or city (optional) | तुमचे गाव किंवा शहर (पर्यायी) *(needs native review)* | | 
+| `hosp.brand.division` | Farmhouse Stays Division | शेतघर मुक्काम विभाग *(needs native review)* | | 
+| `hosp.brand.homeAria` | BAHINA Hospitality Home | बहिणा हॉस्पिटॅलिटी मुख्यपृष्ठ *(needs native review)* | | 
+| `hosp.brand.name` | BAHINA Hospitality | बहिणा हॉस्पिटॅलिटी *(needs native review)* | | 
+| `hosp.brand.subline` | Peaceful Farmhouse Stays | शांत शेतघर मुक्काम *(needs native review)* | | 
+| `hosp.btn.callUs` | Call Us | आम्हाला फोन करा *(needs native review)* | | 
+| `hosp.btn.whatsapp` | WhatsApp | व्हॉट्सअॅप *(needs native review)* | | 
+| `hosp.button.bookDates` | Choose dates to book | बुकिंगसाठी तारखा निवडा *(needs native review)* | | 
+| `hosp.button.notifyMe` | Notify me | मला कळवा *(needs native review)* | | 
+| `hosp.button.notifyWhenOpens` | Notify me when it opens | उघडल्यावर कळवा *(needs native review)* | | 
+| `hosp.button.requestBooking` | Request to book | बुकिंगची विनंती करा *(needs native review)* | | 
+| `hosp.button.viewAndRequest` | View and request booking | पहा आणि बुकिंगची विनंती करा *(needs native review)* | | 
+| `hosp.button.viewDetails` | View details | तपशील पहा *(needs native review)* | | 
+| `hosp.card.bathrooms` | baths | स्नानगृहे *(needs native review)* | | 
+| `hosp.card.bedrooms` | bedrooms | शयनकक्ष *(needs native review)* | | 
+| `hosp.card.from` | from | पासून *(needs native review)* | | 
+| `hosp.card.fromPrice` | from ₹ | ₹ *(needs native review)* | | 
+| `hosp.card.guests` | guests | पाहुणे *(needs native review)* | | 
+| `hosp.card.maxGuests` | guests | पाहुणे *(needs native review)* | | 
+| `hosp.card.notifyMe` | Notify me | मला कळवा *(needs native review)* | | 
+| `hosp.card.perNight` | per night | प्रति रात्र *(needs native review)* | | 
+| `hosp.card.priceOnRequest` | Price on request | किंमत विचारणेवर *(needs native review)* | | 
+| `hosp.card.sampleBadge` | Sample stay | नमुना मुक्काम *(needs native review)* | | 
+| `hosp.card.viewAndRequest` | View and request booking | पाहा आणि विनंती पाठवा *(needs native review)* | | 
+| `hosp.card.viewDetails` | View details | तपशील पाहा *(needs native review)* | | 
+| `hosp.card.viewStays` | View Stays | शेतघरे पहा *(needs native review)* | | 
+| `hosp.common.clear` | Clear | साफ करा *(needs native review)* | | 
+| `hosp.common.close` | Close | बंद करा *(needs native review)* | | 
+| `hosp.common.done` | Done | पूर्ण *(needs native review)* | | 
+| `hosp.common.optional` | optional | पर्यायी *(needs native review)* | | 
+| `hosp.dates.anytime` | Any dates | कोणतीही तारीख *(needs native review)* | | 
+| `hosp.dates.bookedOrPast` | Unavailable or past dates are disabled. | अनुपलब्ध किंवा जुन्या तारखा निवडता येत नाहीत. *(needs native review)* | | 
+| `hosp.dates.label` | Dates | तारीख *(needs native review)* | | 
+| `hosp.dates.placeholder` | Select stay dates | मुक्कामाची तारीख निवडा *(needs native review)* | | 
+| `hosp.dates.selectCheckout` | Select check-out date | प्रस्थान तारीख निवडा *(needs native review)* | | 
+| `hosp.dates.selected` | Selected dates | निवडलेल्या तारखा *(needs native review)* | | 
+| `hosp.dayNight.afternoonDesc` | Dip into the private outdoor pool, rest under mango canopy shade, and enjoy a slow farm lunch. | खाजगी स्विमिंग पूलमध्ये डुबकी, आंब्याच्या झाडाखाली विश्रांती आणि ताजे जेवण. *(needs native review)* | | 
+| `hosp.dayNight.afternoonTitle` | Orchard Breeze & Pool Dips | दुपारची थंड सावली आणि स्विमिंग पूल *(needs native review)* | | 
+| `hosp.dayNight.eyebrow` | A Day at the Farmhouse | शेतघरावरील एक दिवस *(needs native review)* | | 
+| `hosp.dayNight.heading` | Every hour feels a little different here. | येथे प्रत्येक प्रहरात निसर्गाचे वेगळे रूप जाणवते. *(needs native review)* | | 
+| `hosp.dayNight.morningDesc` | Wake up to cool dew on the grass, gentle valley fog, and freshly brewed country tea on the verandah. | गवतावरील थंड दव, खोऱ्यातील हलके धुके आणि पडवीत बसून घेतलेला गरम चहा. *(needs native review)* | | 
+| `hosp.dayNight.morningTitle` | Morning Mist & Birdsong | सकाळची धुक्याची चादर आणि पक्षांचा किलबिलाट *(needs native review)* | | 
+| `hosp.dayNight.nightDesc` | Gather around the crackling bonfire beneath a clean, unpolluted blanket of constellations. | प्रदूषणमुक्त ताऱ्यांच्या आकाशाखाली शेकोटीभोवती रंगणाऱ्या गप्पा. *(needs native review)* | | 
+| `hosp.dayNight.nightTitle` | Campfire & Starry Skies | रात्रीची शेकोटी आणि ताऱ्यांचे अंगण *(needs native review)* | | 
+| `hosp.dayNight.subheading` | From early morning valley fog to warm campfire embers under a starlit canopy — watch the rhythms of rural life unfold. | सकाळच्या धुक्यापासून ते रात्रीच्या शेकोटीपर्यंत — ग्रामीण जीवनाचा निसर्गरम्य ताल अनुभवा. *(needs native review)* | | 
+| `hosp.dayNight.sunsetDesc` | Watch the sun dip behind the Sahyadri ridges, washing the terracotta roofs in deep amber light. | सह्याद्रीच्या डोंगरमाथ्यामागे जाणारा सोनेरी सूर्य आणि कौलारू छतांवर पडणारा सुंदर प्रकाश. *(needs native review)* | | 
+| `hosp.dayNight.sunsetTitle` | Golden Hour Glow | सोनेरी संध्याकाळ आणि शांत सूर्यास्त *(needs native review)* | | 
+| `hosp.dest.exploreRegion` | Explore stays | शेतघरे पहा *(needs native review)* | | 
+| `hosp.dest.eyebrow` | Explore Western Maharashtra | पश्चिम महाराष्ट्र भ्रमंती *(needs native review)* | | 
+| `hosp.dest.heading` | Destinations worth slowing down for. | शांत विश्रांतीसाठी सुंदर ठिकाणे. *(needs native review)* | | 
+| `hosp.dest.hint` | Click any region to filter farmhouse stays | शेतघरे पाहण्यासाठी कोणत्याही भागावर क्लिक करा *(needs native review)* | | 
+| `hosp.dest.kolhapurSubtitle` | Sugarcane Country & Historic Greens | उसाची शेती आणि ऐतिहासिक निसर्ग *(needs native review)* | | 
+| `hosp.dest.kolhapurTitle` | Kolhapur Greens | कोल्हापूर निसर्ग परिसर *(needs native review)* | | 
+| `hosp.dest.puneSubtitle` | Misty Hills & Waterfall Valleys | डोंगराळ दऱ्या आणि धुक्याची शांतता *(needs native review)* | | 
+| `hosp.dest.puneTitle` | Pune Foothills (Mulshi & Velhe) | पुणे परिसर (मुळशी आणि वेल्हे) *(needs native review)* | | 
+| `hosp.dest.raigadSubtitle` | Coconut Groves & River Rapids | नारळीच्या बागा आणि कुंडलिका नदी *(needs native review)* | | 
+| `hosp.dest.raigadTitle` | Raigad Nature | रायगड निसर्ग *(needs native review)* | | 
+| `hosp.dest.sataraSubtitle` | River Ghats & Strawberry Orchards | कृष्णा नदी घाट आणि स्ट्रॉबेरी बागा *(needs native review)* | | 
+| `hosp.dest.sataraTitle` | Satara Countryside | सातारा ग्रामीण परिसर *(needs native review)* | | 
+| `hosp.dest.subheading` | From riverside ghats to misty Sahyadri valleys — pick a countryside landscape that suits your getaway. | नदीच्या घाटांपासून ते सह्याद्रीच्या धुक्यापर्यंत — आपल्या आवडीचा परिसर निवडा. *(needs native review)* | | 
+| `hosp.details.aboutTitle` | About this farmhouse | या शेतघराबद्दल *(needs native review)* | | 
+| `hosp.details.amenitiesTitle` | Amenities provided | उपलब्ध सुविधा *(needs native review)* | | 
+| `hosp.details.cancellationPolicyText` | Sample policy: Full refund if cancelled 5 days before check-in. | नमुना नियम: आगमनापूर्वी ५ दिवस रद्द केल्यास पूर्ण परतावा. *(needs native review)* | | 
+| `hosp.details.cancellationTitle` | Cancellation policy | रद्दीकरण धोरण *(needs native review)* | | 
+| `hosp.details.checkInLabel` | Check-in from | आगमन वेळ *(needs native review)* | | 
+| `hosp.details.checkOutLabel` | Check-out by | प्रस्थान वेळ *(needs native review)* | | 
+| `hosp.details.constructionUpdatesTitle` | Construction updates | बांधकाम प्रगती *(needs native review)* | | 
+| `hosp.details.faqTitle` | Farmhouse questions | शेतघराबाबत प्रश्न *(needs native review)* | | 
+| `hosp.details.highlightsTitle` | Property highlights | ठळक वैशिष्ट्ये *(needs native review)* | | 
+| `hosp.details.nearbyTitle` | Nearby places to visit | जवळपासची ठिकाणे *(needs native review)* | | 
+| `hosp.details.notifyWhenOpens` | Notify me when it opens | उघडल्यावर कळवा *(needs native review)* | | 
+| `hosp.details.photosButton` | Show all photos | सर्व फोटो पाहा *(needs native review)* | | 
+| `hosp.details.requestToBook` | Request to book | बुकिंगची विनंती करा *(needs native review)* | | 
+| `hosp.details.rulesTitle` | House rules | शेतघराचे नियम *(needs native review)* | | 
+| `hosp.details.timingsTitle` | Check-in and check-out times | आगमन आणि प्रस्थान वेळ *(needs native review)* | | 
+| `hosp.discovery.heading` | Find your perfect escape. | आपला परिपूर्ण शांत मुक्काम शोधा. *(needs native review)* | | 
+| `hosp.discovery.subheading` | From quiet countryside hideaways to spacious group retreats, discover a stay that feels like yours. | लहान शांत घरांपासून ते मोठ्या कौटुंबिक शेतघरांपर्यंत, आपल्या आवडीचा मुक्काम निवडा. *(needs native review)* | | 
+| `hosp.district.all` | All Districts | सर्व जिल्हे *(needs native review)* | | 
+| `hosp.district.pune` | Pune | पुणे *(needs native review)* | | 
+| `hosp.district.raigad` | Raigad | रायगड *(needs native review)* | | 
+| `hosp.district.satara` | Satara | सातारा *(needs native review)* | | 
+| `hosp.faq.a1` | No. This is a design preview for the director's review. No bookings are stored. | नाही. हे केवळ संचालकांच्या मंजुरीसाठी डिझाइन पूर्वावलोकन आहे. कोणतीही माहिती साठवली जात नाही. *(needs native review)* | | 
+| `hosp.faq.a2` | Opening dates will be announced once site works and local teams are ready. | काम पूर्ण झाल्यावर आणि स्थानिक टीम तयार झाल्यावर तारखा जाहीर केल्या जातील. *(needs native review)* | | 
+| `hosp.faq.a3` | Yes. Farmhouse stays will feature fresh local meals prepared by village cooks. | होय. शेतघरांमध्ये स्थानिक स्वयंपाक्यांनी तयार केलेले ताजे गावरान जेवण दिले जाईल. *(needs native review)* | | 
+| `hosp.faq.a4` | Clear and fair cancellation policies will apply for each farmhouse. | प्रत्येक शेतघरासाठी सोपे आणि स्पष्ट रद्दीकरण नियम लागू राहतील. *(needs native review)* | | 
+| `hosp.faq.eyebrow` | Common Enquiries | नेहमी विचारले जाणारे प्रश्न *(needs native review)* | | 
+| `hosp.faq.q1` | Is this a real booking platform? | हे खरे बुकिंग व्यासपीठ आहे का? *(needs native review)* | | 
+| `hosp.faq.q2` | When will BAHINA farmhouses open for guests? | बहिणा शेतघरे पाहुण्यांसाठी कधी सुरू होतील? *(needs native review)* | | 
+| `hosp.faq.q3` | Are home-cooked village meals provided? | गावरान जेवण मिळेल का? *(needs native review)* | | 
+| `hosp.faq.q4` | How do cancellations work? | रद्दीकरण कसे होते? *(needs native review)* | | 
+| `hosp.faq.subheading` | Everything you need to know about our peaceful farmhouse stays. | आमच्या शांत शेतघर मुक्कामाबद्दलची सर्व सविस्तर माहिती. *(needs native review)* | | 
+| `hosp.faq.title` | Common questions | नेहमी विचारले जाणारे प्रश्न *(needs native review)* | | 
+| `hosp.feat.badgeSub` | Handcrafted stays built with authentic local character. | स्थानिक संस्कृती आणि शांततेचा परिपूर्ण संगम. *(needs native review)* | | 
+| `hosp.feat.badgeTitle` | Rural Comfort & Simplicity | ग्रामीण शांतता आणि सुविधा *(needs native review)* | | 
+| `hosp.feat.eyebrow` | The BAHINA Philosophy | बहिणाचा विचार *(needs native review)* | | 
+| `hosp.feat.heading` | Not just a stay. A slower way of living. | फक्त मुक्काम नाही. शांत जगण्याची पद्धत. *(needs native review)* | | 
+| `hosp.feat.highlight1Desc` | Expansive shaded verandahs, lush open lawns, and peaceful courtyards designed for long conversations with family and friends. | विस्तृत कौलारू पडवी, हिरवेगार अंगण आणि कुटुंबासोबत शांत गप्पा मारण्यासाठी प्रशस्त जागा. *(needs native review)* | | 
+| `hosp.feat.highlight1Title` | Space to reconnect. | आपल्या लोकांशी मनमोकळे नाते जोडा. *(needs native review)* | | 
+| `hosp.feat.highlight2Desc` | Wake up to mist rising over fruit orchards, breathe clean country air, and listen to the gentle flow of rural streams. | फळबागांमधील धुक्याची सकाळ, शुद्ध मोकळी हवा आणि पक्षांचा मधुर किलबिलाट. *(needs native review)* | | 
+| `hosp.feat.highlight2Title` | Nature at your doorstep. | दाराशीच निसर्गाची सोबत. *(needs native review)* | | 
+| `hosp.feat.highlight3Desc` | Freshly prepared village meals, lazy afternoons by the private pool, and evening bonfires under unpolluted starry skies. | ताजे गावरान जेवण, खाजगी स्विमिंग पूल आणि रात्री ताऱ्यांच्या आकाशाखाली शेकोटी. *(needs native review)* | | 
+| `hosp.feat.highlight3Title` | Time well spent. | अविस्मरणीय आणि आनंददायी वेळ. *(needs native review)* | | 
+| `hosp.feat.subheading` | Wake up to open skies, spend your day surrounded by nature, and make memories away from the everyday rush. | मोकळ्या आकाशाखाली सकाळ अनुभवा, दिवसभर निसर्गाच्या सानिध्यात राहा आणि ताणापासून दूर आठवणी साठवा. *(needs native review)* | | 
+| `hosp.featured.badge` | Featured Escape | खास निवडक मुक्काम *(needs native review)* | | 
+| `hosp.fh1.district` | Satara | सातारा *(needs native review)* | | 
+| `hosp.fh1.faq1A` | Yes. Fresh bhakri, pitla, and country chicken or veg dishes are prepared on advance notice. | होय. आगाऊ सूचना दिल्यास ताजी भाकरी, पिठलं आणि शाकाहारी किंवा मांसाहारी जेवण मिळते. *(needs native review)* | | 
+| `hosp.fh1.faq1Q` | Can we order traditional Maharashtrian meals? | पारंपारिक महाराष्ट्रीयन जेवण मिळू शकते का? *(needs native review)* | | 
+| `hosp.fh1.faq2A` | Yes. Gated parking space is available for up to 4 vehicles. | होय. ४ वाहनांसाठी सुरक्षित गेट असलेली जागा आहे. *(needs native review)* | | 
+| `hosp.fh1.faq2Q` | Is there safe car parking inside the property? | परिसरात सुरक्षित वाहन पार्किंग आहे का? *(needs native review)* | | 
+| `hosp.fh1.faq3A` | Friendly pets are welcome with prior notification. | पूर्वसूचना दिल्यास पाळीव प्राण्यांचे स्वागत आहे. *(needs native review)* | | 
+| `hosp.fh1.faq3Q` | Are pets allowed? | पाळीव प्राण्यांना परवानगी आहे का? *(needs native review)* | | 
+| `hosp.fh1.fullDesc` | Surrounded by fertile farmland and gentle hills, this sample home features spacious verandahs, private garden lawns, and home-cooked rural meals. | सुपीक शेती आणि टेकड्यांनी वेढलेल्या या नमुना घरात प्रशस्त व्हरांडा, खाजगी लॉन आणि घरगुती गावरान जेवण आहे. *(needs native review)* | | 
+| `hosp.fh1.highlight1` | Private swimming pool overlooking orchards | बागांचे दृश्य दिसणारा खाजगी जलतरण तलाव *(needs native review)* | | 
+| `hosp.fh1.highlight2` | Fresh rural breakfast and dinner | ताजा ग्रामीण नाश्ता आणि जेवण *(needs native review)* | | 
+| `hosp.fh1.highlight3` | Wide traditional verandah seating | पारंपारिक प्रशस्त बैठक व्यवस्था *(needs native review)* | | 
+| `hosp.fh1.leadDesc` | A peaceful countryside farmhouse set amidst mango trees with an outdoor pool. | आंब्याच्या झाडांमध्ये वसलेले आणि पोहण्याचा तलाव असलेले शांत ग्रामीण शेतघर. *(needs native review)* | | 
+| `hosp.fh1.name` | Sample Farmhouse 1 (not real) | नमुना फार्महाऊस १ (खरे नाही) *(needs native review)* | | 
+| `hosp.fh1.near1Dist` | 3 km away | ३ किमी अंतरावर *(needs native review)* | | 
+| `hosp.fh1.near1Name` | Krishna River Ghat | कृष्णा नदी घाट *(needs native review)* | | 
+| `hosp.fh1.near2Dist` | 5 km away | ५ किमी अंतरावर *(needs native review)* | | 
+| `hosp.fh1.near2Name` | Dholya Ganpati Temple | ढोल्या गणपती मंदिर *(needs native review)* | | 
+| `hosp.fh1.near3Dist` | 18 km away | १८ किमी अंतरावर *(needs native review)* | | 
+| `hosp.fh1.near3Name` | Panchgani Hills | पाचगणी टेकड्या *(needs native review)* | | 
+| `hosp.fh1.rule1` | Quiet hours after 10:00 PM | रात्री १०:०० नंतर शांतता बाळगा *(needs native review)* | | 
+| `hosp.fh1.rule2` | Smoking allowed in designated garden areas only | केवळ बागेत ठरवून दिलेल्या ठिकाणी धूम्रपानास परवानगी *(needs native review)* | | 
+| `hosp.fh1.rule3` | Government ID required for all adult guests | सर्व प्रौढ पाहुण्यांसाठी ओळखपत्र आवश्यक *(needs native review)* | | 
+| `hosp.fh1.rule4` | Treat the village neighbours with respect | गावातील नागरिकांशी आदराने वागा *(needs native review)* | | 
+| `hosp.fh1.tagline` | Fruit orchards and river breeze in Satara | साताऱ्यातील फळांच्या बागा आणि नदीची झुळूक *(needs native review)* | | 
+| `hosp.fh1.taluka` | Wai Taluka | वाई तालुका *(needs native review)* | | 
+| `hosp.fh1.village` | Wai | वाई *(needs native review)* | | 
+| `hosp.fh2.district` | Raigad | रायगड *(needs native review)* | | 
+| `hosp.fh2.faq1A` | Work is ongoing. Click 'Notify me' to receive an alert when bookings open. | काम सुरू आहे. बुकिंग सुरू झाल्यावर संदेश मिळण्यासाठी 'मला कळवा' वर क्लिक करा. *(needs native review)* | | 
+| `hosp.fh2.faq1Q` | When is this farmhouse opening? | हे शेतघर कधी सुरू होईल? *(needs native review)* | | 
+| `hosp.fh2.faq2A` | Yes. An equipped kitchen is available for guests. | होय. पाहुण्यांसाठी स्वयंपाकाचे साहित्य उपलब्ध आहे. *(needs native review)* | | 
+| `hosp.fh2.faq2Q` | Can we cook our own food? | आम्ही आमचे जेवण स्वतः बनवू शकतो का? *(needs native review)* | | 
+| `hosp.fh2.fullDesc` | Designed for small family getaways, this property offers quiet walking trails, an open courtyard, and rustic stone walls. | कुटुंबासाठी डिझाइन केलेल्या या जागेत शांत पायवाटा, मोकळे अंगण आणि सुंदर दगडी भिंती आहेत. *(needs native review)* | | 
+| `hosp.fh2.highlight1` | Shaded coconut and betel nut grove | नारळ आणि सुपारीची सावली असलेली बाग *(needs native review)* | | 
+| `hosp.fh2.highlight2` | Home kitchen with gas stove | गॅस शेगडी असलेले घरगुती स्वयंपाकघर *(needs native review)* | | 
+| `hosp.fh2.highlight3` | Pet-friendly lawn area | पाळीव प्राण्यांसाठी मोकळे लॉन *(needs native review)* | | 
+| `hosp.fh2.leadDesc` | A peaceful retreat near the foothills with lush greenery and cool evening air. | डोंगराच्या पायथ्याशी वसलेले, हिरवेगार आणि संध्याकाळी थंड हवा असलेले सुंदर शेतघर. *(needs native review)* | | 
+| `hosp.fh2.name` | Sample Farmhouse 2 (not real) | नमुना फार्महाऊस २ (खरे नाही) *(needs native review)* | | 
+| `hosp.fh2.near1Dist` | 4 km away | ४ किमी अंतरावर *(needs native review)* | | 
+| `hosp.fh2.near1Name` | Kundalika River View | कुंडलिका नदी दृश्य *(needs native review)* | | 
+| `hosp.fh2.near2Dist` | 12 km away | १२ किमी अंतरावर *(needs native review)* | | 
+| `hosp.fh2.near2Name` | Kolad Rapids | कोलाड रॅपिड्स *(needs native review)* | | 
+| `hosp.fh2.rule1` | No loud music after 9:30 PM | रात्री ९:३० नंतर मोठा आवाज करू नये *(needs native review)* | | 
+| `hosp.fh2.rule2` | Please keep the garden clean | कृपया बाग स्वच्छ ठेवा *(needs native review)* | | 
+| `hosp.fh2.rule3` | No unauthorized outside visitors | अनधिकृत बाहेरील व्यक्तींना प्रवेश नाही *(needs native review)* | | 
+| `hosp.fh2.tagline` | Coconut groves and birdsong in Raigad | रायगडमधील नारळाच्या बागा आणि पक्ष्यांचा किलबिलाट *(needs native review)* | | 
+| `hosp.fh2.taluka` | Roha Taluka | रोहा तालुका *(needs native review)* | | 
+| `hosp.fh2.village` | Roha | रोहा *(needs native review)* | | 
+| `hosp.fh3.district` | Pune | पुणे *(needs native review)* | | 
+| `hosp.fh3.faq1A` | Up to 16 guests across 4 large bedrooms. | ४ मोठ्या खोल्यांमध्ये मिळून १६ पाहुणे राहू शकतात. *(needs native review)* | | 
+| `hosp.fh3.faq1Q` | How many guests can stay together? | एकावेळी किती पाहुणे राहू शकतात? *(needs native review)* | | 
+| `hosp.fh3.faq2A` | Yes. An on-site caretaker is present for assistance. | होय. मदतीसाठी जागेवर काळजीवाहू उपस्थित असतील. *(needs native review)* | | 
+| `hosp.fh3.faq2Q` | Is caretaker assistance available on-site? | काळजीवाहू व्यक्ती जागेवर उपलब्ध असेल का? *(needs native review)* | | 
+| `hosp.fh3.fullDesc` | Perched on a quiet hill slope near Mulshi, this farmhouse features sweeping valley panoramas, indoor games, and bonfire terraces. | मुळशी जवळील टेकडीवर वसलेल्या या शेतघरात दरीचे दृश्य, घरातील खेळ आणि शेकोटीची सोय आहे. *(needs native review)* | | 
+| `hosp.fh3.highlight1` | Valley views from every bedroom | प्रत्येक खोलीतून दरीचे सुंदर दृश्य *(needs native review)* | | 
+| `hosp.fh3.highlight2` | Spacious lawn for games and yoga | खेळ आणि योगासाठी मोठे मोकळे मैदान *(needs native review)* | | 
+| `hosp.fh3.highlight3` | Outdoor campfire pit | बाहेर शेकोटीची खास जागा *(needs native review)* | | 
+| `hosp.fh3.leadDesc` | A spacious hillside property planned for reunions and large family gatherings. | मोठ्या कुटुंबांसाठी आणि मेळाव्यांसाठी डिझाइन केलेले विस्तीर्ण शेतघर. *(needs native review)* | | 
+| `hosp.fh3.name` | Sample Farmhouse 3 (not real) | नमुना फार्महाऊस ३ (खरे नाही) *(needs native review)* | | 
+| `hosp.fh3.near1Dist` | 6 km away | ६ किमी अंतरावर *(needs native review)* | | 
+| `hosp.fh3.near1Name` | Mulshi Lake Dam | मुळशी धरण *(needs native review)* | | 
+| `hosp.fh3.near2Dist` | 15 km away | १५ किमी अंतरावर *(needs native review)* | | 
+| `hosp.fh3.near2Name` | Tamhini Ghat | ताम्हिणी घाट *(needs native review)* | | 
+| `hosp.fh3.rule1` | Respect rural quiet and farm boundaries | ग्रामीण शांतता आणि शेताच्या सीमांचा आदर करा *(needs native review)* | | 
+| `hosp.fh3.rule2` | Turn off lights and fans when leaving rooms | खोलीतून बाहेर पडताना दिवे आणि पंखे बंद करा *(needs native review)* | | 
+| `hosp.fh3.rule3` | Campfire only under caretaker supervision | केवळ काळजीवाहू व्यक्तीच्या उपस्थितीत शेकोटी पेटवा *(needs native review)* | | 
+| `hosp.fh3.tagline` | Panoramic hill views and campfire evenings | टेकडीचे मनमोहक दृश्य आणि संध्याकाळची शेकोटी *(needs native review)* | | 
+| `hosp.fh3.taluka` | Mulshi Taluka | मुळशी तालुका *(needs native review)* | | 
+| `hosp.fh3.village` | Mulshi | मुळशी *(needs native review)* | | 
+| `hosp.fh4.district` | Pune | पुणे *(needs native review)* | | 
+| `hosp.fh4.faq1A` | Walls and structural framework are currently underway. | सध्या भिंती आणि मुख्य रचनेचे काम सुरू आहे. *(needs native review)* | | 
+| `hosp.fh4.faq1Q` | What is the current construction milestone? | बांधकामाचा सध्याचा टप्पा कोणता आहे? *(needs native review)* | | 
+| `hosp.fh4.faq2A` | For safety reasons, visits will open after finishing works are complete. | सुरक्षिततेच्या कारणास्तव काम पूर्ण झाल्यावरच भेटी सुरू होतील. *(needs native review)* | | 
+| `hosp.fh4.faq2Q` | Can we visit the property now? | आम्ही आता जागेला भेट देऊ शकतो का? *(needs native review)* | | 
+| `hosp.fh4.fullDesc` | Designed to blend with the hillside terrain, this eco-farmhouse includes rainwater harvesting, natural ventilation, and native fruit gardens. | टेकडीच्या रचनेशी सुसंगत असे हे शेतघर पावसाचे पाणी साठवण, नैसर्गिक हवा आणि फळबागांसह तयार होत आहे. *(needs native review)* | | 
+| `hosp.fh4.highlight1` | Traditional stone masonry architecture | पारंपारिक दगडी बांधकाम शैली *(needs native review)* | | 
+| `hosp.fh4.highlight2` | Rainwater harvesting and native trees | पावसाचे पाणी संकलन आणि देशी झाडे *(needs native review)* | | 
+| `hosp.fh4.highlight3` | Stargazing terrace | तारे पाहण्यासाठी खास गच्ची *(needs native review)* | | 
+| `hosp.fh4.leadDesc` | An eco-sensitive stay currently being built with local stone and sustainable timber. | स्थानिक दगड आणि लाकूड वापरून बांधले जात असलेले पर्यावरणपूरक शेतघर. *(needs native review)* | | 
+| `hosp.fh4.name` | Sample Farmhouse 4 (not real) | नमुना फार्महाऊस ४ (खरे नाही) *(needs native review)* | | 
+| `hosp.fh4.near1Dist` | 10 km away | १० किमी अंतरावर *(needs native review)* | | 
+| `hosp.fh4.near1Name` | Torna Fort Base | तोरणा किल्ला पायथा *(needs native review)* | | 
+| `hosp.fh4.rule1` | Worksite is closed to visitors during active building | बांधकाम सुरू असताना कामाच्या ठिकाणी प्रवेश बंद राहील *(needs native review)* | | 
+| `hosp.fh4.rule2` | Eco-living guidelines apply upon launch | सुरू झाल्यावर पर्यावरणपूरक नियमांचे पालन करावे लागेल *(needs native review)* | | 
+| `hosp.fh4.tagline` | Eco-friendly stone and teakwood farmhouse | पर्यावरणपूरक दगडी आणि सागवानी शेतघर *(needs native review)* | | 
+| `hosp.fh4.taluka` | Velhe Taluka | वेल्हे तालुका *(needs native review)* | | 
+| `hosp.fh4.village` | Velhe | वेल्हे *(needs native review)* | | 
+| `hosp.filter.allStatuses` | All statuses | सर्व स्थिती *(needs native review)* | | 
+| `hosp.filter.amenities` | Amenities | सुविधा *(needs native review)* | | 
+| `hosp.filter.amenitiesTitle` | Amenities | सुविधा *(needs native review)* | | 
+| `hosp.filter.applied` | Applied filters | लागू केलेले फिल्टर्स *(needs native review)* | | 
+| `hosp.filter.apply` | Apply filters | फिल्टर्स लागू करा *(needs native review)* | | 
+| `hosp.filter.button` | Filters | फिल्टर्स *(needs native review)* | | 
+| `hosp.filter.clearAll` | Clear all | सर्व साफ करा *(needs native review)* | | 
+| `hosp.filter.clearFiltersBtn` | Clear filters | फिल्टर्स साफ करा *(needs native review)* | | 
+| `hosp.filter.comingSoonAction` | Notify me when stays open | सुरू झाल्यावर मला कळवा *(needs native review)* | | 
+| `hosp.filter.comingSoonText` | We are building countryside retreats across Maharashtra. | आम्ही संपूर्ण महाराष्ट्रात सुंदर शेतघरे तयार करत आहोत. *(needs native review)* | | 
+| `hosp.filter.comingSoonTitle` | Farmhouse stays opening soon | शेतघर मुक्काम लवकरच सुरू होत आहेत *(needs native review)* | | 
+| `hosp.filter.farmhousesCount` | farmhouses | शेतघरे *(needs native review)* | | 
+| `hosp.filter.filters` | Filters | फिल्टर्स *(needs native review)* | | 
+| `hosp.filter.maxPrice` | Maximum Price | जास्तीत जास्त किंमत *(needs native review)* | | 
+| `hosp.filter.minGuests` | Minimum guests | किमान पाहुणे *(needs native review)* | | 
+| `hosp.filter.noResultsText` | Try clearing some filters to see available sample stays. | इतर नमुने पाहण्यासाठी काही फिल्टर्स काढून पाहा. *(needs native review)* | | 
+| `hosp.filter.noResultsTitle` | No farmhouses match your search | तुमच्या शोधाशी जुळणारे शेतघर आढळले नाही *(needs native review)* | | 
+| `hosp.filter.perNight` | per night | प्रति रात्र *(needs native review)* | | 
+| `hosp.filter.price` | Price | किंमत *(needs native review)* | | 
+| `hosp.filter.priceRange` | Price range | किंमत मर्यादा *(needs native review)* | | 
+| `hosp.filter.showResults` | Show results | निकाल पहा *(needs native review)* | | 
+| `hosp.filter.showingCount` | Showing | दाखवत आहे *(needs native review)* | | 
+| `hosp.filter.sortBy` | Sort by | क्रमवारी *(needs native review)* | | 
+| `hosp.filter.sortCapacity` | Capacity: High to Low | क्षमता: जास्त ते कमी *(needs native review)* | | 
+| `hosp.filter.sortPriceAsc` | Price: Low to High | किंमत: कमी ते जास्त *(needs native review)* | | 
+| `hosp.filter.sortPriceDesc` | Price: High to Low | किंमत: जास्त ते कमी *(needs native review)* | | 
+| `hosp.filter.sortRecommended` | Recommended | शिफारस केलेले *(needs native review)* | | 
+| `hosp.filter.status` | Status | स्थिती *(needs native review)* | | 
+| `hosp.filter.statusTitle` | Status | स्थिती *(needs native review)* | | 
+| `hosp.filter.title` | Filters | फिल्टर्स *(needs native review)* | | 
+| `hosp.filter.upTo` | Up to | जास्तीत जास्त *(needs native review)* | | 
+| `hosp.filters.openAria` | Open farmhouse filters | शेतघर फिल्टर्स उघडा *(needs native review)* | | 
+| `hosp.footer.about` | We create quiet rural farmhouses close to nature. | आम्ही निसर्गाच्या सानिध्यात शांत शेतघर मुक्काम तयार करतो. *(needs native review)* | | 
+| `hosp.footer.contactTitle` | Get in Touch | संपर्क साधा *(needs native review)* | | 
+| `hosp.footer.craftedFor` | Crafted for rural Maharashtra. | ग्रामीण महाराष्ट्रासाठी तयार केलेले. *(needs native review)* | | 
+| `hosp.footer.navTitle` | Explore | पाहा *(needs native review)* | | 
+| `hosp.footer.previewDisclaimer` | This is an early preview for review. No live booking is active. | हा केवळ मंजुरीसाठी डिझाइन पूर्वावलोकन आहे. थेट बुकिंग सुरू नाही. *(needs native review)* | | 
+| `hosp.footer.rights` | All rights reserved. | सर्व हक्क राखीव. *(needs native review)* | | 
+| `hosp.guests.adults` | Adults | मोठे व्यक्ती *(needs native review)* | | 
+| `hosp.guests.adultsAge` | Age 13 and above | वय १३ आणि जास्त *(needs native review)* | | 
+| `hosp.guests.children` | Children | मुले *(needs native review)* | | 
+| `hosp.guests.childrenAge` | Age 2 to 12 | वय २ ते १२ *(needs native review)* | | 
+| `hosp.guests.count` | guests | पाहुणे *(needs native review)* | | 
+| `hosp.guests.decreaseAdults` | Decrease adults | मोठे व्यक्ती कमी करा *(needs native review)* | | 
+| `hosp.guests.decreaseChildren` | Decrease children | मुले कमी करा *(needs native review)* | | 
+| `hosp.guests.increaseAdults` | Increase adults | मोठे व्यक्ती वाढवा *(needs native review)* | | 
+| `hosp.guests.increaseChildren` | Increase children | मुले वाढवा *(needs native review)* | | 
+| `hosp.guests.label` | Guests | पाहुणे *(needs native review)* | | 
+| `hosp.guests.maxCapacity` | Max capacity | कमाल क्षमता *(needs native review)* | | 
+| `hosp.hero.ctaPrimary` | Explore Farmhouses | शेतघरे पहा *(needs native review)* | | 
+| `hosp.hero.ctaSecondary` | Discover BAHINA | बहिणा विषयी जाणून घ्या *(needs native review)* | | 
+| `hosp.hero.doorway1Loc` | Wai, Satara | वाई, सातारा *(needs native review)* | | 
+| `hosp.hero.doorway1Title` | Mango Orchard Villa | आंबा बाग व्हिला *(needs native review)* | | 
+| `hosp.hero.doorway2Loc` | Bhor, Pune | भोर, पुणे *(needs native review)* | | 
+| `hosp.hero.doorway2Title` | Valley Mist Stone House | व्हॅली मिस्ट स्टोन हाउस *(needs native review)* | | 
+| `hosp.hero.doorway3Loc` | Roha, Raigad | रोहा, रायगड *(needs native review)* | | 
+| `hosp.hero.doorway3Title` | Riverfront Teak Cottage | रिव्हरफ्रंट टीक कॉटेज *(needs native review)* | | 
+| `hosp.hero.doorwayAria` | Select farmhouse scene | शेतघराचे दृश्य निवडा *(needs native review)* | | 
+| `hosp.hero.eyebrow` | YOUR ESCAPE, CLOSER TO NATURE | निसर्गाच्या सानिध्यात, शांत मुक्काम *(needs native review)* | | 
+| `hosp.hero.featChef` | Village Cook on Request | स्थानिक गावरान जेवणाची सोय *(needs native review)* | | 
+| `hosp.hero.featGated` | Private Gated Acreage | खाजगी सुरक्षित विस्तीर्ण जागा *(needs native review)* | | 
+| `hosp.hero.featOrchards` | Organic Mango Orchards | सेंद्रिय आंब्याची मोठी बाग *(needs native review)* | | 
+| `hosp.hero.featPool` | Private Plunge Pools | खाजगी पोहण्याचा तलाव *(needs native review)* | | 
+| `hosp.hero.headline` | Find your kind of nowhere. | आपला शांत एकांत शोधा. *(needs native review)* | | 
+| `hosp.hero.rotateSuffix` | farmhouse retreats across Maharashtra. | महाराष्ट्रातील अस्सल शेतघर मुक्काम. *(needs native review)* | | 
+| `hosp.hero.scrollText` | Scroll to explore | खाली स्क्रोल करा *(needs native review)* | | 
+| `hosp.hero.supporting` | Discover peaceful farmhouse stays, open landscapes, and memorable moments with the people who matter. | शांत शेतघर मुक्काम, मोकळी हिरवळ आणि आपल्या माणसांसोबतचे अविस्मरणीय क्षण अनुभवा. *(needs native review)* | | 
+| `hosp.hero.word1` | peaceful | शांत *(needs native review)* | | 
+| `hosp.hero.word2` | family | कौटुंबिक *(needs native review)* | | 
+| `hosp.hero.word3` | quiet | निवांत *(needs native review)* | | 
+| `hosp.hero.wordFinal` | countryside | ग्रामीण *(needs native review)* | | 
+| `hosp.how.step1Desc` | Pick your preferred stay dates and party size. | मुक्कामाची तारीख आणि पाहुण्यांची संख्या निवडा. *(needs native review)* | | 
+| `hosp.how.step1Title` | 1. Choose dates | १. तारीख निवडा *(needs native review)* | | 
+| `hosp.how.step2Desc` | Share your contact details. No payment is needed. | तुमची संपर्क माहिती द्या. आगाऊ रक्कम भरण्याची गरज नाही. *(needs native review)* | | 
+| `hosp.how.step2Title` | 2. Send request | २. विनंती पाठवा *(needs native review)* | | 
+| `hosp.how.step3Desc` | Our team calls you to confirm availability and plans. | आमची टीम उपलब्धतेची खात्री करण्यासाठी तुम्हाला फोन करेल. *(needs native review)* | | 
+| `hosp.how.step3Title` | 3. Phone confirmation | ३. फोनवर खात्री *(needs native review)* | | 
+| `hosp.how.title` | How booking works | बुकिंग कशी होते *(needs native review)* | | 
+| `hosp.howItWorks.eyebrow` | Effortless Countryside Escapes | सुटसुटीत ग्रामीण मुक्काम *(needs native review)* | | 
+| `hosp.howItWorks.heading` | How Booking Works | बुकिंग प्रक्रिया कशी चालते *(needs native review)* | | 
+| `hosp.howItWorks.lead` | A transparent, respectful, and direct way to plan your private countryside stay. | आपल्या खाजगी ग्रामीण मुक्कामासाठी एक पारदर्शक, सोपी आणि थेट पद्धत. *(needs native review)* | | 
+| `hosp.howItWorks.step1Desc` | Browse curated sample farmhouses by location, private pool, and guest capacity. | स्थान, खाजगी तलाव आणि पाहुण्यांच्या क्षमतेनुसार आपल्या आवडीचे शेतघर शोधा. *(needs native review)* | | 
+| `hosp.howItWorks.step1Title` | Discover Your Retreat | आपले शेतघर निवडा *(needs native review)* | | 
+| `hosp.howItWorks.step2Desc` | Select preferred dates and guest count. In this preview, requests are saved as visual samples. | तारखा आणि पाहुण्यांची संख्या निवडून आपली विनंती नोंदवा. हा डिझाइन नमुना आहे. *(needs native review)* | | 
+| `hosp.howItWorks.step2Title` | Send Stay Request | मुक्काम विनंती पाठवा *(needs native review)* | | 
+| `hosp.howItWorks.step3Desc` | Our team coordinates directly with you regarding customized meals, check-in, and local travel directions. | आमचा संघ जेवणाची सोय, येण्याची वेळ आणि रस्त्याच्या माहितीसाठी थेट संपर्क साधेल. *(needs native review)* | | 
+| `hosp.howItWorks.step3Title` | Personalised Host Care | स्थानिक व्यवस्थापक संपर्क *(needs native review)* | | 
+| `hosp.nav.atmosphere` | Atmosphere | परिसर *(needs native review)* | | 
+| `hosp.nav.backToGroup` | BAHINA Group | बहिणा समूह *(needs native review)* | | 
+| `hosp.nav.contact` | Contact | संपर्क *(needs native review)* | | 
+| `hosp.nav.faq` | Questions | प्रश्न *(needs native review)* | | 
+| `hosp.nav.home` | Hospitality | हॉस्पिटॅलिटी *(needs native review)* | | 
+| `hosp.nav.howItWorks` | How Booking Works | बुकिंग कशी होते *(needs native review)* | | 
+| `hosp.nav.rhythm` | Day Rhythm | दिवसाची लय *(needs native review)* | | 
+| `hosp.nav.stays` | Farmhouse Stays | शेतघर मुक्काम *(needs native review)* | | 
+| `hosp.notify.closeBtn` | Close | बंद करा *(needs native review)* | | 
+| `hosp.notify.consent` | I agree to receive one notification message when this farmhouse opens. | हे शेतघर सुरू झाल्यावर मला एक संदेश पाठवण्यास माझी संमती आहे. *(needs native review)* | | 
+| `hosp.notify.consentText` | I agree to receive one notification message when this farmhouse opens. | हे शेतघर उघडल्यावर एक संदेश मिळण्यास माझी सहमती आहे. *(needs native review)* | | 
+| `hosp.notify.demoNote` | Design preview: nothing was saved or sent. | डिझाइन पूर्वावलोकन: काहीही सेव्ह किंवा पाठवले गेलेले नाही. *(needs native review)* | | 
+| `hosp.notify.errorConsent` | Please agree to receive notification. | कृपया सूचना मिळण्यासाठी सहमती द्या. *(needs native review)* | | 
+| `hosp.notify.errorMobile` | Please enter a valid 10-digit mobile number. | कृपया वैध १०-अंकी मोबाईल नंबर प्रविष्ट करा. *(needs native review)* | | 
+| `hosp.notify.errorName` | Please enter your name. | कृपया आपले नाव प्रविष्ट करा. *(needs native review)* | | 
+| `hosp.notify.leadText` | Leave your contact details to be the first to know when this farmhouse opens. | हे शेतघर कधी सुरू होईल हे सर्वात आधी जाणून घेण्यासाठी आपले संपर्क तपशील द्या. *(needs native review)* | | 
+| `hosp.notify.mobileLabel` | Mobile Number | मोबाईल नंबर *(needs native review)* | | 
+| `hosp.notify.nameLabel` | Full Name | पूर्ण नाव *(needs native review)* | | 
+| `hosp.notify.namePlaceholder` | Enter your full name | आपले पूर्ण नाव प्रविष्ट करा *(needs native review)* | | 
+| `hosp.notify.submitBtn` | Notify me | मला कळवा *(needs native review)* | | 
+| `hosp.notify.submitButton` | Notify me | मला कळवा *(needs native review)* | | 
+| `hosp.notify.submitting` | Saving... | जतन करत आहे... *(needs native review)* | | 
+| `hosp.notify.subtitle` | We will message you when booking opens for this stay. | हे शेतघर सुरू झाल्यावर आम्ही आपल्याला कळवू. *(needs native review)* | | 
+| `hosp.notify.successDesc` | We have noted your interest. You will be notified when booking opens. | आम्ही आपली नोंद घेतली आहे. बुकिंग सुरू झाल्यावर आपल्याला कळवले जाईल. *(needs native review)* | | 
+| `hosp.notify.successNote` | Design preview note: nothing was sent or saved. | डिझाइन पूर्वावलोकन: कोणतीही माहिती साठवली गेली नाही. *(needs native review)* | | 
+| `hosp.notify.successTitle` | Thank you for your interest | तुमच्या स्वारस्याबद्दल धन्यवाद *(needs native review)* | | 
+| `hosp.notify.title` | Get notified when farmhouse opens | शेतघर सुरू झाल्यावर माहिती मिळवा *(needs native review)* | | 
+| `hosp.notify.villageLabel` | Village or City | गाव किंवा शहर *(needs native review)* | | 
+| `hosp.notify.villagePlaceholder` | Your village or city | आपले गाव किंवा शहर *(needs native review)* | | 
+| `hosp.pass.contactNote` | Our local host team will call within 24 hours to confirm fresh farm meals and arrival directions. | आमची स्थानिक टीम जेवणाची आवड आणि येण्याच्या वेळेबद्दल २४ तासांच्या आत फोन करेल. *(needs native review)* | | 
+| `hosp.pass.dates` | RESERVED DATES | मुक्काम कालावधी *(needs native review)* | | 
+| `hosp.pass.guestCopy` | GUEST COPY | पाहुण्यांची प्रत *(needs native review)* | | 
+| `hosp.pass.guests` | TOTAL GUESTS | एकूण पाहुणे *(needs native review)* | | 
+| `hosp.pass.location` | LOCATION | स्थान *(needs native review)* | | 
+| `hosp.pass.previewNote` | Design preview: nothing was sent or stored | डिझाइन पूर्वावलोकन: काहीही पाठवले किंवा साठवले नाही *(needs native review)* | | 
+| `hosp.pass.reference` | REQUEST NUMBER | नोंदणी क्रमांक *(needs native review)* | | 
+| `hosp.pass.stamp` | REQUEST SENT | विनंती प्राप्त *(needs native review)* | | 
+| `hosp.pass.status` | STATUS | स्थिती *(needs native review)* | | 
+| `hosp.pass.statusVerified` | PREVIEW VERIFIED | पूर्वावलोकन प्रमाणित *(needs native review)* | | 
+| `hosp.pass.title` | BAHINA HOSPITALITY STAY PASS | बहिणा हॉस्पिटॅलिटी मुक्काम पास *(needs native review)* | | 
+| `hosp.photo.artDescription` | Illustrated farmhouse scene | शेतघराचे चित्र *(needs native review)* | | 
+| `hosp.photo.artistsImpression` | Artist's impression | काल्पनिक रेखाचित्र *(needs native review)* | | 
+| `hosp.photo.constructionProgress` | Construction progress | बांधकाम प्रगती *(needs native review)* | | 
+| `hosp.photo.labelConstruction` | Construction progress | बांधकाम प्रगती *(needs native review)* | | 
+| `hosp.photo.labelPlanned` | Planned design (artist impression) | नियोजित डिझाइन (कलाकाराचे रेखाचित्र) *(needs native review)* | | 
+| `hosp.photo.photoNeeded` | Photo needed | छायाचित्र आवश्यक *(needs native review)* | | 
+| `hosp.photo.sample` | Sample | नमुना *(needs native review)* | | 
+| `hosp.photos.showAll` | Show all photos | सर्व फोटो पाहा *(needs native review)* | | 
+| `hosp.preview.ribbonText` | Design preview. Sample content only, not real farmhouses. | डिझाइन पूर्वावलोकन. केवळ नमुना माहिती, खरी शेतघरे नाहीत. *(needs native review)* | | 
+| `hosp.preview.ribbonTitle` | Design Preview Note | डिझाइन पूर्वावलोकन सूचना *(needs native review)* | | 
+| `hosp.preview.sampleChip` | Sample | नमुना *(needs native review)* | | 
+| `hosp.price.confirmationNotice` | Estimated price. Our team confirms the final price. | अंदाजे किंमत. आमची टीम अंतिम किंमतीची खात्री करेल. *(needs native review)* | | 
+| `hosp.price.estimatedNotice` | Estimated price. Our team confirms the final price. | अंदाजे किंमत. आमची टीम अंतिम किंमत निश्चित करेल. *(needs native review)* | | 
+| `hosp.price.estimatedTotal` | Estimated total | अंदाजे एकूण रक्कम *(needs native review)* | | 
+| `hosp.price.night` | night | रात्र *(needs native review)* | | 
+| `hosp.price.nights` | nights | रात्री *(needs native review)* | | 
+| `hosp.price.noDatesSelected` | Select check-in and check-out dates to view price. | किंमत पाहण्यासाठी तारीख निवडा. *(needs native review)* | | 
+| `hosp.price.requestNotice` | This stay is coming soon. Booking requests will open shortly. | हा मुक्काम लवकरच सुरू होत आहे. बुकिंग विनंत्या लवकरच सुरू होतील. *(needs native review)* | | 
+| `hosp.price.totalEstimated` | Estimated total | अंदाजे एकूण *(needs native review)* | | 
+| `hosp.results.count` | stays found | शेतघरे आढळली *(needs native review)* | | 
+| `hosp.ribbon.text` | Design preview. Sample content only, not real farmhouses. | डिझाइन पूर्वावलोकन. केवळ नमुना माहिती, खरी शेतघरे नाहीत. *(needs native review)* | | 
+| `hosp.search.adults` | Adults | प्रौढ *(needs native review)* | | 
+| `hosp.search.adultsAge` | Age 13 and above | वय १३ आणि जास्त *(needs native review)* | | 
+| `hosp.search.allLocations` | All Districts | सर्व जिल्हे *(needs native review)* | | 
+| `hosp.search.button` | Search | शोधा *(needs native review)* | | 
+| `hosp.search.checkIn` | Check-in | आगमन *(needs native review)* | | 
+| `hosp.search.checkOut` | Check-out | प्रस्थान *(needs native review)* | | 
+| `hosp.search.children` | Children | लहान मुले *(needs native review)* | | 
+| `hosp.search.childrenAge` | Age 2 to 12 | वय २ ते १२ *(needs native review)* | | 
+| `hosp.search.datesLabel` | Dates | तारीख *(needs native review)* | | 
+| `hosp.search.guestSummaryPlural` | guests | पाहुणे *(needs native review)* | | 
+| `hosp.search.guestSummarySingle` | 1 guest | १ पाहुणा *(needs native review)* | | 
+| `hosp.search.guestsLabel` | Guests | पाहुणे *(needs native review)* | | 
+| `hosp.search.location` | Location | स्थान *(needs native review)* | | 
+| `hosp.search.locationLabel` | Location | स्थान *(needs native review)* | | 
+| `hosp.search.selectDates` | Select dates | तारीख निवडा *(needs native review)* | | 
+| `hosp.search.selectGuests` | Select guests | पाहुणे निवडा *(needs native review)* | | 
+| `hosp.search.subtitle` | Farmhouse stays by BAHINA Hospitality | बहिणा हॉस्पिटॅलिटीचे शेतघर मुक्काम *(needs native review)* | | 
+| `hosp.search.title` | Find a peaceful farmhouse stay | शांत शेतघर मुक्काम शोधा *(needs native review)* | | 
+| `hosp.sent.backToStays` | Back to farmhouses | शेतघरांकडे परत जा *(needs native review)* | | 
+| `hosp.sent.copiedToast` | Request details copied to clipboard. | विनंती तपशील कॉपी झाले. *(needs native review)* | | 
+| `hosp.sent.disclaimer` | This is a request, not a confirmed booking. Our team will call you to confirm. | ही केवळ विनंती आहे, पक्के बुकिंग नाही. आमची टीम पुष्टी करण्यासाठी फोन करेल. *(needs native review)* | | 
+| `hosp.sent.previewBanner` | Design preview: nothing was sent or stored. | डिझाइन पूर्वावलोकन: कोणतीही माहिती पाठवली किंवा साठवली नाही. *(needs native review)* | | 
+| `hosp.sent.refLabel` | Request Number | विनंती क्रमांक *(needs native review)* | | 
+| `hosp.sent.shareRequest` | Share request | विनंती शेअर करा *(needs native review)* | | 
+| `hosp.sent.summaryTitle` | Request Summary | विनंतीचा तपशील *(needs native review)* | | 
+| `hosp.sent.title` | Booking Request Received | बुकिंगची विनंती मिळाली *(needs native review)* | | 
+| `hosp.share.buttonAria` | Share this farmhouse | हे शेतघर शेअर करा *(needs native review)* | | 
+| `hosp.share.buttonText` | Share | शेअर *(needs native review)* | | 
+| `hosp.share.copied` | Link copied | लिंक कॉपी झाली *(needs native review)* | | 
+| `hosp.share.defaultText` | Look at this peaceful farmhouse stay by BAHINA Hospitality. | बहिणा हॉस्पिटॅलिटीचे हे शांत शेतघर पाहा. *(needs native review)* | | 
+| `hosp.share.defaultTitle` | BAHINA Hospitality Farmhouse | बहिणा हॉस्पिटॅलिटी शेतघर *(needs native review)* | | 
+| `hosp.share.toastSuccess` | Link copied to clipboard | लिंक कॉपी झाली आहे *(needs native review)* | | 
+| `hosp.showcase.eyebrow` | The Countryside Atmosphere | ग्रामीण वातावरणाचा निवांत अनुभव *(needs native review)* | | 
+| `hosp.showcase.heading` | The art of living at nature's pace. | निसर्गाच्या लयीत जगण्याची खरी कला. *(needs native review)* | | 
+| `hosp.showcase.subheading` | From early dawn over misty fruit orchards to starlit bonfires, discover the quiet rhythms that make our farmsteads unforgettable. | पहाटेच्या आल्हाददायक धुक्यापासून ते रात्रीच्या शेकोटीपर्यंत — आमची शेतघरे खास आठवणींसाठी ओळखली जातात. *(needs native review)* | | 
+| `hosp.sort.capacityDesc` | Capacity: High to Low | क्षमता: जास्त ते कमी *(needs native review)* | | 
+| `hosp.sort.label` | Sort by | क्रमवारी *(needs native review)* | | 
+| `hosp.sort.priceAsc` | Price: Low to High | किंमत: कमी ते जास्त *(needs native review)* | | 
+| `hosp.sort.priceDesc` | Price: High to Low | किंमत: जास्त ते कमी *(needs native review)* | | 
+| `hosp.sort.recommended` | Recommended | शिफारस केलेले *(needs native review)* | | 
+| `hosp.status.all` | All stays | सर्व शेतघरे *(needs native review)* | | 
+| `hosp.status.comingSoon` | Coming soon | लवकरच *(needs native review)* | | 
+| `hosp.status.open` | Open for requests | विनंतीसाठी खुले *(needs native review)* | | 
+| `hosp.status.underConstruction` | Under construction | बांधकाम सुरू *(needs native review)* | | 
+| `hosp.story.eyebrow` | The Countryside Journey | ग्रामीण प्रवासाची वाट *(needs native review)* | | 
+| `hosp.story.mainHeading` | Leave the rush. Find your breath. | शहराचा ताण सोडा. मोकळा श्वास घ्या. *(needs native review)* | | 
+| `hosp.story.mainSub` | From highway to hillside — follow the transition from hectic city hours to peaceful rural silence. | हायवेपासून डोंगरमाथ्यापर्यंत — गजबजलेल्या शहरातून शांत ग्रामीण वातावरणाचा प्रवास अनुभव. *(needs native review)* | | 
+| `hosp.story.scene1Badge` | City Borders | शहराची सीमा *(needs native review)* | | 
+| `hosp.story.scene1Desc` | Watch the noisy city skyline and honking traffic fade in your rearview mirror. | वाहनांचे आवाज आणि सिमेंटचे शहर मागे सुटताना अनुभवा. *(needs native review)* | | 
+| `hosp.story.scene1Tag` | Scene 01 · Departure | दृश्य ०१ · प्रस्थान *(needs native review)* | | 
+| `hosp.story.scene1Title` | Leave the rush behind. | शहराची घाई मागे सोडा. *(needs native review)* | | 
+| `hosp.story.scene2Badge` | Rural Highway | ग्रामीण रस्ता *(needs native review)* | | 
+| `hosp.story.scene2Desc` | Roll down the windows as cool breeze sweeps through the lush Sahyadri hills. | गाडीच्या खिडक्या उघडा आणि सह्याद्रीच्या डोंगररांगांमधून येणारी थंड हवा अनुभवा. *(needs native review)* | | 
+| `hosp.story.scene2Tag` | Scene 02 · The Journey | दृश्य ०२ · निसर्गरम्य वाट *(needs native review)* | | 
+| `hosp.story.scene2Title` | Take the scenic route. | निसर्गरम्य वळणावळणाची वाट धरा. *(needs native review)* | | 
+| `hosp.story.scene3Badge` | Countryside Gates | शेतघराचे प्रवेशद्वार *(needs native review)* | | 
+| `hosp.story.scene3Desc` | A private countryside sanctuary unfolds with mango orchards and sprawling lawns. | आंब्याच्या बागा आणि विस्तीर्ण हिरवळीचे शांत शेतघर आपले स्वागत करते. *(needs native review)* | | 
+| `hosp.story.scene3Tag` | Scene 03 · Arrival | दृश्य ०३ · आगमन *(needs native review)* | | 
+| `hosp.story.scene3Title` | Find room to breathe. | मोकळा श्वास घेण्यासाठी शांत जागा. *(needs native review)* | | 
+| `hosp.story.scene4Badge` | Private Pool & Lawn | खाजगी पूल आणि अंगण *(needs native review)* | | 
+| `hosp.story.scene4Desc` | Unwind by the pool, share home-cooked meals, and laugh without glancing at the clock. | खाजगी स्विमिंग पूल, गावरान जेवण आणि घड्याळाकडे न पाहता मारलेल्या गप्पा. *(needs native review)* | | 
+| `hosp.story.scene4Tag` | Scene 04 · Experience | दृश्य ०४ · खास क्षण *(needs native review)* | | 
+| `hosp.story.scene4Title` | Make time for what matters. | आपल्या माणसांसाठी खास वेळ काढा. *(needs native review)* | | 
+| `hosp.story.scene5Badge` | Traditional Verandah | कौलारू पडवी *(needs native review)* | | 
+| `hosp.story.scene5Desc` | Step into our handpicked collection of rural countryside retreats. | ग्रामीण महाराष्ट्रातील आमच्या शांत आणि सुंदर शेतघरांमध्ये आपले स्वागत आहे. *(needs native review)* | | 
+| `hosp.story.scene5Tag` | Scene 05 · BAHINA Stays | दृश्य ०५ · बहिणा मुक्काम *(needs native review)* | | 
+| `hosp.story.scene5Title` | Your next escape starts here. | आपला पुढचा शांत मुक्काम येथे सुरू होतो. *(needs native review)* | | 
+| `hosp.story.sceneCount` | Scene | दृश्य *(needs native review)* | | 
+| `hosp.story.viewStays` | Explore all farmhouse stays | सर्व शेतघरे पहा *(needs native review)* | | 
+| `hosp.timeline.completed` | Completed | पूर्ण झाले *(needs native review)* | | 
+| `hosp.timeline.heading` | Construction updates | बांधकाम प्रगती *(needs native review)* | | 
+| `hosp.timeline.inProgress` | In progress | काम चालू आहे *(needs native review)* | | 
+| `hosp.timeline.lead` | Transparent milestone updates from our master craftsmen on site. | आमच्या बांधकाम कारागिरांकडून कामाच्या टप्प्यांची स्पष्ट माहिती. *(needs native review)* | | 
+| `hosp.timeline.stage1` | Land ready | जागा तयार *(needs native review)* | | 
+| `hosp.timeline.stage2` | Foundation | पायाभरणी *(needs native review)* | | 
+| `hosp.timeline.stage3` | Walls & Structure | भिंती आणि रचना *(needs native review)* | | 
+| `hosp.timeline.stage4` | Finishing | रंगकाम व सजावट *(needs native review)* | | 
+| `hosp.timeline.stage5` | Opening | सुरू होत आहे *(needs native review)* | | 
+| `hosp.timeline.step` | Step | टप्पा *(needs native review)* | | 
+| `hosp.timeline.step1` | Land Survey & Planning | जागा पाहणी व नियोजन *(needs native review)* | | 
+| `hosp.timeline.step1Desc` | Soil testing, water source verification, and traditional eco-architecture layout. | माती परीक्षण, पाणी स्त्रोत तपासणी आणि पारंपारिक निसर्गपूरक आराखडा. *(needs native review)* | | 
+| `hosp.timeline.step2` | Stone Foundation | दगडी पायाभरणी *(needs native review)* | | 
+| `hosp.timeline.step2Desc` | Deep basalt stone trenching and reinforced plinth for lasting stability. | भक्कम काळ्या पाषाणाची खोल पायाभरणी आणि जोत्याचे मजबुतीकरण. *(needs native review)* | | 
+| `hosp.timeline.step3` | Walls & Framework | भिंती आणि सागवानी रचना *(needs native review)* | | 
+| `hosp.timeline.step3Desc` | Red laterite stone masonry, teakwood pillar framing, and high clay-tiled roofs. | जांभ्या दगडाचे बांधकाम, सागवानी खांबांची चौकट आणि कवेलू छप्पर. *(needs native review)* | | 
+| `hosp.timeline.step4` | Finishing & Verandahs | रंगकाम व सुशोभीकरण *(needs native review)* | | 
+| `hosp.timeline.step4Desc` | Handmade terracotta floor tiles, brass fixtures, and native tree landscaping. | हाताने बनवलेल्या मातीच्या फरशा, पितळी नळ आणि देशी झाडांची लागवड. *(needs native review)* | | 
+| `hosp.timeline.step5` | Opening for Guests | पाहुण्यांचे स्वागत *(needs native review)* | | 
+| `hosp.timeline.step5Desc` | Final quality walk-through, caretaker staff onboarding, and welcoming first families. | अंतिम गुणवत्ता तपासणी, कर्मचारी प्रशिक्षण आणि पहिल्या पाहुण्यांचे स्वागत. *(needs native review)* | | 
+| `hosp.timeline.upcoming` | Upcoming | पुढील टप्पा *(needs native review)* | | 
 | `indicator.aria` | Page section indicator | विभाग निर्देशक *(needs native review)* | | 
 | `indicator.connect` | Contact | संपर्क साधा *(needs native review)* | | 
 | `indicator.divisions` | Companies | आमच्या कंपन्या *(needs native review)* | | 

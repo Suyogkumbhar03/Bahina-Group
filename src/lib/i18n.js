@@ -105,7 +105,15 @@ export function LanguageProvider({ children }) {
       if (process.env.NODE_ENV !== "production") {
         console.warn(`[i18n] Missing key "${key}" in both "${language}" and English.`)
       }
-      return fallback || key
+      if (fallback) return fallback;
+      // Never show raw dot-separated key on screen
+      const parts = String(key).split(".");
+      const lastPart = parts[parts.length - 1] || "";
+      return lastPart
+        .replace(/([A-Z])/g, " $1")
+        .replace(/[_-]/g, " ")
+        .replace(/\b\w/g, (c) => c.toUpperCase())
+        .trim();
     },
     [language]
   )

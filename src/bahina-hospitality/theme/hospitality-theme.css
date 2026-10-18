@@ -1,0 +1,256 @@
+/* BAHINA HOSPITALITY - RADHANAGARI, KOLHAPUR THEME
+ * Inspired by the lush evergreen forests, red soil, and rich heritage of Radhanagari, Kolhapur.
+ * Typography: Fraunces & Noto Serif Devanagari (Display) + Mukta / Manrope (Clean UI & Body)
+ * Palette: Forest Green (#173327), Kolhapur Red Soil Brick (#B5472A), Terracotta Sunset, Stone Ivory (#FAF8F5)
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&display=swap');
+
+.hospitality-theme {
+  --radius: 1rem;
+  --background: #FAF8F5;
+  --foreground: #1A2E24;
+  --card: #FFFFFF;
+  --card-foreground: #1A2E24;
+  --popover: #FFFFFF;
+  --popover-foreground: #1A2E24;
+  --primary: #B5472A; /* Kolhapur red soil brick accent */
+  --primary-foreground: #FFFFFF;
+  --secondary: #E8EFEA;
+  --secondary-foreground: #183226;
+  --muted: #F3F5F3;
+  --muted-foreground: #5C6E64;
+  --accent: #E5A93C;
+  --accent-foreground: #251E14;
+  --gold: #D9A441;
+  --forest: #173327;
+  --forest-foreground: #F7FAF7;
+  --border: #E2E7E3;
+  --input: #E2E7E3;
+  --ring: #B5472A;
+  
+  --color-red-soil: #B5472A;
+  --gradient-sunset: linear-gradient(135deg, #B5472A 0%, #E65C2B 50%, #F59E0B 100%);
+  --gradient-hero: linear-gradient(180deg, rgba(20, 40, 30, 0.65) 0%, rgba(20, 40, 30, 0.25) 40%, rgba(18, 36, 27, 0.92) 100%);
+  --shadow-soft: 0 20px 50px -20px rgba(24, 50, 38, 0.22);
+  --shadow-glow: 0 15px 40px -12px rgba(181, 71, 42, 0.45);
+
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Mukta', 'Manrope', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* Typography */
+.hospitality-theme h1,
+.hospitality-theme h2,
+.hospitality-theme h3,
+.hospitality-theme h4,
+.hospitality-theme .font-display {
+  font-family: 'Fraunces', 'Mukta', Georgia, serif;
+  letter-spacing: -0.015em;
+}
+
+/* Marathi typography rules: letter-spacing 0, no italic, no uppercase */
+.hospitality-theme:lang(mr),
+.hospitality-theme [lang="mr"],
+.hospitality-theme .mr-text {
+  letter-spacing: 0 !important;
+  font-style: normal !important;
+  text-transform: none !important;
+}
+
+/* Color utilities */
+.hospitality-theme .bg-forest {
+  background-color: var(--forest);
+}
+.hospitality-theme .text-forest {
+  color: var(--forest);
+}
+.hospitality-theme .text-forest-foreground {
+  color: var(--forest-foreground);
+}
+.hospitality-theme .bg-forest-foreground {
+  background-color: var(--forest-foreground);
+}
+.hospitality-theme .text-gold {
+  color: var(--gold);
+}
+.hospitality-theme .border-gold {
+  border-color: var(--gold);
+}
+.hospitality-theme .bg-gold {
+  background-color: var(--gold);
+}
+.hospitality-theme .bg-sunset {
+  background-image: var(--gradient-sunset);
+}
+.hospitality-theme .bg-hero-overlay {
+  background-image: var(--gradient-hero);
+}
+.hospitality-theme .shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+.hospitality-theme .shadow-glow {
+  box-shadow: var(--shadow-glow);
+}
+.hospitality-theme .text-sunset {
+  background-image: var(--gradient-sunset);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hospitality-theme .text-red-soil {
+  color: var(--color-red-soil);
+}
+.hospitality-theme .bg-red-soil {
+  background-color: var(--color-red-soil);
+}
+.hospitality-theme .glass {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+.hospitality-theme .glass-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Glassy Floating Pill Navbar (Task B) */
+.hosp-floating-pill {
+  background: rgba(20, 40, 32, 0.45);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.35);
+  border-radius: 999px;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, padding 0.3s ease;
+}
+
+.hosp-floating-pill.is-scrolled {
+  background: rgba(20, 40, 32, 0.65);
+}
+
+@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  .hosp-floating-pill,
+  .hosp-floating-pill.is-scrolled {
+    background: #142820 !important;
+  }
+}
+
+/* Glass mobile sheet menu (Task B) */
+.hosp-glass-sheet {
+  background: rgba(20, 40, 32, 0.75);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+}
+
+@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  .hosp-glass-sheet {
+    background: #142820 !important;
+  }
+}
+
+/* KOLHAPURI TADKA */
+
+/* 1. Tambda-Pandhra split divider line */
+.hospitality-theme .tambda-pandhra-line {
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(90deg, #B5472A 0%, #B5472A 50%, rgba(255, 255, 255, 0.85) 50%, rgba(255, 255, 255, 0.85) 100%);
+}
+
+.hospitality-theme .tambda-pandhra-line-light {
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, #B5472A 0%, #B5472A 50%, #E2E7E3 50%, #E2E7E3 100%);
+}
+
+/* 2. Kolhapuri stitched-leather border (chappal look) */
+.hospitality-theme .stitched-border {
+  border: 1.5px dashed rgba(181, 71, 42, 0.4);
+}
+
+.hospitality-theme .stitched-border-dark {
+  border: 1.5px dashed rgba(247, 250, 247, 0.3);
+}
+
+/* Keyframe Animations */
+@keyframes rise {
+  from {
+    opacity: 0.2;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes kenburns {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes floaty {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.hospitality-theme .animate-rise {
+  animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.hospitality-theme .animate-kenburns {
+  animation: kenburns 14s ease-out both;
+}
+
+.hospitality-theme .animate-marquee {
+  animation: marquee 35s linear infinite;
+}
+
+.hospitality-theme .animate-floaty {
+  animation: floaty 5s ease-in-out infinite;
+}
+
+/* CRITICAL FIX 0: Content blocks MUST be VISIBLE by default!
+ * Reveal animations only enhance. If JS or IntersectionObserver fails or on full-page screenshot,
+ * nothing may be blank!
+ */
+.hospitality-theme .reveal {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: opacity 0.85s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.85s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* Respect user preferences & low-data */
+@media (prefers-reduced-motion: reduce) {
+  .hospitality-theme *,
+  .hospitality-theme .animate-kenburns,
+  .hospitality-theme .animate-marquee,
+  .hospitality-theme .animate-floaty,
+  .hospitality-theme .animate-rise {
+    animation: none !important;
+    transition: none !important;
+  }
+}

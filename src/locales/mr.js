@@ -5,7 +5,10 @@
  * Exactly mirrors keys in src/locales/en.js.
  */
 
+import { hospitalityMr } from "../bahina-hospitality/locales/mr.js"
+
 export const mr = {
+  ...hospitalityMr,
   // Brand
   "brand.name": "BAHINA Group",
   "brand.shortName": "BAHINA",

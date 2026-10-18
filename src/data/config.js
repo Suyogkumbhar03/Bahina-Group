@@ -17,4 +17,6 @@ export const RURAL_CONFIG = {
   videoFileSizeMb: 20,
 };
 
+export const PREVIEW_MODE = true;
+
 export default RURAL_CONFIG;

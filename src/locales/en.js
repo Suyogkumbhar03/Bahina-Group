@@ -4,7 +4,10 @@
  * Plain everyday language without jargon or heavy metaphors.
  */
 
+import { hospitalityEn } from "../bahina-hospitality/locales/en.js"
+
 export const en = {
+  ...hospitalityEn,
   // Brand
   "brand.name": "BAHINA Group",
   "brand.shortName": "BAHINA",
