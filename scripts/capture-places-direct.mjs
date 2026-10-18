@@ -17,6 +17,13 @@ async function run() {
   // Desktop Places EN
   await page.setViewport({ width: 1280, height: 900, deviceScaleFactor: 2 });
   await page.goto(`${BASE_URL}/hospitality?lang=en`, { waitUntil: "networkidle0" });
+  await new Promise((r) => setTimeout(r, 600));
+  await page.screenshot({
+    path: path.join(OUTPUT_DIR, "desktop_en_nav_hero.png"),
+    clip: { x: 0, y: 0, width: 1280, height: 350 },
+  });
+  console.log("Captured desktop_en_nav_hero.png");
+
   await page.evaluate(() => {
     const el = document.getElementById("things-to-see");
     if (el) el.scrollIntoView({ behavior: "instant" });

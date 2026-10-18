@@ -67,29 +67,29 @@ export function Navbar() {
         className="fixed top-0 left-0 right-0 z-40 flex flex-col items-center pt-3 md:pt-5 px-3 md:px-4 pointer-events-none"
       >
         <nav
-          className="pointer-events-auto relative flex items-center justify-between w-full max-w-6xl rounded-full nav-glass py-2 px-3 sm:px-4 md:px-5 shadow-2xl transition-all"
+          className="pointer-events-auto relative flex items-center justify-between w-full max-w-7xl rounded-full nav-glass py-2 px-3 sm:px-4 md:px-5 lg:px-6 shadow-2xl transition-all"
           aria-label={t("nav.mainNavAria")}
         >
           {/* Magnet Wrapped Logo */}
           <div className="shrink-0">
-            <Magnet magnetStrength={0.25} padding={40}>
+            <Magnet magnetStrength={0.25} padding={30}>
               <a
                 href="#"
-                className="flex items-center space-x-2 text-[#F3EFEA] group py-1 px-2 rounded-full focus:outline-none focus-visible:ring-1 focus-visible:ring-white/60"
+                className="flex items-center space-x-2 text-[#F3EFEA] group py-1 px-1.5 sm:px-2 rounded-full focus:outline-none focus-visible:ring-1 focus-visible:ring-white/60"
                 aria-label={t("nav.homeAria")}
               >
                 <img
                   src="/logo-mark.png"
                   alt="BAHINA Group Emblem"
-                  className="h-7 w-auto object-contain group-hover:scale-105 transition-transform"
+                  className="h-6 sm:h-7 w-auto object-contain group-hover:scale-105 transition-transform"
                 />
                 <span
                   lang="en"
-                  className="font-display text-lg tracking-[0.16em] font-semibold text-white group-hover:opacity-85 transition-opacity"
+                  className="font-display text-base sm:text-lg tracking-[0.14em] font-semibold text-white group-hover:opacity-85 transition-opacity whitespace-nowrap"
                 >
                   BAHINA
                 </span>
-                <span className="text-[11px] uppercase font-sans font-semibold tracking-[0.12em] text-white">
+                <span className="text-[10px] sm:text-[11px] uppercase font-sans font-semibold tracking-[0.12em] text-white/90 whitespace-nowrap">
                   {t("brand.group")}
                 </span>
               </a>
@@ -97,14 +97,14 @@ export function Navbar() {
           </div>
 
           {/* Desktop Pill Nav (1024px and above) */}
-          <div className="hidden lg:flex items-center relative p-1 rounded-full bg-white/[0.03] mx-2 shrink-0">
+          <div className="hidden lg:flex items-center relative p-1 rounded-full bg-white/[0.03] mx-1 xl:mx-2 shrink-0">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href
               return (
                 <a
                   key={link.href}
                   href={link.href}
-                  className={`relative px-2.5 xl:px-3 py-1.5 text-[11px] xl:text-[12px] font-sans font-semibold uppercase tracking-[0.08em] whitespace-nowrap transition-colors duration-200 z-10 ${
+                  className={`relative px-2 xl:px-3 py-1.5 text-[11px] xl:text-[12px] font-sans font-semibold uppercase tracking-[0.06em] whitespace-nowrap transition-colors duration-200 z-10 ${
                     isActive ? "text-white" : "text-neutral-100 hover:text-white"
                   }`}
                 >
@@ -122,9 +122,9 @@ export function Navbar() {
           </div>
 
           {/* Right Action Elements: Language Switcher + Contact + Hamburger */}
-          <div className="flex items-center space-x-1.5 sm:space-x-2.5 shrink-0">
-            {/* Text Size Scaling Control (A, A+, A++) - visible on sm+ in top navbar, always in mobile drawer */}
-            <div className="hidden sm:inline-flex">
+          <div className="flex items-center gap-1.5 sm:gap-2 xl:gap-2.5 shrink-0 pr-0.5 sm:pr-1">
+            {/* Text Size Scaling Control (A, A+, A++) - visible on xl+ to avoid crowding on 1024-1279px viewports, always in mobile drawer */}
+            <div className="hidden xl:inline-flex">
               <TextSizeControl compact />
             </div>
 
@@ -133,16 +133,16 @@ export function Navbar() {
 
             {/* Desktop Contact Button with Magnet */}
             <div className="hidden sm:block shrink-0">
-              <Magnet magnetStrength={0.2} padding={30}>
+              <Magnet magnetStrength={0.2} padding={20}>
                 <a
                   href="#contact"
-                  className="group relative inline-flex items-center justify-center overflow-hidden rounded-full border border-white/20 bg-white/5 px-3.5 py-1.5 transition-all duration-300 hover:border-white/50 hover:bg-white/10 focus:outline-none focus-visible:ring-1 focus-visible:ring-white/60 min-h-[36px]"
+                  className="group relative inline-flex items-center justify-center overflow-hidden rounded-full border border-white/20 bg-white/5 px-3 sm:px-3.5 py-1.5 transition-all duration-300 hover:border-white/50 hover:bg-white/10 focus:outline-none focus-visible:ring-1 focus-visible:ring-white/60 min-h-[34px] whitespace-nowrap"
                   data-cursor-label="Contact"
                 >
-                  <span className="block text-[11px] xl:text-[12px] font-sans font-semibold uppercase tracking-[0.1em] text-white group-hover:text-white transition-colors whitespace-nowrap">
+                  <span className="block text-[11px] xl:text-[12px] font-sans font-semibold uppercase tracking-[0.08em] text-white group-hover:text-white transition-colors whitespace-nowrap">
                     {t("nav.contact")}
                   </span>
-                  <ArrowUpRight className="h-3 w-3 ml-1 text-neutral-100 group-hover:text-white transition-colors" />
+                  <ArrowUpRight className="h-3 w-3 ml-1 text-neutral-100 group-hover:text-white transition-colors shrink-0" />
                 </a>
               </Magnet>
             </div>

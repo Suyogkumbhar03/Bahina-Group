@@ -611,12 +611,6 @@ export function HospitalityHome() {
                     <span className="absolute left-4 top-4 rounded-full bg-[#173327]/90 px-3 py-1 text-xs font-bold text-white uppercase tracking-wider backdrop-blur-sm shadow-sm">
                       {place.type}
                     </span>
-
-                    {/* Real photo badge */}
-                    <span className="absolute bottom-2 right-3 text-[10px] font-semibold text-white bg-black/60 px-2 py-0.5 rounded backdrop-blur-sm flex items-center gap-1">
-                      <Camera className="h-3 w-3 text-[#DFA82E]" />
-                      {t("hosp.badge.realPhoto", "Real photo")}
-                    </span>
                   </div>
                 ) : (
                   <div className="relative h-56 overflow-hidden bg-gradient-to-br from-[#1E3A2B] via-[#2A4D3B] to-[#142820] flex flex-col items-center justify-center text-center p-6 text-white/90">
@@ -631,12 +625,6 @@ export function HospitalityHome() {
                     {/* Category Chip */}
                     <span className="absolute left-4 top-4 rounded-full bg-[#173327]/90 px-3 py-1 text-xs font-bold text-white uppercase tracking-wider backdrop-blur-sm shadow-sm">
                       {place.type}
-                    </span>
-
-                    {/* Photo needed badge */}
-                    <span className="absolute bottom-2 right-3 text-[10px] font-semibold text-white/80 bg-black/60 px-2 py-0.5 rounded backdrop-blur-sm flex items-center gap-1">
-                      <Camera className="h-3 w-3 text-amber-300" />
-                      {t("hosp.badge.photoNeeded", "Photo needed")}
                     </span>
                   </div>
                 )}

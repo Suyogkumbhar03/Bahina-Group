@@ -160,42 +160,47 @@ export function HospitalityHeader() {
     <>
       <header className="fixed top-0 left-0 right-0 z-50 flex flex-col items-center pt-[12px] px-3 sm:px-4 pointer-events-none">
         <nav
-          className={`pointer-events-auto relative flex items-center justify-between w-full max-w-[1200px] hosp-floating-pill ${
-            scrolled ? "is-scrolled py-1.5 px-3 sm:px-4 scale-[0.985]" : "py-2 px-3 sm:px-4 scale-100"
+          className={`pointer-events-auto relative flex items-center justify-between w-full max-w-[1260px] hosp-floating-pill ${
+            scrolled ? "is-scrolled py-1.5 px-3 sm:px-4 md:px-5 scale-[0.985]" : "py-2 px-3 sm:px-4 md:px-5 scale-100"
           }`}
           aria-label={t("hosp.aria.mainNav", "Hospitality Navigation")}
         >
           {/* Brand Logo with Magnet */}
           <div className="shrink-0">
-            <Magnet magnetStrength={0.2} padding={30}>
+            <Magnet magnetStrength={0.2} padding={20}>
               <Link
                 to="/hospitality"
-                className="flex items-center space-x-2 text-white group py-1 px-2 rounded-full focus:outline-none focus-visible:ring-1 focus-visible:ring-white/60"
+                className="flex items-center gap-2 text-white group py-1 px-1.5 sm:px-2 rounded-full focus:outline-none focus-visible:ring-1 focus-visible:ring-white/60"
                 aria-label={t("hosp.brand.homeAria", "BAHINA Hospitality Home")}
               >
+                <img
+                  src="/logo-mark.png"
+                  alt="BAHINA Group Emblem"
+                  className="h-6 sm:h-7 w-auto object-contain group-hover:scale-105 transition-transform"
+                />
                 <span
                   lang="en"
-                  className="font-display text-lg sm:text-xl tracking-[0.16em] font-semibold text-white group-hover:opacity-85 transition-opacity"
+                  className="font-display text-base sm:text-lg tracking-[0.14em] font-bold text-white group-hover:opacity-85 transition-opacity whitespace-nowrap"
                 >
                   BAHINA
                 </span>
-                <span className="text-[10px] sm:text-[11px] uppercase font-sans font-bold tracking-[0.12em] text-[#DFA82E] px-2 py-0.5 rounded-full bg-white/10 border border-white/15">
-                  {t("hosp.brand.division", "Radhanagari")}
+                <span className="text-[10px] sm:text-[11px] uppercase font-sans font-bold tracking-[0.12em] text-[#DFA82E] px-2 py-0.5 rounded-full bg-white/10 border border-white/15 whitespace-nowrap">
+                  {t("hosp.brand.division", "Hospitality")}
                 </span>
               </Link>
             </Magnet>
           </div>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center relative p-1 rounded-full bg-white/[0.04] mx-2 shrink-0 border border-white/10">
+          <div className="hidden lg:flex items-center relative p-1 rounded-full bg-white/[0.04] mx-1 xl:mx-2 shrink-0 border border-white/10">
             {navLinks.map((link) => {
               const isActive = !isSubpage && activeSection === `#${link.hash}`;
               return (
                 <a
                   key={link.id}
                   href={link.href}
-                  className={`relative px-2.5 xl:px-3 py-1.5 text-[11px] xl:text-[12px] font-sans font-semibold uppercase tracking-[0.08em] whitespace-nowrap transition-colors duration-200 z-10 ${
-                    isActive ? "text-white" : "text-white/85 hover:text-white"
+                  className={`relative px-2 xl:px-3 py-1.5 text-[11px] xl:text-[12px] font-sans font-semibold uppercase tracking-[0.06em] whitespace-nowrap transition-colors duration-200 z-10 ${
+                    isActive ? "text-white" : "text-white/80 hover:text-white"
                   }`}
                 >
                   {link.name}
@@ -216,7 +221,7 @@ export function HospitalityHeader() {
           </div>
 
           {/* Right Action Cluster: Language Switcher + "See farmhouses" CTA + Hamburger */}
-          <div className="flex items-center space-x-2 sm:space-x-3 shrink-0">
+          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0 pr-0.5">
             {/* Pill-shaped Language Toggle (मराठी / EN) */}
             <div className="flex items-center rounded-full bg-white/10 p-0.5 border border-white/15 text-xs font-semibold">
               <button
@@ -247,13 +252,13 @@ export function HospitalityHeader() {
 
             {/* Pill-shaped "See farmhouses" CTA Button */}
             <div className="hidden sm:block shrink-0">
-              <Magnet magnetStrength={0.15} padding={25}>
+              <Magnet magnetStrength={0.15} padding={20}>
                 <a
                   href={isSubpage ? "/hospitality#farmhouses" : "#farmhouses"}
-                  className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-[#B5472A] hover:bg-[#9E3E1A] px-3.5 sm:px-4 py-1.5 transition-all duration-300 text-white font-sans font-bold text-[11px] xl:text-[12px] uppercase tracking-[0.08em] shadow-md hover:shadow-lg focus:outline-none focus-visible:ring-1 focus-visible:ring-white min-h-[34px]"
+                  className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-[#B5472A] hover:bg-[#9E3E1A] px-3.5 sm:px-4 py-1.5 transition-all duration-300 text-white font-sans font-bold text-[11px] xl:text-[12px] uppercase tracking-[0.06em] shadow-md hover:shadow-lg focus:outline-none focus-visible:ring-1 focus-visible:ring-white min-h-[34px] whitespace-nowrap"
                 >
                   <span>{t("hosp.nav.seeFarmhouses", "See farmhouses")}</span>
-                  <ArrowRight className="h-3.5 w-3.5 ml-1.5 text-white group-hover:translate-x-0.5 transition-transform" />
+                  <ArrowRight className="h-3.5 w-3.5 ml-1.5 text-white group-hover:translate-x-0.5 transition-transform shrink-0" />
                 </a>
               </Magnet>
             </div>
@@ -300,9 +305,14 @@ export function HospitalityHeader() {
               {/* Sheet Header */}
               <div className="flex items-center justify-between border-b border-white/15 pb-3">
                 <div className="flex items-center gap-2">
+                  <img
+                    src="/logo-mark.png"
+                    alt="BAHINA Group Emblem"
+                    className="h-6 w-auto object-contain"
+                  />
                   <span className="font-display text-xl font-bold tracking-wider">BAHINA</span>
                   <span className="text-xs uppercase font-sans font-bold text-[#DFA82E] bg-white/10 px-2 py-0.5 rounded-full border border-white/15">
-                    {t("hosp.brand.division", "Radhanagari")}
+                    {t("hosp.brand.division", "Hospitality")}
                   </span>
                 </div>
                 <button
