@@ -21,6 +21,7 @@ import { FooterSection } from "@/components/sections/FooterSection"
 import { WarliSectionDivider } from "@/components/ui/warli-divider"
 import { LanguageProvider } from "@/lib/i18n"
 import { ScrollToTop } from "@/bahina-hospitality/components/ScrollToTop"
+import { BahinaFoundationPage } from "@/foundation/BahinaFoundationPage"
 
 // Lazy-load Hospitality preview pages so the landing page bundle remains lightweight
 const HospitalityHome = lazy(() => import("@/bahina-hospitality/pages/HospitalityHome"))
@@ -30,6 +31,29 @@ const RequestSent = lazy(() => import("@/bahina-hospitality/pages/RequestSent"))
 const HospitalityCredits = lazy(() => import("@/bahina-hospitality/pages/Credits"))
 const HospitalityNotFound = lazy(() => import("@/bahina-hospitality/pages/NotFound"))
 const DesignPreviewScreens = lazy(() => import("@/bahina-hospitality/pages/DesignPreviewScreens"))
+
+function checkIsFoundation() {
+  if (typeof window === "undefined") return false
+  try {
+    const path = window.location.pathname.toLowerCase()
+    const search = window.location.search.toLowerCase()
+    const hash = window.location.hash.toLowerCase()
+    return (
+      path === "/foundation" ||
+      path === "/foundation/" ||
+      path.startsWith("/foundation") ||
+      path === "/mr/foundation" ||
+      path.startsWith("/mr/foundation") ||
+      search.includes("page=foundation") ||
+      search.includes("view=foundation") ||
+      hash === "#foundation" ||
+      hash === "#/foundation" ||
+      hash === "#foundation-page"
+    )
+  } catch (e) {
+    return false
+  }
+}
 
 function shouldShowWelcomeInitial() {
   if (typeof window === "undefined") return false
@@ -53,11 +77,56 @@ function HospitalityLoadingFallback() {
 }
 
 function LandingPage() {
+  const [isFoundation, setIsFoundation] = useState(checkIsFoundation)
   const [activeTheme, setActiveTheme] = useState("neutral")
   const [loaded, setLoaded] = useState(false)
   const [pass1Progress, setPass1Progress] = useState(0)
   const [pass1Ready, setPass1Ready] = useState(false)
   const [isWelcomeOpen, setIsWelcomeOpen] = useState(shouldShowWelcomeInitial)
+
+  const handleBackToMain = useCallback(() => {
+    try {
+      window.history.pushState({}, "", "/")
+    } catch (e) {}
+    setIsFoundation(false)
+    window.scrollTo({ top: 0, behavior: "instant" })
+  }, [])
+
+  useEffect(() => {
+    const handleLocationChange = () => {
+      setIsFoundation(checkIsFoundation())
+    }
+
+    window.addEventListener("popstate", handleLocationChange)
+    window.addEventListener("hashchange", handleLocationChange)
+
+    const handleDocumentClick = (e) => {
+      const anchor = e.target.closest("a")
+      if (anchor) {
+        const href = anchor.getAttribute("href")
+        if (
+          href === "/foundation" ||
+          href === "/foundation/" ||
+          href === "#foundation-page"
+        ) {
+          e.preventDefault()
+          try {
+            window.history.pushState({}, "", "/foundation")
+          } catch (err) {}
+          setIsFoundation(true)
+          window.scrollTo({ top: 0, behavior: "instant" })
+        }
+      }
+    }
+
+    document.addEventListener("click", handleDocumentClick)
+
+    return () => {
+      window.removeEventListener("popstate", handleLocationChange)
+      window.removeEventListener("hashchange", handleLocationChange)
+      document.removeEventListener("click", handleDocumentClick)
+    }
+  }, [])
 
   const handlePass1Complete = useCallback(() => {
     setPass1Ready(true)
@@ -69,6 +138,8 @@ function LandingPage() {
 
   // Initialize Lenis Smooth Scrolling and sync with GSAP ScrollTrigger
   useEffect(() => {
+    if (isFoundation) return
+
     gsap.registerPlugin(ScrollTrigger)
 
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
@@ -115,7 +186,15 @@ function LandingPage() {
       lenis.destroy()
       gsap.ticker.remove(lenis.raf)
     }
-  }, [])
+  }, [isFoundation])
+
+  if (isFoundation) {
+    return (
+      <LanguageProvider>
+        <BahinaFoundationPage onBackToMain={handleBackToMain} />
+      </LanguageProvider>
+    )
+  }
 
   return (
     <div className="relative min-h-screen bg-transparent text-[#F3EFEA] font-sans selection:bg-[#3E9B63]/30 selection:text-white overflow-x-clip">
@@ -203,6 +282,8 @@ export function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/mr" element={<LandingPage />} />
+          <Route path="/foundation" element={<BahinaFoundationPage />} />
+          <Route path="/foundation/*" element={<BahinaFoundationPage />} />
           <Route
             path="/hospitality"
             element={

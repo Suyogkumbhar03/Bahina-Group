@@ -61,6 +61,11 @@ export function StaggeredMenu({ isOpen, onClose }) {
             <div className="flex flex-col space-y-4 border-b border-white/10 pb-5">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
+                  <img
+                    src="/logo-mark.png"
+                    alt="BAHINA Group Emblem"
+                    className="h-8 w-auto object-contain"
+                  />
                   <span
                     lang="en"
                     className="font-display text-2xl font-medium tracking-[0.16em] text-white"
@@ -121,7 +126,7 @@ export function StaggeredMenu({ isOpen, onClose }) {
                 {divisions.map((div) => (
                   <a
                     key={div.id}
-                    href="#divisions"
+                    href={div.id === "foundation" ? "/foundation" : "#divisions"}
                     onClick={onClose}
                     className="flex items-center space-x-2 p-2 rounded-lg bg-white/[0.03] border border-white/5 hover:border-white/20 transition-all flex-1 min-h-[44px]"
                   >

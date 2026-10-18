@@ -78,6 +78,11 @@ export function Navbar() {
                 className="flex items-center space-x-2 text-[#F3EFEA] group py-1 px-2 rounded-full focus:outline-none focus-visible:ring-1 focus-visible:ring-white/60"
                 aria-label={t("nav.homeAria")}
               >
+                <img
+                  src="/logo-mark.png"
+                  alt="BAHINA Group Emblem"
+                  className="h-7 w-auto object-contain group-hover:scale-105 transition-transform"
+                />
                 <span
                   lang="en"
                   className="font-display text-lg tracking-[0.16em] font-semibold text-white group-hover:opacity-85 transition-opacity"
